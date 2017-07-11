@@ -1,6 +1,5 @@
 import React from 'react'
 import {DropDownField} from '../common/dropDownField'
-import {TextAreaComponent} from '../common/textArea'
 import {InputComponent} from '../common/inputFields'
 import {yesNo} from '../constants/constants'
 
@@ -21,32 +20,52 @@ export default class FosterCareHistoryCard extends React.Component {
     this.handleSecondAgencyNameChange = this.handleSecondAgencyNameChange.bind(this)
   }
 
-  onChange (value) {
-    console.log(value)
-  }
-
   handleAgencyNameChange (event) {
-    this.setState({
-      visibleAgencyName: !this.state.visibleAgencyName
-    })
+    if (event.target.value === '1') {
+      this.setState({
+        visibleAgencyName: true
+      })
+    } else {
+      this.setState({
+        visibleAgencyName: false
+      })
+    }
   }
 
   handleTypeOfLicenseChange (event) {
-    this.setState({
-      visibleTypeOfLicense: !this.state.visibleTypeOfLicense
-    })
+    if (event.target.value === '1') {
+      this.setState({
+        visibleTypeOfLicense: true
+      })
+    } else {
+      this.setState({
+        visibleTypeOfLicense: false
+      })
+    }
   }
 
   handleFacilityNameChange (event) {
-    this.setState({
-      visibleFacilityName: !this.state.visibleFacilityName
-    })
+    if (event.target.value === '1') {
+      this.setState({
+        visibleFacilityName: true
+      })
+    } else {
+      this.setState({
+        visibleFacilityName: false
+      })
+    }
   }
 
   handleSecondAgencyNameChange (event) {
-    this.setState({
-      visibleSecondAgencyName: !this.state.visibleSecondAgencyName
-    })
+    if (event.target.value == '1') {
+      this.setState({
+        visibleSecondAgencyName: true
+      })
+    } else {
+      this.setState({
+        visibleSecondAgencyName: false
+      })
+    }
   }
 
   render () {
