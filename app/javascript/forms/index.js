@@ -1,27 +1,55 @@
 import React from 'react'
-import Cards from './cardsMain'
+// import Cards from './cardsMain'
+import ApplicantCardsGroup from './applicantCardsGroup.jsx'
 import ResidenceCards from './residenceCardsMain'
 import FosterCareHistoryCardMain from './FosterCareCardMain'
 import './stylesheets/cards-main.scss'
+import {fetchRequest} from '../helpers/http'
 
 export default class Forms extends React.Component {
   constructor (props) {
     super(props)
-    // TODO: init dictionaries here
-    // @name_types = rfa_application_helper.name_types
-    // this.nameTypeValues = this.props.nameTypes
-    // this.phoneTypeValues = this.props.phoneTypes
-    // this.genderTypeValues = this.props.genderTypes
-    // this.ethnicityTypeValues = this.props.ethnicityTypes
-    // this.educationLevelValues = this.props.educationLevels
-    // this.languageTypeValues = this.props.languageTypes
-    // this.salaryTypeValues = this.props.salaryTypes
+    this.state = {
+      focusComponentName: '',
+      application: {
+        applicants: [],
+        residence: {}
+      }
+    }
+    this.submitForm = this.submitForm.bind(this)
+
+    this.setApplicationState = this.setApplicationState.bind(this)
+    this.setFocusState = this.setFocusState.bind(this)
   }
+  componentDidMount () {
+    // set Dictionaty Here
+  }
+
   submitForm () {
-    var x = this.props
-    // TODO: route to save
-    console.log(this)
+    var url = '/rfa/a01/' + this.props.application_id
+    let params = this.state.application
+    fetchRequest(url, 'PUT', this.state.application).then(
+      response => response.json()).then((response) => {
+      return this.setState({
+        formData: response
+      })
+    })
+      .catch(error => {
+        console.log(error)
+        return this.setState({
+          data: error
+        })
+      })
   }
+
+  setApplicationState (key, value) {
+    const newState = {application: {[key]: value}}
+    this.setState(newState)
+  }
+  setFocusState (focusComponentName) {
+    this.setState({focusComponentName: focusComponentName})
+  }
+
   render () {
     return (
       <div className='main_page'>
@@ -40,14 +68,36 @@ export default class Forms extends React.Component {
                 <button id='saveProgress' onClick={this.submitForm}>Save Progress</button>
               </div>
             </div>
-            <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-              <h3>I. Application 1 - <span>Information</span></h3>
-              <Cards {...this.props} />
-            </div>
+
+            <ApplicantCardsGroup
+              nameTypes={this.props.nameTypes.items}
+              phoneTypes={this.props.phoneTypes.items}
+              salaryTypes={this.props.salaryTypes.items}
+              stateTypes={this.props.stateTypes.items}
+              educationLevels={this.props.educationLevels.items}
+              genderTypes={this.props.genderTypes.items}
+              raceTypes={this.props.ethnicityTypes}
+              languageTypes={this.props.languageTypes.items}
+              focusComponentName={this.state.focusComponentName}
+              applicants={this.state.application.applicants}
+              setParentState={this.setApplicationState}
+              setFocusState={this.setFocusState} />
+
             <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
               <h3>II. Applicant (S) - <span>Residence</span></h3>
-              <ResidenceCards {...this.props} />
+              <ResidenceCards
+                focusComponentName={this.state.focusComponentName}
+                residence={this.state.application.residence}
+                setFocusState={this.setFocusState}
+                parentProps={this.getResidentsProps}
+                {...this.props} />
             </div>
+
+            <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+              <h3>V. Applicant (S) - <span>Other Adults</span></h3>
+              <OtherAdultsCard {...this.props} />
+            </div>
+<<<<<<< HEAD
 
             <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
               <h3>VIII. Foster Care / Adoption / Licensure History</h3>
@@ -55,7 +105,10 @@ export default class Forms extends React.Component {
             </div>
 
             <div className='col-xs-2 col-sm-2 col-md-2 col-lg-2'>
+=======
+>>>>>>> 20f583eeed49c9a4e0bbed7bc710b6ec71eee4bd
 
+            <div className='col-xs-2 col-sm-2 col-md-2 col-lg-2'>
               <button id='saveProgress' onClick={this.submitForm}>Save Progress</button>
             </div>
           </div>
