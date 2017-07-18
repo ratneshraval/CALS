@@ -1,72 +1,79 @@
 import React from 'react'
 import {DropDownField} from '../common/dropDownField'
 import {InputComponent} from '../common/inputFields'
-import {yesNo} from '../constants/constants'
 
 export default class FosterCareHistoryCard extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      yesNo: yesNo,
       visibleAgencyName: false,
       visibleTypeOfLicense: false,
       visibleFacilityName: false,
       visibleSecondAgencyName: false
 
     }
-    this.handleAgencyNameChange = this.handleAgencyNameChange.bind(this)
-    this.handleTypeOfLicenseChange = this.handleTypeOfLicenseChange.bind(this)
-    this.handleFacilityNameChange = this.handleFacilityNameChange.bind(this)
-    this.handleSecondAgencyNameChange = this.handleSecondAgencyNameChange.bind(this)
+  //  this.handleVisibility = this.handleVisibility.bind(this)
   }
 
-  handleAgencyNameChange (event) {
-    if (event.target.value === '1') {
-      this.setState({
-        visibleAgencyName: true
-      })
-    } else {
-      this.setState({
-        visibleAgencyName: false
-      })
-    }
-  }
-
-  handleTypeOfLicenseChange (event) {
-    if (event.target.value === '1') {
-      this.setState({
-        visibleTypeOfLicense: true
-      })
-    } else {
-      this.setState({
-        visibleTypeOfLicense: false
-      })
-    }
-  }
-
-  handleFacilityNameChange (event) {
-    if (event.target.value === '1') {
-      this.setState({
-        visibleFacilityName: true
-      })
-    } else {
-      this.setState({
-        visibleFacilityName: false
-      })
-    }
-  }
-
-  handleSecondAgencyNameChange (event) {
-    if (event.target.value == '1') {
-      this.setState({
-        visibleSecondAgencyName: true
-      })
-    } else {
-      this.setState({
-        visibleSecondAgencyName: false
-      })
-    }
-  }
+  // handleVisibility (event, type) {
+  //   if (event.target.value === '1') {
+  //     this.setState({
+  //       type: true
+  //     })
+  //   } else {
+  //     this.setState({
+  //       type: false
+  //     })
+  //   }
+  // }
+  //
+  // handleAgencyNameChange (event) {
+  //   if (event.target.value === '1') {
+  //     this.setState({
+  //       visibleAgencyName: true
+  //     })
+  //   } else {
+  //     this.setState({
+  //       visibleAgencyName: false
+  //     })
+  //   }
+  // }
+  //
+  // handleTypeOfLicenseChange (event) {
+  //   if (event.target.value === '1') {
+  //     this.setState({
+  //       visibleTypeOfLicense: true
+  //     })
+  //   } else {
+  //     this.setState({
+  //       visibleTypeOfLicense: false
+  //     })
+  //   }
+  // }
+  //
+  // handleFacilityNameChange (event) {
+  //   if (event.target.value === '1') {
+  //     this.setState({
+  //       visibleFacilityName: true
+  //     })
+  //   } else {
+  //     this.setState({
+  //       visibleFacilityName: false
+  //     })
+  //   }
+  // }
+  //
+  // handleSecondAgencyNameChange (event) {
+  //   if (event.target.value == '1') {
+  //     this.setState({
+  //       visibleSecondAgencyName: true
+  //     })
+  //   } else {
+  //     this.setState({
+  //       visibleSecondAgencyName: false
+  //     })
+  //   }
+  // }
 
   render () {
     const hiddenAgencyName = this.state.visibleAgencyName ? '' : 'hidden'
@@ -79,10 +86,9 @@ export default class FosterCareHistoryCard extends React.Component {
           <form>
             <DropDownField gridClassName='col-md-7'
               selectClassName={'reusable-select'}
-              value={''}
-              optionList={this.state.yesNo.items}
+              optionList={this.props.yesNo.items}
               label='Have you been previously licensed, certified, or approved to provide forster care?'
-              onChange={this.handleAgencyNameChange} />
+              onChange={this.props.handleVisibility('visibleAgencyName')} />
 
             <div className={hiddenAgencyName}>
               <InputComponent gridClassName='col-md-4' id='agencyName'
@@ -92,10 +98,9 @@ export default class FosterCareHistoryCard extends React.Component {
 
             <DropDownField gridClassName='col-md-7'
               selectClassName={'reusable-select'}
-              value={''}
-              optionList={this.state.yesNo.items}
+              optionList={this.props.yesNo.items}
               label='Have you been previously applied for adoption?'
-              onChange={this.handleTypeOfLicenseChange} />
+              onChange={this.props.handleVisibility('visibleTypeOfLicense')} />
 
             <div className={hiddenTypeOfLicense}>
               <InputComponent gridClassName='col-md-4' id='typeOfLicense'
@@ -105,11 +110,10 @@ export default class FosterCareHistoryCard extends React.Component {
 
             <DropDownField gridClassName='col-md-7'
               selectClassName={'reusable-select'}
-              value={''}
-              optionList={this.state.yesNo.items}
+              optionList={this.props.yesNo.items}
               label='Have you previously been employed by or volunteered at a community care facility, child care center, family child care
                     home, or residential care facility for the elderly or chromincally ill?'
-              onChange={this.handleFacilityNameChange} />
+              onChange={this.props.handleVisibility('visibleFacilityName')} />
 
             <div className={hiddenFacilityName}>
               <InputComponent gridClassName='col-md-4' id='facilityName'
@@ -119,11 +123,10 @@ export default class FosterCareHistoryCard extends React.Component {
 
             <DropDownField gridClassName='col-md-7'
               selectClassName={'reusable-select'}
-              value={''}
-              optionList={this.state.yesNo.items}
+              optionList={this.props.yesNo.items}
               label='Have you had a previous license, certification, relative or nonrelative extended family member approval, or resource
                       family approval application denial?'
-              onChange={this.handleSecondAgencyNameChange} />
+              onChange={this.props.handleVisibility('visibleSecondAgencyName')} />
 
             <div className={hiddenSecondAgencyName}>
               <InputComponent gridClassName='col-md-4' id='secondaryAgencyName'
@@ -133,15 +136,13 @@ export default class FosterCareHistoryCard extends React.Component {
 
             <DropDownField gridClassName='col-md-7'
               selectClassName={'reusable-select'}
-              value={''}
-              optionList={this.state.yesNo.items}
+              optionList={this.props.yesNo.items}
               label='Have you had a license, certification, or approval suspended, revoked, or rescinded?' />
             <br />
 
             <DropDownField gridClassName='col-md-7'
               selectClassName={'reusable-select'}
-              value={''}
-              optionList={this.state.yesNo.items}
+              optionList={this.props.yesNo.items}
               label='Have you been subject to an exclusion order?' />
 
           </form>

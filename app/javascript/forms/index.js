@@ -3,6 +3,7 @@ import React from 'react'
 import ApplicantCardsGroup from './applicantCardsGroup.jsx'
 import ResidenceCards from './residenceCardsMain'
 import FosterCareHistoryCardMain from './FosterCareCardMain'
+import OtherAdultsCard from './OtherAdultsCardsMain'
 import './stylesheets/cards-main.scss'
 import {fetchRequest} from '../helpers/http'
 
@@ -30,10 +31,10 @@ export default class Forms extends React.Component {
     let params = this.state.application
     fetchRequest(url, 'PUT', this.state.application).then(
       response => response.json()).then((response) => {
-      return this.setState({
-        formData: response
+        return this.setState({
+          formData: response
+        })
       })
-    })
       .catch(error => {
         console.log(error)
         return this.setState({
@@ -97,21 +98,16 @@ export default class Forms extends React.Component {
               <h3>V. Applicant (S) - <span>Other Adults</span></h3>
               <OtherAdultsCard {...this.props} />
             </div>
-<<<<<<< HEAD
 
             <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
               <h3>VIII. Foster Care / Adoption / Licensure History</h3>
-              <FosterCareHistoryCardMain {...this.props} />
-            </div>
-
-            <div className='col-xs-2 col-sm-2 col-md-2 col-lg-2'>
-=======
->>>>>>> 20f583eeed49c9a4e0bbed7bc710b6ec71eee4bd
-
-            <div className='col-xs-2 col-sm-2 col-md-2 col-lg-2'>
-              <button id='saveProgress' onClick={this.submitForm}>Save Progress</button>
+              <FosterCareHistoryCardMain
+                setParentState={this.setApplicationState}
+                setFocusState={this.setFocusState}
+                {...this.props} />
             </div>
           </div>
+
           <div className='right-content col-xs-4 col-sm-4 col-md-4 col-lg-4'>
             <div className='right-inner-content'>
               <img className='' src='http://via.placeholder.com/350x650' />
