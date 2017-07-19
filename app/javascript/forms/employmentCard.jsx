@@ -49,19 +49,19 @@ export default class Employment extends React.Component {
             <InputComponent gridClassName='col-md-4' id='occupation'
               value={employmentFields.occupation}
               label='Occupation' placeholder=''
-              type='text' onChange={(event) => this.onEmploymentChange('occupation', event.target.value)}/>
+              type='text' onChange={(event) => this.onEmploymentChange('occupation', event.target.value)} />
 
             <InputComponent gridClassName='col-md-3' id='income'
               value={employmentFields.income}
               label='Annual Income' placeholder=''
-              onChange={(event) => this.onEmploymentChange('income', event.target.value)}/>
+              onChange={(event) => this.onEmploymentChange('income', event.target.value)} />
 
             <DropDownField gridClassName='col-md-1' id='income'
               value={getDictionaryId(employmentFields.income_type)}
               selectClassName='reusable-select'
               optionList={this.props.salaryTypes}
               label='.'
-              onChange={(event) => this.onEmploymentChange('income_type', {id: event.target.selectedOptions[0].value, value: event.target.selectedOptions[0].text})}/>
+              onChange={(event) => this.onEmploymentChange('income_type', {id: event.target.selectedOptions[0].value, value: event.target.selectedOptions[0].text})} />
 
             <InputComponent gridClassName='col-md-12' id='street_address'
               value={employmentFields.physical_address.street_address}
@@ -76,14 +76,14 @@ export default class Employment extends React.Component {
             <InputComponent gridClassName='col-md-4' id='city'
               value={employmentFields.physical_address.city}
               label='City' placeholder=''
-              type='text' onChange={(event) => this.onPhysicalAddressChange('city', event.target.value)}/>
+              type='text' onChange={(event) => this.onPhysicalAddressChange('city', event.target.value)} />
 
             <DropDownField gridClassName='col-md-4' id='props'
               selectClassName='reusable-select'
               value={getDictionaryId(employmentFields.physical_address.state)}
               optionList={this.props.stateTypes}
               label='State'
-              onChange={(event) => this.onPhysicalAddressChange('state', {id: event.target.selectedOptions[0].value, value: event.target.selectedOptions[0].text})}/>
+              onChange={(event) => this.onPhysicalAddressChange('state', {id: event.target.selectedOptions[0].value, value: event.target.selectedOptions[0].text})} />
           </form>
         </div>
       </div>

@@ -87,7 +87,7 @@ export default class AddressCard extends React.Component {
               selectClassName={'reusable-select'}
               optionList={yesNo.items}
               label={'Mailing address the same as Physical Address?'}
-              onChange={(event, number) => this.onChange(event.target.selectedOptions[0].text, ('physical_mailing_similar'))}  />
+              onChange={(event, number) => this.onChange(event.target.selectedOptions[0].text, ('physical_mailing_similar'))} />
 
             <div className={hiddenMailingSameAsPhysical}>
               <InputComponent gridClassName='col-md-12' id='secondary_street_address'
