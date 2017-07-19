@@ -1,8 +1,7 @@
 import React from 'react'
-// import Cards from './cardsMain'
 import ApplicantCardsGroup from './applicantCardsGroup.jsx'
 import ResidenceCards from './residenceCardsMain'
-import FosterCareHistoryCardMain from './FosterCareCardMain'
+import FosterCareHistoryCardMain from './FosterCareHistoryCard.jsx'
 import OtherAdultsCard from './OtherAdultsCardsMain'
 import './stylesheets/cards-main.scss'
 import {fetchRequest} from '../helpers/http'
@@ -12,23 +11,30 @@ export default class Forms extends React.Component {
     super(props)
     this.state = {
       focusComponentName: '',
+      visibleFields: {
+        visibleAgencyName: false,
+        visibleTypeOfLicense: false,
+        visibleFacilityName: false,
+        visibleSecondAgencyName: false
+      },
       application: {
         applicants: [],
         residence: {}
       }
     }
     this.submitForm = this.submitForm.bind(this)
-
+    this.getFocusClassName = this.getFocusClassName.bind(this)
     this.setApplicationState = this.setApplicationState.bind(this)
     this.setFocusState = this.setFocusState.bind(this)
+    this.setVisibleState = this.setVisibleState.bind(this)
   }
+
   componentDidMount () {
     // set Dictionaty Here
   }
 
   submitForm () {
     var url = '/rfa/a01/' + this.props.application_id
-    let params = this.state.application
     fetchRequest(url, 'PUT', this.state.application).then(
       response => response.json()).then((response) => {
         return this.setState({
@@ -47,8 +53,23 @@ export default class Forms extends React.Component {
     const newState = {application: {[key]: value}}
     this.setState(newState)
   }
+
   setFocusState (focusComponentName) {
     this.setState({focusComponentName: focusComponentName})
+  }
+
+  setVisibleState (key, value) {
+    let changedValue = {[key]: value}
+    let visibleValues = this.state.visibleFields
+    Object.keys(changedValue).forEach(function (key) {
+      visibleValues[key] = changedValue[key]
+    })
+    const newState = {visibleFields: visibleValues}
+    this.setState(newState)
+  }
+
+  getFocusClassName (componentName) {
+    return this.state.focusComponentName === componentName ? 'edit' : 'show'
   }
 
   render () {
@@ -82,7 +103,8 @@ export default class Forms extends React.Component {
               focusComponentName={this.state.focusComponentName}
               applicants={this.state.application.applicants}
               setParentState={this.setApplicationState}
-              setFocusState={this.setFocusState} />
+              setFocusState={this.setFocusState}
+              getFocusClassName={this.getFocusClassName} />
 
             <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
               <h3>II. Applicant (S) - <span>Residence</span></h3>
@@ -102,9 +124,14 @@ export default class Forms extends React.Component {
             <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
               <h3>VIII. Foster Care / Adoption / Licensure History</h3>
               <FosterCareHistoryCardMain
+                focusComponentName={this.state.focusComponentName}
+                visibleFields={this.state.visibleFields}
+                setVisibleState={this.setVisibleState}
+                getFocusClassName={this.getFocusClassName}
                 setParentState={this.setApplicationState}
                 setFocusState={this.setFocusState}
-                {...this.props} />
+                {...this.props}
+                 />
             </div>
           </div>
 

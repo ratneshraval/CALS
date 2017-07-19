@@ -76,6 +76,7 @@ export default class ApplicantCardsGroup extends React.Component {
                     applicantFields={applicantFields}
                     setParentState={this.setApplicantsState}
                     setFocusState={this.props.setFocusState}
+                    getFocusClassName={this.props.getFocusClassName}
                   />
                 </div>
               )
