@@ -1,75 +1,65 @@
 import React from 'react'
+import Immutable from 'immutable'
 import AddressCard from './addressCard'
-import AboutThisResidenceCard from './aboutThisResidenceCard'
+import AboutThisResidenceCard from './aboutThisResidenceCard.jsx'
+
+const blankResidenceFields = Object.freeze({
+  residence_ownership_type: '',
+  physical_mailing_similar: true,
+  weapon_in_home: '',
+  body_of_water_exist: '',
+  body_of_water_description: '',
+  others_using_residence_as_mailing: '',
+  directions_to_home: '',
+  home_languages: ''
+})
 
 export default class ResidenceCards extends React.Component {
   constructor (props) {
-    super(...arguments)
-    this.propsToParent = this.propsToParent.bind(this)
-    this.state = {
-      isFocused: {},
-      residenceData: {
-        address: []
-      }
-    }
-  }
-  toggleOnFocus (name, event) {
-    let focused = this.state.isFocused
-    focused = {}
-    let focusedCard = focused[name] === 'focused' ? 'show' : 'edit'
-    focused[name] = focusedCard
-    this.setState({
-      isFocused: focused
-    })
-  }
-  submitForm () {
-    console.log('Hello')
+    super(props)
+    this.setResidenceState = this.setResidenceState.bind(this)
+    this.getFocusClassName = this.getFocusClassName.bind(this)
   }
 
-  propsToParent (childFields) {
-    this.props.parentProps(childFields)
-  }
-  getAddressData (data) {
-    let addressDataOj = data
-    let newStateData = this.state.residenceData
-    for (var k in addressDataOj) newStateData[k] = addressDataOj[k]
-    this.setState({
-      residenceData: newStateData
-    })
-    this.props.getData(this.state.residenceData)
+  getFocusClassName (componentName) {
+    return this.props.focusComponentName === componentName ? 'edit' : 'show'
   }
 
-  getResidenceData (data) {
-    let residenceDataOj = data
-    let newStateData = this.state.residenceData
-    for (var k in residenceDataOj) newStateData[k] = residenceDataOj[k]
-    this.setState({
-      residenceData: newStateData
-    })
-    this.props.getData(this.state.residenceData)
+  setResidenceState (key, value) {
+    let newData = Immutable.fromJS(this.props.residence || blankResidenceFields)
+    newData = newData.set(key, value)
+    this.props.setParentState('residence', newData.toJS())
   }
+
   render () {
-    const {formData} = this.state
+    let residenceData = this.props.residence || blankResidenceFields
+
     return (
       <div className='residence_cards'>
-        <div id='residentAddress' onClick={this.toggleOnFocus.bind(this, 'residentAddress')} className={(this.state.isFocused['residentAddress']) + ' ' + 'card resident-section double-gap-top'}>
+        <div id='nameSection' onClick={() => this.props.setFocusState('residentAddress')}
+          className={this.getFocusClassName('residentAddress') + ' ' + 'card resident-section double-gap-top'}>
           <div className='card-header'>
             <span> Address</span>
           </div>
-          {/*
-          <AddressCard sendProps={this.propsToParent} {...this.props} />
-*/}
-          <AddressCard sendProps={this.getAddressData.bind(this)} {...this.props} />
+          <AddressCard
+            stateTypes={this.props.stateTypes}
+            address={residenceData.address}
+            physicalMailingSimilar={residenceData.physical_mailing_similar}
+            setParentState={this.setResidenceState}
+          />
 
         </div>
-        <div id='aboutResidence' onClick={this.toggleOnFocus.bind(this, 'aboutResidence')} className={(this.state.isFocused['aboutResidence']) + ' ' + 'card about-resident-section double-gap-top'}>
+        <div id='nameSection' onClick={() => this.props.setFocusState('aboutResidence')}
+          className={this.getFocusClassName('aboutResidence') + ' ' + 'card about-resident-section double-gap-top'}>
           <div className='card-header'>
             <span>About This Residence</span>
           </div>
-          {/*
-          <AboutThisResidenceCard sendProps={this.propsToParent}  {...this.props} />
-*/}
-          <AboutThisResidenceCard sendProps={this.getResidenceData.bind(this)} {...this.props} />
+          <AboutThisResidenceCard
+            residenceTypes={this.props.residenceTypes}
+            languageTypes={this.props.languageTypes}
+            aboutResidence={residenceData}
+            setParentState={this.setResidenceState}
+          />
         </div>
       </div>
     )

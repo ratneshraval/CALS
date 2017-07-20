@@ -1,8 +1,9 @@
 import React from 'react'
+import Immutable from 'immutable'
 import ApplicantCardsGroup from './applicantCardsGroup.jsx'
 import ResidenceCards from './residenceCardsMain'
 import FosterCareHistoryCardMain from './FosterCareHistoryCard.jsx'
-import OtherAdultsCard from './OtherAdultsCardsMain'
+import OtherAdultsCard from './OtherAdultsCardsGroup'
 import './stylesheets/cards-main.scss'
 import {fetchRequest} from '../helpers/http'
 
@@ -19,9 +20,11 @@ export default class Forms extends React.Component {
       },
       application: {
         applicants: [],
-        residence: {}
+        residence: {},
+        otherAdults: []
       }
     }
+
     this.submitForm = this.submitForm.bind(this)
     this.getFocusClassName = this.getFocusClassName.bind(this)
     this.setApplicationState = this.setApplicationState.bind(this)
@@ -50,8 +53,9 @@ export default class Forms extends React.Component {
   }
 
   setApplicationState (key, value) {
-    const newState = {application: {[key]: value}}
-    this.setState(newState)
+    let newState = Immutable.fromJS(this.state)
+    newState = newState.setIn(['application', key], value)
+    this.setState(newState.toJS())
   }
 
   setFocusState (focusComponentName) {
@@ -111,14 +115,21 @@ export default class Forms extends React.Component {
               <ResidenceCards
                 focusComponentName={this.state.focusComponentName}
                 residence={this.state.application.residence}
+                languageTypes={this.props.languageTypes.items}
+                residenceTypes={this.props.residenceTypes}
+                stateTypes={this.props.stateTypes.items}
                 setFocusState={this.setFocusState}
-                parentProps={this.getResidentsProps}
-                {...this.props} />
+                setParentState={this.setApplicationState} />
             </div>
 
             <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
               <h3>V. Applicant (S) - <span>Other Adults</span></h3>
-              <OtherAdultsCard {...this.props} />
+              <OtherAdultsCard
+                focusComponentName={this.state.focusComponentName}
+                setFocusState={this.setFocusState}
+                setParentState={this.setApplicationState}
+                otherAdults={this.state.application.otherAdults}
+                {...this.props} />
             </div>
 
             <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>

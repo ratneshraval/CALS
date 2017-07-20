@@ -5,7 +5,7 @@ import FosterCareHistoryFields from './FosterCareHistoryFields'
 
 export default class FosterCareHistoryCard extends React.Component {
   handleVisibility (event, type) {
-    this.setVisibleState(type, event.target.value === '1')
+    this.setVisibleState(type, event.target.value === "true")
   }
   render () {
     return (
