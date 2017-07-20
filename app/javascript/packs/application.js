@@ -12,3 +12,5 @@ console.log('Hello World from CALS')
 var componentRequireContext = require.context('.', true)
 var ReactRailsUJS = require('react_ujs')
 ReactRailsUJS.useContext(componentRequireContext)
+
+var Redux =  require('redux')

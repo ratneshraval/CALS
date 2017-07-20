@@ -5,6 +5,7 @@ import ResidenceCards from './residenceCardsMain'
 import OtherAdultsCard from './OtherAdultsCardsGroup'
 import './stylesheets/cards-main.scss'
 import {fetchRequest} from '../helpers/http'
+import {createStore} from 'Redux'
 
 export default class Forms extends React.Component {
   constructor (props) {

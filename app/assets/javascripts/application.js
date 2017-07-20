@@ -13,3 +13,4 @@
 
 // = require rails-ujs
 // = require bootstrap-sprockets
+// = require vendor/redux-v3.72
