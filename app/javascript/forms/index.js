@@ -12,16 +12,11 @@ export default class Forms extends React.Component {
     super(props)
     this.state = {
       focusComponentName: '',
-      visibleFields: {
-        visibleAgencyName: false,
-        visibleTypeOfLicense: false,
-        visibleFacilityName: false,
-        visibleSecondAgencyName: false
-      },
       application: {
         applicants: [],
         residence: {},
-        otherAdults: []
+        otherAdults: [],
+        fosterCareHistory: {}
       }
     }
 
@@ -60,16 +55,6 @@ export default class Forms extends React.Component {
 
   setFocusState (focusComponentName) {
     this.setState({focusComponentName: focusComponentName})
-  }
-
-  setVisibleState (key, value) {
-    let changedValue = {[key]: value}
-    let visibleValues = this.state.visibleFields
-    Object.keys(changedValue).forEach(function (key) {
-      visibleValues[key] = changedValue[key]
-    })
-    const newState = {visibleFields: visibleValues}
-    this.setState(newState)
   }
 
   getFocusClassName (componentName) {
@@ -136,8 +121,7 @@ export default class Forms extends React.Component {
               <h3>VIII. Foster Care / Adoption / Licensure History</h3>
               <FosterCareHistoryCardMain
                 focusComponentName={this.state.focusComponentName}
-                visibleFields={this.state.visibleFields}
-                setVisibleState={this.setVisibleState}
+                fosterCareHistory={this.state.application.fosterCareHistory}
                 getFocusClassName={this.getFocusClassName}
                 setParentState={this.setApplicationState}
                 setFocusState={this.setFocusState}

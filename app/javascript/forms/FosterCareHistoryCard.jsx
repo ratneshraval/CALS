@@ -3,10 +3,20 @@ import React from 'react'
 import {yesNo} from '../constants/constants'
 import FosterCareHistoryFields from './FosterCareHistoryFields'
 
+const blankFosterCareFields = Object.freeze({
+  visibleAgencyName: null,
+  visibleFacilityName: null,
+  visibleTypeOfLicense: null,
+  visibleSecondAgencyName: null,
+  agencyName: '',
+  typeOfLicense: '',
+  facilityName: '',
+  secondAgencyName: '',
+  revoked: '',
+  exclusionOrder: ''
+})
+
 export default class FosterCareHistoryCard extends React.Component {
-  handleVisibility (event, type) {
-    this.setVisibleState(type, event.target.value === "true")
-  }
   render () {
     return (
       <div className='foster_care_history_cards'>
@@ -15,6 +25,7 @@ export default class FosterCareHistoryCard extends React.Component {
           <div className='card-header'><span>Information</span></div>
           <FosterCareHistoryFields
             yesNo={yesNo}
+            fosterCareHistory={this.props.fosterCareHistory || blankFosterCareFields}
             handleVisibility={this.handleVisibility}
             {...this.props}
            />
