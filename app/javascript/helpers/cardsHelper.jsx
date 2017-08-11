@@ -23,4 +23,7 @@ export const setToWhom = (applicants) => {
     return {key: index, value: applicant.first_name + ' ' + applicant.middle_name + ' ' + applicant.last_name}
   })
   return newApplicants
+
+  // TODO: move set to whom method to index, pass in as props to drop down for
+  // availableApplicants to display correctly
 }

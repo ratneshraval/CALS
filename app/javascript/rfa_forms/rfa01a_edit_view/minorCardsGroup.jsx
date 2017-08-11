@@ -5,6 +5,16 @@ import {MinorCardField} from './minorCardField'
 import {setToWhom} from 'helpers/cardsHelper.jsx'
 
 export const minorDefaults = Object.freeze({
+  'relationship_to_applicants': [
+    {
+      'applicant_id': 0,
+      'relationship_to_applicant': {}
+    }
+  ],
+//  'date_of_birth': '',
+  'gender': {},
+  'child_financially_supported': '',
+  'child_adopted': ''
 })
 
 export default class MinorCardsGroup extends React.Component {
@@ -12,7 +22,7 @@ export default class MinorCardsGroup extends React.Component {
     super(props)
 
     this.addCard = this.addCard.bind(this)
-    this.handleNameFieldInput = this.handleNameFieldInput.bind(this)
+  //  this.handleNameFieldInput = this.handleNameFieldInput.bind(this)
     this.onFieldChange = this.onFieldChange.bind(this)
     this.clickClose = this.clickClose.bind(this)
   }
@@ -39,19 +49,12 @@ export default class MinorCardsGroup extends React.Component {
     this.props.setParentState('minorChildren', minorChildrenList.toJS())
   }
 
-  handleNameFieldInput (index, value, type) {
-    let minorChildrenList = Immutable.fromJS(checkArrayObjectPresence(this.props.minorChildren) || [minorDefaults])
-    minorChildrenList = minorChildrenList.update(index,
-      otherMinor => otherMinor.setIn(['nameField', type], value))
-    this.props.setParentState('minorChildren', minorChildrenList.toJS())
-  }
-
   getFocusClassName (componentName) {
     return this.props.focusComponentName === componentName ? 'edit' : 'show'
   }
 
   render () {
-    let minorChildrenList = checkArrayObjectPresence(this.props.minorChildren) || [minorDefaults]
+    let minorChildrenList = checkArrayObjectPresence(this.props.minorChildren.items) || [minorDefaults]
 
     return (
       <div className='minor_card'>
@@ -64,7 +67,7 @@ export default class MinorCardsGroup extends React.Component {
           </div>
           <div className='card-body'>
             {
-              minorChildrenList.map((minorDefaults, index) => {
+              minorChildrenList.map((minor, index) => {
                 return (
                   <div key={index} className='row list-item' >
                     <div> <span onClick={() => this.clickClose(index)} className='pull-right glyphicon glyphicon-remove' />
@@ -73,7 +76,7 @@ export default class MinorCardsGroup extends React.Component {
                       index={index}
                       genderTypes={this.props.genderTypes}
                       relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
-                      minorChildren={minorDefaults}
+                      minorChild={minor}
                       applicants={this.props.applicants}
                       setToWhom={setToWhom}
                       handleNameFieldInput={this.handleNameFieldInput}

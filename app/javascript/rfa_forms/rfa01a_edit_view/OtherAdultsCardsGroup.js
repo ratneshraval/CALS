@@ -24,7 +24,7 @@ const otherAdultsDefaults = Object.freeze({
   //   'id': 0,
   //   'value': ''
   // },
-  //  'date_of_birth': '',
+  'date_of_birth': '',
   'relationship_to_applicants': [
     relationshipToAdultsDefaults
   ],
@@ -61,6 +61,7 @@ export default class OtherAdultsCardsGroup extends React.Component {
   }
 
   onFieldChange (cardIndex, value, type) {
+    // why is this messing things up?
     let otherAdultsList = Immutable.fromJS(checkArrayObjectPresence(this.props.otherAdults) || [otherAdultsDefaults])
     if (otherAdultsList.size === 0) {
       otherAdultsList = otherAdultsList.push(otherAdultsDefaults)
@@ -74,10 +75,10 @@ export default class OtherAdultsCardsGroup extends React.Component {
     let otherAdultsList = Immutable.fromJS(otherAdults)
     let relationshipList = Immutable.fromJS(otherAdults[index].relationship_to_applicants[0])
 
-    relationshipList = relationshipList.setIn(['relationship_to_applicant', 'id'], value)
-    relationshipList = relationshipList.setIn(['relationship_to_applicant', 'value'], this.props.relationship_types[value].value)
+    relationshipList = relationshipList.setIn(['relationship_to_applicant', 'id'], Number(value))
+    relationshipList = relationshipList.setIn(['relationship_to_applicant', 'value'], this.props.relationship_types[value - 1].value)
 
-    otherAdultsList = otherAdultsList.update(index, x => x.set('relationship_to_applicants', relationshipList))
+    otherAdultsList = otherAdultsList.update(index, x => x.set('relationship_to_applicants', [relationshipList]))
     this.props.setParentState('otherAdults', otherAdultsList.toJS())
   }
   handleToWhom (index, value) {
@@ -102,7 +103,13 @@ export default class OtherAdultsCardsGroup extends React.Component {
   }
 
   render () {
-    let otherAdultsList = checkArrayObjectPresence(this.props.otherAdults) || [otherAdultsDefaults]
+    // let otherAdultsList = checkArrayObjectPresence(this.props.otherAdults.items) || [otherAdultsDefaults]
+    let otherAdultsList
+    if (this.props.otherAdults) {
+      otherAdultsList = Array.isArray(this.props.otherAdults) ? this.props.otherAdults : (this.props.otherAdults.items)
+    }
+    otherAdultsList = otherAdultsList || [otherAdultsDefaults]
+  //  let otherAdultsList = (this.props.otherAdults /* && this.props.otherAdults.items */) ? checkArrayObjectPresence(this.props.otherAdults.items) : [otherAdultsDefaults]
 
     return (
       <div className='other_adults_card'>
@@ -144,8 +151,4 @@ export default class OtherAdultsCardsGroup extends React.Component {
       </div>
     )
   }
-}
-
-OtherAdultsCardsGroup.defaultProps = {
-  applicants: []
 }
