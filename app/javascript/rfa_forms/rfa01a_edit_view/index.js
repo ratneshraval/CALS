@@ -6,6 +6,7 @@ import FosterCareHistoryCardMain from './FosterCareHistoryCard.jsx'
 import OtherAdultsCard from './OtherAdultsCardsGroup'
 import MinorCardsGroup from './minorCardsGroup'
 import ReferencesMain from './ReferencesMain'
+import RelationshipBetweenApplicantsCardMain from './relationshipBetweenApplicantsCard'
 
 import './stylesheets/cards-main.scss'
 import {fetchRequest} from 'helpers/http'
@@ -61,6 +62,7 @@ export default class Rfa01EditView extends React.Component {
   }
 
   render () {
+    const hideRelationshipBetweenApplicants = this.state.application.applicants !== null && this.state.application.applicants.length === 2 ? 'cards-section' + 'col-xs-12 col-sm-12 col-md-12 col-lg-12' : 'hidden'
     return (
       <div className='main_page'>
         <div className='header_cwds col-xs-12 col-sm-12 col-md-12 col-lg-12'>
@@ -107,6 +109,19 @@ export default class Rfa01EditView extends React.Component {
                 stateTypes={this.props.stateTypes}
                 setFocusState={this.setFocusState}
                 setParentState={this.setApplicationState} />
+            </div>
+
+            <div className={hideRelationshipBetweenApplicants}>
+              <h3>III.<span>Relationship Between Applicant</span></h3>
+              <RelationshipBetweenApplicantsCardMain
+                focusComponentName={this.state.focusComponentName}
+                relationshipBetweenApplicants={this.state.application.relationshipBetweenApplicants || {}}
+                getFocusClassName={this.getFocusClassName}
+                setParentState={this.setApplicationState}
+                setFocusState={this.setFocusState}
+                stateTypes={this.props.stateTypes}
+                relationshipTypes={this.props.relationshipTypes}
+                applicants={this.state.application.applicants || []} />
             </div>
 
             <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
