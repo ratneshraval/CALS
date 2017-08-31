@@ -41,8 +41,8 @@ export default class ReferenceMain extends React.Component{
       <div className="reference_main">
         <div>Please list the name, telephone number(s), and address of three individuals who have knowledge of your home environment, lifestyle, and
           ability to be a Resource Family. <b>*Must include 3 references</b></div>
-        <div id='referenceMain' onClick={() => this.props.setFocusState('referenceMain')}
-                                 className={this.getFocusClassName('referenceMain') + ' ' + 'card reference-section double-gap-top'}>
+        <div id='referenceMain_1' onClick={() => this.props.setFocusState('referenceMain_1')}
+                                 className={this.getFocusClassName('referenceMain_1') + ' ' + 'card reference-section double-gap-top'}>
           <div className="card-header">
             <span>Reference -1</span>
           </div>
@@ -58,8 +58,8 @@ export default class ReferenceMain extends React.Component{
             </div>
           </div>
         </div>
-        <div id='referenceMain' onClick={() => this.props.setFocusState('referenceMain')}
-             className={this.getFocusClassName('referenceMain') + ' ' + 'card reference-section double-gap-top'}>
+        <div id='referenceMain_2' onClick={() => this.props.setFocusState('referenceMain_2')}
+             className={this.getFocusClassName('referenceMain_2') + ' ' + 'card reference-section double-gap-top'}>
           <div className="card-header">
             <span>Reference -2</span>
           </div>
@@ -75,8 +75,8 @@ export default class ReferenceMain extends React.Component{
             </div>
           </div>
         </div>
-        <div id='referenceMain' onClick={() => this.props.setFocusState('referenceMain')}
-             className={this.getFocusClassName('referenceMain') + ' ' + 'card reference-section double-gap-top'}>
+        <div id='referenceMain_3' onClick={() => this.props.setFocusState('referenceMain_3')}
+             className={this.getFocusClassName('referenceMain_3') + ' ' + 'card reference-section double-gap-top'}>
           <div className="card-header">
             <span>Reference -3</span>
           </div>
