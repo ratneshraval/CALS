@@ -1,6 +1,6 @@
 import React from 'react'
-import {shallow, mount} from 'enzyme'
-import ReferenceMain from 'rfa_forms/rfa01a_edit_view/referencesMain.jsx'
+import {mount} from 'enzyme'
+import ReferenceMain from 'rfa_forms/rfa01a_edit_view/ReferencesMain.jsx'
 import {stateTypes, nameTypes, suffixTypes, prefixTypes} from '../../helpers/constants'
 
 describe('Verify References Main', () => {
