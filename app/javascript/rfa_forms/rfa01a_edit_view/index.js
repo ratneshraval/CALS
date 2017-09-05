@@ -5,7 +5,7 @@ import ResidenceCards from './residenceCardsMain'
 import FosterCareHistoryCardMain from './FosterCareHistoryCard.jsx'
 import OtherAdultsCard from './OtherAdultsCardsGroup'
 import MinorCardsGroup from './minorCardsGroup'
-import ReferencesMain from './ReferencesMain'
+import ReferencesMain from './referencesMain'
 import RelationshipBetweenApplicantsCardMain from './relationshipBetweenApplicantsCard'
 
 import './stylesheets/cards-main.scss'
