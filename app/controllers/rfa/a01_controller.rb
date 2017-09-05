@@ -20,6 +20,7 @@ class Rfa::A01Controller < CalsBaseController
     @application.otherAdults = rfa_other_adults_helper.find_items_by_application_id(params[:id])
     @application.fosterCareHistory = rfa_adoption_history_helper.find_by_application_id(params[:id])
     @application.relationshipBetweenApplicants = rfa_relation_between_applicants_helper.find_by_application_id(params[:id])
+    @application.references = rfa_references_helper.find_by_application_id(params[:id])
 
   end
 
@@ -31,6 +32,9 @@ class Rfa::A01Controller < CalsBaseController
     @application_response[:otherAdults] = process_items_for_persistance(other_adults_params, rfa_other_adults_helper, params[:id]) if params[:otherAdults].present?
     @application_response[:fosterCareHistory] = process_items_for_persistance(adoption_history_params, rfa_adoption_history_helper, params[:id]) if params[:fosterCareHistory].present?
     @application_response[:relationshipBetweenApplicants] = process_items_for_persistance(relationship_between_applicants_params, rfa_relation_between_applicants_helper, params[:id]) if params[:relationshipBetweenApplicants].present?
+    @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper,
+                                                                       params[:id]) if params[:references].present?
+
   end
 
   private
@@ -98,6 +102,16 @@ class Rfa::A01Controller < CalsBaseController
                                               suspension_revocation_history_q6: [:had_suspensions_revocations, agencies: [:name, type: %i[id value]]])
   end
 
+  def references_params
+    params.require(:references).map do |reference|
+      reference.permit!
+      ActionController::Parameters.new(reference.to_h).permit(:first_name, :middle_name, :last_name, :phone_number,
+                                                              :email, :phone_number, :email, mailing_address: [:street_address, :zip, :city, state: %i[id value]],
+                                                              name_prefix: %i[id value], name_suffix: %i[id value])
+    end
+  end
+
+
   def process_items_for_persistance(items, helper, parent_id)
     result = []
     if items.is_a?(Array)
@@ -148,6 +162,10 @@ class Rfa::A01Controller < CalsBaseController
 
   def rfa_relation_between_applicants_helper
     Helpers::Rfa::ApplicationRelationApplicantsHelper.new(auth_header: get_session_token)
+  end
+
+  def rfa_references_helper
+    Helpers::Rfa::ApplicationReferencessHelper.new(auth_header: get_session_token)
   end
 
   def dictionaries_helper

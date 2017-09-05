@@ -36,7 +36,7 @@ export default class ReferenceMain extends React.Component{
   }
 
   render() {
-    const referenceValues = blankReferenceFields
+    const references = blankReferenceFields
     return (
       <div className="reference_main">
         <div>Please list the name, telephone number(s), and address of three individuals who have knowledge of your home environment, lifestyle, and
@@ -49,7 +49,7 @@ export default class ReferenceMain extends React.Component{
           <div className="card-body">
             <div className="row">
               <ReferencesCard
-                referenceValues={referenceValues}
+                references={references}
                 stateTypes={this.props.stateTypes}
                 suffixTypes={this.props.suffixTypes}
                 prefixTypes={this.props.prefixTypes}
@@ -66,7 +66,7 @@ export default class ReferenceMain extends React.Component{
           <div className="card-body">
             <div className="row">
               <ReferencesCard
-                referenceValues={referenceValues}
+                references={references}
                 stateTypes={this.props.stateTypes}
                 suffixTypes={this.props.suffixTypes}
                 prefixTypes={this.props.prefixTypes}
@@ -83,7 +83,7 @@ export default class ReferenceMain extends React.Component{
           <div className="card-body">
             <div className="row">
               <ReferencesCard
-                referenceValues={referenceValues}
+                references={references}
                 stateTypes={this.props.stateTypes}
                 suffixTypes={this.props.suffixTypes}
                 prefixTypes={this.props.prefixTypes}
