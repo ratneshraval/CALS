@@ -103,12 +103,9 @@ class Rfa::A01Controller < CalsBaseController
   end
 
   def references_params
-    params.require(:references).map do |reference|
-      reference.permit!
-      ActionController::Parameters.new(reference.to_h).permit(:first_name, :middle_name, :last_name, :phone_number,
+    params.require(:references).permit(:first_name, :middle_name, :last_name, :phone_number,
                                                               :email, :phone_number, :email, mailing_address: [:street_address, :zip, :city, state: %i[id value]],
                                                               name_prefix: %i[id value], name_suffix: %i[id value])
-    end
   end
 
 
