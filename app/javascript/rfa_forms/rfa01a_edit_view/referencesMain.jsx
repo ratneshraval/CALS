@@ -31,7 +31,7 @@ export default class ReferenceMain extends React.Component {
   }
   setReferencesState (key, value, referencesIndex) {
     let newData = Immutable.fromJS(checkArrayObjectPresence(this.props.references) || [blankReferenceFields, blankReferenceFields, blankReferenceFields])
-    newData = newData.update(referencesIndex, val => value)
+    newData = newData.update(referencesIndex, x => x.set(key, value))
     this.props.setParentState('references', newData.toJS())
   }
   render () {
@@ -51,6 +51,7 @@ export default class ReferenceMain extends React.Component {
                 <div className="card-body">
                   <div className="row">
                     <ReferencesCard
+                      index={index}
                       references={referencesId}
                       stateTypes={this.props.stateTypes}
                       suffixTypes={this.props.suffixTypes}

@@ -1,4 +1,5 @@
 import React from 'react'
+import Immutable from 'immutable'
 import {InputComponent} from 'components/common/inputFields'
 import CompleteNameFields from './completeNameField'
 import CommonAddressFields from 'components/rfa_forms/commonAddressField'
@@ -6,6 +7,12 @@ import CommonAddressFields from 'components/rfa_forms/commonAddressField'
 export default class ReferencesCard extends React.Component {
   constructor (props) {
     super(props)
+    this.handleAddressChange = this.handleAddressChange.bind(this)
+  }
+  handleAddressChange (key, value, referencesIndex) {
+    let mailingAddressObj = Immutable.fromJS(this.props.references.mailing_address)
+    mailingAddressObj = mailingAddressObj.set(key, value)
+    this.props.setParentState('mailing_address', mailingAddressObj, referencesIndex)
   }
   render () {
     return (
@@ -21,7 +28,7 @@ export default class ReferencesCard extends React.Component {
           index={this.props.index}
           stateTypes={this.props.stateTypes}
           addressFields={this.props.references}
-          onChange={this.props.setParentState}/>
+          onChange={this.handleAddressChange}/>
         <InputComponent gridClassName='col-md-4' id='phone'
           value={this.props.phone_number}
           label='Phone' placeholder=''
