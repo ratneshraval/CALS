@@ -168,6 +168,7 @@ export default class Rfa01EditView extends React.Component {
                   getFocusClassName={this.getFocusClassName}
                   setFocusState={this.setFocusState}
                   stateTypes={this.props.stateTypes}
+                  references={this.state.application.references || [] }
                   suffixTypes={this.props.suffixTypes}
                   prefixTypes={this.props.prefixTypes}
                   nameTypes={this.props.nameTypes}
