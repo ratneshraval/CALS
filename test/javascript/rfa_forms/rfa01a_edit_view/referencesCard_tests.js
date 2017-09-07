@@ -5,7 +5,7 @@ import {stateTypes, nameTypes, suffixTypes, prefixTypes} from '../../helpers/con
 
 
 describe('References Card', () => {
-  let referencesComp, setParentStateSpy
+  let referencesComp, setParentStateSpy, handleAddressChangeSpy
   let fieldRefValues = Object.freeze({
     name_suffix: null,
     name_prefix: null,
@@ -25,7 +25,8 @@ describe('References Card', () => {
   beforeEach(() => {
     setParentStateSpy = jasmine.createSpy('setParentState')
     referencesComp = mount(<ReferencesCard
-      referenceValues={fieldRefValues}
+      index={0}
+      references={fieldRefValues}
       nameTypes={nameTypes.items}
       suffixTypes={suffixTypes.items}
       prefixTypes={prefixTypes.items}

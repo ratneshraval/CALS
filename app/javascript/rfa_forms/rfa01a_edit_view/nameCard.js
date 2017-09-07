@@ -15,8 +15,6 @@ const blankNameFields = Object.freeze({
   name_type: null
 })
 
-const legalTypeId = 2
-
 export default class NameCard extends React.Component {
   constructor (props) {
     super(props)

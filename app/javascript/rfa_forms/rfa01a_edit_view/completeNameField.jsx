@@ -6,13 +6,13 @@ import NameCommonFields from '../../components/common/nameCommonFields'
 import {getDictionaryId, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
 
 const CompleteNameFields = ({
-  referenceId,
   index,
   fieldValues,
   onChange,
   suffixTypes,
   prefixTypes,
-  nameTypes}) => {
+  nameTypes,
+  referenceId}) => {
   const isAddedComponent = index === undefined ? false : true
   return (
     <div>
@@ -26,7 +26,7 @@ const CompleteNameFields = ({
       </div>
       <div className="col-md-12 remove-padding">
         <NameCommonFields
-          index={index || referenceId}
+          index={index}
           fieldValues={fieldValues}
           onChange={onChange}/>
       </div>
