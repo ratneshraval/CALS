@@ -16,7 +16,7 @@ export default class CommonAddressFields extends React.Component {
         <InputComponent gridClassName='col-md-4' id='zip'
           value={addressFields.mailing_address.zip}
           label='Zip' placeholder=''
-          type='text' onChange={(event) => this.props.onChange('zip', event.target.value, this.props.index, )} />
+          type='text' onChange={(event) => this.props.onChange('zip', event.target.value, this.props.index)} />
         <InputComponent gridClassName='col-md-4' id='city'
           value={addressFields.mailing_address.city}
           label='City' placeholder=''

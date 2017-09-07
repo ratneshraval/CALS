@@ -43,7 +43,7 @@ export default class ReferenceMain extends React.Component {
           references.map((referencesId, index) => {
             return (
               <div key={index} id={'referenceMain_'+ index} onClick={() => this.props.setFocusState('referenceMain_' + index)}
-                   className={getFocusClassName('referenceMain_'+ index) + ' ' + 'card reference-section double-gap-top'}>
+                   className={this.props.getFocusClassName('referenceMain_'+index) + ' ' + 'card reference-section double-gap-top'}>
                 <div className="card-header">
                   <span>Reference -{index+1}</span>
                 </div>
