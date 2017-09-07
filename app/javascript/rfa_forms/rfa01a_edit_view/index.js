@@ -17,7 +17,6 @@ export default class Rfa01EditView extends React.Component {
     super(props)
     this.state = {
       focusComponentName: '',
-
       application: this.props.application
     }
 
