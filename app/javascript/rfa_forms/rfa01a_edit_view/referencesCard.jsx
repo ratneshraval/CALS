@@ -4,6 +4,7 @@ import {InputComponent} from 'components/common/inputFields'
 import CompleteNameFields from './completeNameField'
 import CommonAddressFields from 'components/rfa_forms/commonAddressField'
 import PropTypes from 'prop-types'
+
 export default class ReferencesCard extends React.Component {
   constructor (props) {
     super(props)
@@ -18,7 +19,7 @@ export default class ReferencesCard extends React.Component {
     return (
       <div>
         <CompleteNameFields
-          referenceId={this.props.index}
+          hideNameType={this.props.hideNameType}
           fieldValues={this.props.references}
           suffixTypes={this.props.suffixTypes}
           prefixTypes={this.props.prefixTypes}

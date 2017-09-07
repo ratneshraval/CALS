@@ -1,9 +1,11 @@
 import React from 'react'
 import Immutable from 'immutable'
+import PropTypes from 'prop-types'
 import CompleteNameFields from './completeNameField'
 import CommonAddressFields from 'components/rfa_forms/commonAddressField'
 import ReferencesCard from './referencesCard'
 import {checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
+import {getFocusClassName} from 'helpers/cardsHelper.jsx'
 
 const blankReferenceFields = Object.freeze({
   name_suffix: null,
@@ -24,10 +26,6 @@ export default class ReferenceMain extends React.Component {
   constructor (props) {
     super(props)
     this.setReferencesState = this.setReferencesState.bind(this)
-    this.getFocusClassName = this.getFocusClassName.bind(this)
-  }
-  getFocusClassName (componentName) {
-    return this.props.focusComponentName === componentName ? 'edit' : 'show'
   }
   setReferencesState (key, value, referencesIndex) {
     let newData = Immutable.fromJS(checkArrayObjectPresence(this.props.references.references || this.props.references) ||
@@ -45,7 +43,7 @@ export default class ReferenceMain extends React.Component {
           references.map((referencesId, index) => {
             return (
               <div key={index} id={'referenceMain_'+ index} onClick={() => this.props.setFocusState('referenceMain_' + index)}
-                   className={this.getFocusClassName('referenceMain_'+ index) + ' ' + 'card reference-section double-gap-top'}>
+                   className={getFocusClassName('referenceMain_'+ index) + ' ' + 'card reference-section double-gap-top'}>
                 <div className="card-header">
                   <span>Reference -{index+1}</span>
                 </div>
@@ -58,7 +56,8 @@ export default class ReferenceMain extends React.Component {
                       suffixTypes={this.props.suffixTypes}
                       prefixTypes={this.props.prefixTypes}
                       nameTypes={this.props.nameTypes}
-                      setParentState={this.setReferencesState} />
+                      setParentState={this.setReferencesState}
+                      hideNameType={true} />
                   </div>
                 </div>
               </div>
@@ -69,3 +68,13 @@ export default class ReferenceMain extends React.Component {
     )
   }
 }
+
+ReferenceMain.propTypes = {
+  suffixTypes: PropTypes.array.isRequired,
+  references: PropTypes.array.isRequired,
+  prefixTypes: PropTypes.array.isRequired,
+  nameTypes: PropTypes.array.isRequired,
+  stateTypes: PropTypes.array.isRequired,
+  setParentState: PropTypes.func.isRequired
+}
+

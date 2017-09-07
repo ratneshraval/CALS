@@ -48,7 +48,8 @@ export default class NameCard extends React.Component {
             onChange={this.props.setParentState}
             nameTypes={this.props.nameTypes}
             suffixTypes={this.props.suffixTypes}
-            prefixTypes={this.props.prefixTypes} />
+            prefixTypes={this.props.prefixTypes}
+            hideNameType={true} />
         </div>
         {
           nameCardsList && this.props.nameFields.other_names.map((nameCardFields, index) => {
@@ -62,7 +63,8 @@ export default class NameCard extends React.Component {
                   onChange={this.handleNameChange}
                   nameTypes={removeLegalNameType(this.props.nameTypes)}
                   suffixTypes={this.props.suffixTypes}
-                  prefixTypes={this.props.prefixTypes} />
+                  prefixTypes={this.props.prefixTypes}
+                  hideNameType={false} />
               </div>
             )
           })

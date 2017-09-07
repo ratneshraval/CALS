@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {InputComponent} from '../common/inputFields'
 import {DropDownField} from '../common/dropDownField'
 import {getDictionaryId, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
@@ -29,4 +30,8 @@ export default class CommonAddressFields extends React.Component {
       </div>
     )
   }
+}
+CommonAddressFields.propTypes = {
+  addressFields: PropTypes.object.isRequired,
+  stateTypes: PropTypes.array.isRequired
 }
