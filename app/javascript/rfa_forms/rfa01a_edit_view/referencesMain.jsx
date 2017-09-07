@@ -30,12 +30,13 @@ export default class ReferenceMain extends React.Component {
     return this.props.focusComponentName === componentName ? 'edit' : 'show'
   }
   setReferencesState (key, value, referencesIndex) {
-    let newData = Immutable.fromJS(checkArrayObjectPresence(this.props.references) || [blankReferenceFields, blankReferenceFields, blankReferenceFields])
+    let newData = Immutable.fromJS(checkArrayObjectPresence(this.props.references.references || this.props.references) ||
+      [blankReferenceFields, blankReferenceFields, blankReferenceFields])
     newData = newData.update(referencesIndex, x => x.set(key, value))
     this.props.setParentState('references', newData.toJS())
   }
   render () {
-    const references = checkArrayObjectPresence(this.props.references) || [blankReferenceFields, blankReferenceFields, blankReferenceFields]
+    const references = checkArrayObjectPresence(this.props.references.references || this.props.references) || [blankReferenceFields, blankReferenceFields, blankReferenceFields]
     return (
       <div className="reference_main">
         <div>Please list the name, telephone number(s), and address of three individuals who have knowledge of your home environment, lifestyle, and

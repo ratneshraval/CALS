@@ -3,7 +3,7 @@ import Immutable from 'immutable'
 import {InputComponent} from 'components/common/inputFields'
 import CompleteNameFields from './completeNameField'
 import CommonAddressFields from 'components/rfa_forms/commonAddressField'
-
+import PropTypes from 'prop-types'
 export default class ReferencesCard extends React.Component {
   constructor (props) {
     super(props)
@@ -18,7 +18,7 @@ export default class ReferencesCard extends React.Component {
     return (
       <div>
         <CompleteNameFields
-          index={this.props.index}
+          referenceId={this.props.index}
           fieldValues={this.props.references}
           suffixTypes={this.props.suffixTypes}
           prefixTypes={this.props.prefixTypes}
@@ -30,14 +30,23 @@ export default class ReferencesCard extends React.Component {
           addressFields={this.props.references}
           onChange={this.handleAddressChange}/>
         <InputComponent gridClassName='col-md-4' id='phone'
-          value={this.props.phone_number}
+          value={this.props.references.phone_number}
           label='Phone' placeholder=''
           type='text' onChange={(event) => this.props.setParentState('phone_number', event.target.value, this.props.index)} />
         <InputComponent gridClassName='col-md-4' id='email'
-          value={this.props.email}
+          value={this.props.references.email}
           label='Email (optional)' placeholder=''
           type='text' onChange={(event) => this.props.setParentState('email', event.target.value, this.props.index)} />
       </div>
     )
   }
+}
+
+ReferencesCard.propTypes = {
+  suffixTypes: PropTypes.array.isRequired,
+  references: PropTypes.object.isRequired,
+  prefixTypes: PropTypes.array.isRequired,
+  nameTypes: PropTypes.array.isRequired,
+  stateTypes: PropTypes.array.isRequired,
+  setParentState: PropTypes.func.isRequired
 }

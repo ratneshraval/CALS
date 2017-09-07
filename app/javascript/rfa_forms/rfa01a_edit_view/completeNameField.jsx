@@ -6,6 +6,7 @@ import NameCommonFields from '../../components/common/nameCommonFields'
 import {getDictionaryId, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
 
 const CompleteNameFields = ({
+  referenceId,
   index,
   fieldValues,
   onChange,
@@ -21,10 +22,11 @@ const CompleteNameFields = ({
           selectClassName={'reusable-select'}
           optionList={prefixTypes}
           label={'Prefix'}
-          onChange={(event, id) => onChange('name_prefix', dictionaryNilSelect(event.target.selectedOptions[0]), index)} />
+          onChange={(event, id) => onChange('name_prefix', dictionaryNilSelect(event.target.selectedOptions[0]), index || referenceId)} />
       </div>
       <div className="col-md-12 remove-padding">
-        <NameCommonFields index={index}
+        <NameCommonFields
+          index={index || referenceId}
           fieldValues={fieldValues}
           onChange={onChange}/>
       </div>
@@ -34,7 +36,7 @@ const CompleteNameFields = ({
           selectClassName={'reusable-select'}
           optionList={suffixTypes}
           label={'Suffix'}
-          onChange={(event, id) => onChange('name_suffix', dictionaryNilSelect(event.target.selectedOptions[0]), index)} />
+          onChange={(event, id) => onChange('name_suffix', dictionaryNilSelect(event.target.selectedOptions[0]), index || referenceId)} />
       </div>
       {isAddedComponent && <div className="col-md-4 remove-padding">
         <DropDownField gridClassName='col-md-12' id='name_type'
@@ -42,7 +44,7 @@ const CompleteNameFields = ({
           selectClassName={'reusable-select'}
           optionList={nameTypes}
           label={'Name Type'}
-          onChange={(event, id) => onChange('name_type', dictionaryNilSelect(event.target.selectedOptions[0]), index)} />
+          onChange={(event, id) => onChange('name_type', dictionaryNilSelect(event.target.selectedOptions[0]), index || referenceId)} />
       </div>
       }
     </div>
