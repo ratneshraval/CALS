@@ -35,10 +35,10 @@ export default class Rfa01EditView extends React.Component {
     let params = this.state.application
     fetchRequest(url, 'PUT', this.state.application).then(
       response => response.json()).then((response) => {
-        return this.setState({
-          formData: response
-        })
+      return this.setState({
+        formData: response
       })
+    })
       .catch(error => {
         return this.setState({
           data: error
@@ -167,7 +167,7 @@ export default class Rfa01EditView extends React.Component {
                   getFocusClassName={this.getFocusClassName}
                   setFocusState={this.setFocusState}
                   stateTypes={this.props.stateTypes}
-                  references={this.state.application.references || [] }
+                  references={this.state.application.references || undefined}
                   suffixTypes={this.props.suffixTypes}
                   prefixTypes={this.props.prefixTypes}
                   nameTypes={this.props.nameTypes}

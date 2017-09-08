@@ -19,8 +19,8 @@ export default class ReferencesCard extends React.Component {
     return (
       <div>
         <CompleteNameFields
-          hideNameType={this.props.hideNameType}
-          fieldValues={this.props.references}
+          index={this.props.index}
+          fieldValues={this.props.reference}
           suffixTypes={this.props.suffixTypes}
           prefixTypes={this.props.prefixTypes}
           nameTypes={this.props.nameTypes}
@@ -28,14 +28,14 @@ export default class ReferencesCard extends React.Component {
         <CommonAddressFields
           index={this.props.index}
           stateTypes={this.props.stateTypes}
-          addressFields={this.props.references}
+          addressFields={this.props.reference}
           onChange={this.handleAddressChange}/>
         <InputComponent gridClassName='col-md-4' id='phone'
-          value={this.props.references.phone_number}
+          value={this.props.reference.phone_number}
           label='Phone' placeholder=''
           type='text' onChange={(event) => this.props.setParentState('phone_number', event.target.value, this.props.index)} />
         <InputComponent gridClassName='col-md-4' id='email'
-          value={this.props.references.email}
+          value={this.props.reference.email}
           label='Email (optional)' placeholder=''
           type='text' onChange={(event) => this.props.setParentState('email', event.target.value, this.props.index)} />
       </div>
@@ -45,7 +45,7 @@ export default class ReferencesCard extends React.Component {
 
 ReferencesCard.propTypes = {
   suffixTypes: PropTypes.array.isRequired,
-  references: PropTypes.object.isRequired,
+  reference: PropTypes.object.isRequired,
   prefixTypes: PropTypes.array.isRequired,
   nameTypes: PropTypes.array.isRequired,
   stateTypes: PropTypes.array.isRequired,

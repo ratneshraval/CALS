@@ -12,7 +12,7 @@ const CompleteNameFields = ({
   suffixTypes,
   prefixTypes,
   nameTypes,
-  hideNameType}) => {
+  showNameType}) => {
   return (
     <div>
       <div className="col-md-12 remove-padding">
@@ -37,7 +37,7 @@ const CompleteNameFields = ({
           label={'Suffix'}
           onChange={(event, id) => onChange('name_suffix', dictionaryNilSelect(event.target.selectedOptions[0]), index)} />
       </div>
-      {!hideNameType && <div className="col-md-4 remove-padding">
+      {showNameType && <div className="col-md-4 remove-padding">
         <DropDownField gridClassName='col-md-12' id='name_type'
           value={getDictionaryId(fieldValues.name_type)}
           selectClassName={'reusable-select'}
@@ -51,11 +51,15 @@ const CompleteNameFields = ({
 }
 
 CompleteNameFields.propTypes = {
-  nameTypes: PropTypes.array.isRequired,
+  showNameType: PropTypes.bool,
+  nameTypes: PropTypes.array,
   prefixTypes: PropTypes.array.isRequired,
   suffixTypes: PropTypes.array.isRequired,
   fieldValues: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired
 }
 
+CompleteNameFields.defaultProps = {
+  showNameType: false
+}
 export default CompleteNameFields
