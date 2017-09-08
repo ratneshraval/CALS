@@ -40,6 +40,6 @@ describe('Verify Complete Name Field Component', () => {
       onChange={onChangeSpy} />)
     let suffixDropDown = addedNameComponent.find('#name_type')
     suffixDropDown.simulate('change', {target: {selectedOptions: [{value: '2', text: 'Legal'}]}})
-    expect(onChangeSpy).toHaveBeenCalledWith('name_type', {id: '2', value: 'Legal'}, undefined)
+    expect(onChangeSpy).toHaveBeenCalledWith('name_type', {id: '2', value: 'Legal'}, 0)
   })
 })

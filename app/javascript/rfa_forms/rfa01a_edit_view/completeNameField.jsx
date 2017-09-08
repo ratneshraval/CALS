@@ -12,8 +12,7 @@ const CompleteNameFields = ({
   suffixTypes,
   prefixTypes,
   nameTypes,
-  referenceId}) => {
-  const isAddedComponent = index === undefined ? false : true
+  hideNameType}) => {
   return (
     <div>
       <div className="col-md-12 remove-padding">
@@ -22,7 +21,7 @@ const CompleteNameFields = ({
           selectClassName={'reusable-select'}
           optionList={prefixTypes}
           label={'Prefix'}
-          onChange={(event, id) => onChange('name_prefix', dictionaryNilSelect(event.target.selectedOptions[0]), index || referenceId)} />
+          onChange={(event, id) => onChange('name_prefix', dictionaryNilSelect(event.target.selectedOptions[0]), index)} />
       </div>
       <div className="col-md-12 remove-padding">
         <NameCommonFields
@@ -36,15 +35,15 @@ const CompleteNameFields = ({
           selectClassName={'reusable-select'}
           optionList={suffixTypes}
           label={'Suffix'}
-          onChange={(event, id) => onChange('name_suffix', dictionaryNilSelect(event.target.selectedOptions[0]), index || referenceId)} />
+          onChange={(event, id) => onChange('name_suffix', dictionaryNilSelect(event.target.selectedOptions[0]), index)} />
       </div>
-      {isAddedComponent && <div className="col-md-4 remove-padding">
+      {!hideNameType && <div className="col-md-4 remove-padding">
         <DropDownField gridClassName='col-md-12' id='name_type'
           value={getDictionaryId(fieldValues.name_type)}
           selectClassName={'reusable-select'}
           optionList={nameTypes}
           label={'Name Type'}
-          onChange={(event, id) => onChange('name_type', dictionaryNilSelect(event.target.selectedOptions[0]), index || referenceId)} />
+          onChange={(event, id) => onChange('name_type', dictionaryNilSelect(event.target.selectedOptions[0]), index)} />
       </div>
       }
     </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {InputComponent} from '../common/inputFields'
 import {DropDownField} from '../common/dropDownField'
 import {getDictionaryId, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
@@ -15,7 +16,7 @@ export default class CommonAddressFields extends React.Component {
         <InputComponent gridClassName='col-md-4' id='zip'
           value={addressFields.mailing_address.zip}
           label='Zip' placeholder=''
-          type='text' onChange={(event) => this.props.onChange('zip', event.target.value, this.props.index, )} />
+          type='text' onChange={(event) => this.props.onChange('zip', event.target.value, this.props.index)} />
         <InputComponent gridClassName='col-md-4' id='city'
           value={addressFields.mailing_address.city}
           label='City' placeholder=''
@@ -29,4 +30,8 @@ export default class CommonAddressFields extends React.Component {
       </div>
     )
   }
+}
+CommonAddressFields.propTypes = {
+  addressFields: PropTypes.object.isRequired,
+  stateTypes: PropTypes.array.isRequired
 }
