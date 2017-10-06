@@ -4,7 +4,7 @@ import {InputComponent} from 'components/common/inputFields'
 import {DropDownField} from 'components/common/dropDownField'
 import AutoCompleter from 'components/common/autoCompleter.jsx'
 import {yesNo} from 'constants/constants'
-import {getDictionaryId, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
+import {getDictionaryId, dictionaryNilSelect, findArrayValueByMethod} from 'helpers/commonHelper.jsx'
 
 const blankPhysicalAddress = Object.freeze({
   street_address: '',
@@ -27,6 +27,7 @@ const blankMailingAddress = Object.freeze({
   }
 })
 
+const { Map } = require('immutable')
 const physicalAddressType = 'Residential'
 const mailingAddressType = 'Mailing'
 
@@ -41,12 +42,27 @@ export default class AddressCard extends React.Component {
       data = data.push(Immutable.fromJS(blankAddressFields))
       index = data.size - 1
     }
-
-    data = data.update(index, x => x.set(key, value))
+    if (key === 'fromSelection') {
+      let selectedAddress = Immutable.fromJS(value)
+      selectedAddress.keySeq().forEach(k => {
+        if (k === 'state') {
+          let stateTypes = Immutable.fromJS(this.props.stateTypes)
+          value[k] = findArrayValueByMethod(stateTypes, 'find', 'id', value[k]).toJS()
+        }
+        data.updateIn(index, x => x.set(k, value[k]))
+      })
+    } else {
+      data = data.update(index, x => x.set(key, value))
+    }
     this.props.setParentState('addresses', data.toJS())
   }
   onSelection (autoFillData) {
-    this.onAddressChange(physicalAddressType, 'city', autoFillData.city)
+    // let selectedAddress = Immutable.fromJS(autoFillData)
+    // selectedAddress.keySeq().forEach(key => {
+    //   this.onAddressChange(physicalAddressType, key, autoFillData[key])
+    // })
+
+    this.onAddressChange(physicalAddressType, 'fromSelection' , autoFillData)
   }
   render () {
     const hasPhysicalAddressFields = this.props.addresses !== undefined && this.props.addresses.find(o => o.type.value === physicalAddressType)

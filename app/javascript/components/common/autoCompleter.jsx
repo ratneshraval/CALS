@@ -25,7 +25,7 @@ export default class AutoCompleter extends React.Component {
     // this.props.onSelection(suggestion)
   }
   onSuggestionSelected (event, {suggestion, suggestionValue, suggestionIndex, sectionIndex, method}) {
-    // this.props.onSelection(suggestion)
+    this.props.onSelection(suggestion)
   }
   onSuggestionsFetchRequested ({ value, reason }) {
     let url = this.props.url
