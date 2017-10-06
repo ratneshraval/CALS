@@ -33,6 +33,8 @@ export default class ReferencesCard extends React.Component {
           prefixTypes={this.props.prefixTypes}
           onChange={this.props.setParentState} />
         <CommonAddressFields
+          id="street_address"
+          fieldName="street_address"
           index={this.props.index}
           stateTypes={this.props.stateTypes}
           addressFields={this.props.reference}
