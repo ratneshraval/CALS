@@ -33,7 +33,16 @@ export default class CommonAddressFields extends React.Component {
     // this.props.onSelection(suggestion)
   }
   onSuggestionSelected (event, {suggestion, suggestionValue, suggestionIndex, sectionIndex, method}) {
-    this.props.onSelection(suggestion)
+    let url = this.props.validateUrl
+    let params = suggestion
+    let updateSuggetions
+    fetchRequest(url, 'POST', params).then(
+      response => response.json()).then((response) => {
+      updateSuggetions = response
+      }).catch(() => {
+      updateSuggetions = suggestion
+    })
+    this.props.onSelection(updateSuggetions)
   }
   onSuggestionsFetchRequested ({ value, reason }) {
     let url = this.props.url

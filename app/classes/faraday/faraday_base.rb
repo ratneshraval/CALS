@@ -30,7 +30,6 @@ class Faraday::FaradayBase
 
     Rails.logger.info('API call response:')
     Rails.logger.info(response)
-
     return response
   end
 

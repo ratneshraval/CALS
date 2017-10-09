@@ -74,10 +74,13 @@ export default class AddressCard extends React.Component {
         <div className='row'>
           <form>
             <CommonAddressFields
+              url='/geoservice/'
+              validateUrl='/geoservice/validate'
               id="street_address"
               fieldName="street_address"
               addressType={physicalAddressType}
               addressFields={physicalAddressFields}
+              onSelection={this.onSelection.bind(this)}
               stateTypes={this.props.stateTypes}
               onChange={this.onAddressChange.bind(this)}/>
             <div className="col-md-12">
