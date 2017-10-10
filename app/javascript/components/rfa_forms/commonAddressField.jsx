@@ -78,16 +78,19 @@ export default class CommonAddressFields extends React.Component {
     }
     return (
       <div>
-        <ReactAutosuggest
-          id={this.props.fieldName}
-          suggestions={this.state.suggestions}
-          inputProps={inputProps}
-          renderSuggestion={this.renderSuggestion}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          getSuggestionValue={this.getSuggestionValue}
-          onSuggestionSelected={this.onSuggestionSelected}
-        />
+        <div className="col-md-12">
+          <label>{this.props.addressTitle}</label>
+          <ReactAutosuggest
+            id={this.props.fieldName}
+            suggestions={this.state.suggestions}
+            inputProps={inputProps}
+            renderSuggestion={this.renderSuggestion}
+            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+            getSuggestionValue={this.getSuggestionValue}
+            onSuggestionSelected={this.onSuggestionSelected}
+          />
+        </div>
         <InputComponent gridClassName='col-md-12' id='street_address'
           value={addressFields.street_address}
           label='Physical Address' placeholder=''
