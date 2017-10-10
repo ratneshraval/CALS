@@ -87,6 +87,7 @@ export default class AddressCard extends React.Component {
               <label>Physical Address:</label>
               <AutoCompleter gridClassName='col-md-12'
                 url='/geoservice/'
+                validateUrl='/geoservice/validate'
                 id='physicalAddress'
                 fieldName='street_address'
                 addressType={physicalAddressType}

@@ -38,11 +38,12 @@ export default class CommonAddressFields extends React.Component {
     let updateSuggetions
     fetchRequest(url, 'POST', params).then(
       response => response.json()).then((response) => {
-      updateSuggetions = response
+      updateSuggetions = response[0]
+      this.props.onSelection(updateSuggetions)
       }).catch(() => {
       updateSuggetions = suggestion
+      this.props.onSelection(updateSuggetions)
     })
-    this.props.onSelection(updateSuggetions)
   }
   onSuggestionsFetchRequested ({ value, reason }) {
     let url = this.props.url

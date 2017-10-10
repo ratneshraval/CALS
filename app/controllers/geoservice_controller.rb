@@ -5,9 +5,8 @@ class GeoserviceController < CalsBaseController
   end
   def validate
     post_data = request.body.read
-    parsed_post_data = JSON.parse(post_data)
-    @suggestion_validate = geoservice_helper.validate(parsed_post_data)
-    json_response  @suggestion_validate
+    @suggestion_validate = geoservice_helper.validate(post_data)
+    render :json =>  @suggestion_validate
   end
 
   def geoservice_helper
