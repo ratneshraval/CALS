@@ -39,10 +39,10 @@ export default class CommonAddressFields extends React.Component {
     fetchRequest(url, 'POST', params).then(
       response => response.json()).then((response) => {
       updateSuggetions = response[0]
-      this.props.onSelection(updateSuggetions)
+      this.props.onSelection(this.props.addressType, updateSuggetions)
       }).catch(() => {
       updateSuggetions = suggestion
-      this.props.onSelection(updateSuggetions)
+      this.props.onSelection(this.props.addressType, updateSuggetions)
     })
   }
   onSuggestionsFetchRequested ({ value, reason }) {
@@ -91,10 +91,6 @@ export default class CommonAddressFields extends React.Component {
             onSuggestionSelected={this.onSuggestionSelected}
           />
         </div>
-        <InputComponent gridClassName='col-md-12' id='street_address'
-          value={addressFields.street_address}
-          label='Physical Address' placeholder=''
-          type='text' onChange={(event) => this.onChange('street_address', event.target.value)} />
         <InputComponent gridClassName='col-md-4' id='zip'
           value={addressFields.zip}
           label='Zip' placeholder=''
@@ -114,6 +110,9 @@ export default class CommonAddressFields extends React.Component {
   }
 }
 CommonAddressFields.propTypes = {
+  addressType: PropTypes.string.isRequired,
+  addressTitle: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   addressFields: PropTypes.object.isRequired,
   stateTypes: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired

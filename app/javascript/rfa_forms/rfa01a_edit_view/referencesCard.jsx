@@ -13,6 +13,7 @@ export default class ReferencesCard extends React.Component {
   constructor (props) {
     super(props)
     this.handleAddressChange = this.handleAddressChange.bind(this)
+    this.onSelection = this.onSelection.bind(this)
 
     this.props.validator.addFieldValidation(this.props.idPrefix + 'phone_number', phoneNumberRule)
   }
@@ -20,6 +21,9 @@ export default class ReferencesCard extends React.Component {
     let mailingAddressObj = Immutable.fromJS(this.props.reference.mailing_address)
     mailingAddressObj = mailingAddressObj.set(key, value)
     this.props.setParentState('mailing_address', mailingAddressObj.toJS(), referencesIndex)
+  }
+  onSelection (addressType, autofillData) {
+    this.handleAddressChange()
   }
   render () {
     const phoneNumberId = this.props.idPrefix + 'phone_number'
@@ -33,10 +37,15 @@ export default class ReferencesCard extends React.Component {
           prefixTypes={this.props.prefixTypes}
           onChange={this.props.setParentState} />
         <CommonAddressFields
+          addressTitle='Physical Address'
+          addressType={'Residential'}
           id="street_address"
+          url='/geoservice/'
+          validateUrl='/geoservice/validate'
           fieldName="street_address"
           index={this.props.index}
           stateTypes={this.props.stateTypes}
+          onSelection={this.onSelection}
           addressFields={this.props.reference}
           onChange={this.handleAddressChange} />
         <CleaveInputField
