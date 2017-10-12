@@ -14,7 +14,9 @@ export default class ReferencesCard extends React.Component {
     super(props)
     this.handleAddressChange = this.handleAddressChange.bind(this)
     this.onSelection = this.onSelection.bind(this)
-
+    this.state = {
+      suggestions: []
+    }
     this.props.validator.addFieldValidation(this.props.idPrefix + 'phone_number', phoneNumberRule)
   }
   handleAddressChange (key, value, referencesIndex) {
@@ -37,6 +39,7 @@ export default class ReferencesCard extends React.Component {
           prefixTypes={this.props.prefixTypes}
           onChange={this.props.setParentState} />
         <CommonAddressFields
+          suggestions={this.state.suggestions || []}
           addressTitle='Physical Address'
           addressType={'Residential'}
           id="street_address"

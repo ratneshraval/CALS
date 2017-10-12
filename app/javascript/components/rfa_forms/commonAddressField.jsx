@@ -3,17 +3,13 @@ import PropTypes from 'prop-types'
 import {InputComponent} from '../common/inputFields'
 import {DropDownField} from '../common/dropDownField'
 import {getDictionaryId, dictionaryNilSelect} from 'helpers/commonHelper.jsx'
-
 import ReactAutosuggest from 'react-autosuggest'
-import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
-import {fetchRequest} from 'helpers/http'
 
 export default class CommonAddressFields extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      value: '',
-      suggestions: []
+      suggestions: this.props.suggestions
     }
     this.onChange = this.onChange.bind(this)
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this)
@@ -33,31 +29,10 @@ export default class CommonAddressFields extends React.Component {
     // this.props.onSelection(suggestion)
   }
   onSuggestionSelected (event, {suggestion, suggestionValue, suggestionIndex, sectionIndex, method}) {
-    let url = this.props.validateUrl
-    let params = suggestion
-    let updateSuggetions
-    fetchRequest(url, 'POST', params).then(
-      response => response.json()).then((response) => {
-      updateSuggetions = response[0]
-      this.props.onSelection(this.props.addressType, updateSuggetions)
-      }).catch(() => {
-      updateSuggetions = suggestion
-      this.props.onSelection(this.props.addressType, updateSuggetions)
-    })
+    this.props.onSuggestionSelected(event, suggestion, suggestionValue, suggestionIndex, sectionIndex, method, this.props.addressType)
   }
   onSuggestionsFetchRequested ({ value, reason }) {
-    let url = this.props.url
-    let params = encodeURIComponent(value)
-    fetchRequest(url, 'POST', params).then(
-      response => response.json()).then((response) => {
-      return this.setState({
-        suggestions: response
-      })
-    }).catch(() => {
-      return this.setState({
-        suggestions: []
-      })
-    })
+    this.props.onSuggestionsFetchRequested(value, reason)
   }
   renderSuggestion (suggestion) {
     return (
@@ -73,6 +48,7 @@ export default class CommonAddressFields extends React.Component {
     const addressFields = this.props.addressFields.mailing_address ? this.props.addressFields.mailing_address : this.props.addressFields
     const inputProps = {
       id: this.props.id,
+      placeholder: this.props.placeholder,
       value: addressFields.street_address,
       onChange: this.onStreetAddressChange
     }
@@ -82,7 +58,7 @@ export default class CommonAddressFields extends React.Component {
           <label>{this.props.addressTitle}</label>
           <ReactAutosuggest
             id={this.props.fieldName}
-            suggestions={this.state.suggestions}
+            suggestions={this.props.suggestions}
             inputProps={inputProps}
             renderSuggestion={this.renderSuggestion}
             onSuggestionsClearRequested={this.onSuggestionsClearRequested}
@@ -110,10 +86,17 @@ export default class CommonAddressFields extends React.Component {
   }
 }
 CommonAddressFields.propTypes = {
-  addressType: PropTypes.string.isRequired,
+  addressType: PropTypes.string,
   addressTitle: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  suggestions: PropTypes.array.isRequired,
   addressFields: PropTypes.object.isRequired,
   stateTypes: PropTypes.array.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  onSelection: PropTypes.func
+}
+
+CommonAddressFields.defaultProps = {
+  addressType: '',
+  placeholder: '',
+  suggestions: []
 }

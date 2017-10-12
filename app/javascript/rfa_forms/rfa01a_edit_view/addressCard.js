@@ -7,6 +7,9 @@ import {yesNo} from 'constants/constants'
 import {getDictionaryId, dictionaryNilSelect, findArrayValueByMethod} from 'helpers/commonHelper.jsx'
 import CommonAddressFields from 'components/rfa_forms/commonAddressField.jsx'
 
+import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
+import {fetchRequest} from 'helpers/http'
+
 const blankPhysicalAddress = Object.freeze({
   street_address: '',
   zip: '',
@@ -32,6 +35,12 @@ const physicalAddressType = 'Residential'
 const mailingAddressType = 'Mailing'
 
 export default class AddressCard extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      suggestions: []
+    }
+  }
   onAddressChange (typeString, key, value) {
     // find index of address with type.id=physical
     const blankAddressFields = (typeString === physicalAddressType) ? blankPhysicalAddress : blankMailingAddress
@@ -59,8 +68,35 @@ export default class AddressCard extends React.Component {
     }
     this.props.setParentState('addresses', data.toJS())
   }
-  onSelection (addressType, autoFillData) {
+  onSelection (autoFillData, addressType) {
     this.onAddressChange(addressType, 'fromSelection', autoFillData)
+  }
+  onSuggestionSelected (event, suggestion, suggestionValue, suggestionIndex, sectionIndex, method, addressType) {
+    let url = '/geoservice/validate'
+    let params = suggestion
+    let updateSuggetions
+    fetchRequest(url, 'POST', params).then(
+      response => response.json()).then((response) => {
+      updateSuggetions = response[0]
+      this.onSelection(updateSuggetions, addressType)
+    }).catch(() => {
+      updateSuggetions = suggestion
+      this.onSelection(updateSuggetions, addressType)
+    })
+  }
+  onSuggestionsFetchRequested (value, reason) {
+    let url = '/geoservice/'
+    let params = encodeURIComponent(value)
+    fetchRequest(url, 'POST', params).then(
+      response => response.json()).then((response) => {
+      return this.setState({
+        suggestions: response
+      })
+    }).catch(() => {
+      return this.setState({
+        suggestions: []
+      })
+    })
   }
   render () {
     const hasPhysicalAddressFields = this.props.addresses !== undefined && this.props.addresses.find(o => o.type.value === physicalAddressType)
@@ -74,16 +110,17 @@ export default class AddressCard extends React.Component {
         <div className='row'>
           <form>
             <CommonAddressFields
+              suggestions={this.state.suggestions}
               addressTitle='Physical Address'
-              url='/geoservice/'
-              validateUrl='/geoservice/validate'
               id="street_address"
               fieldName="street_address"
               addressType={physicalAddressType}
               addressFields={physicalAddressFields}
               onSelection={this.onSelection.bind(this)}
               stateTypes={this.props.stateTypes}
-              onChange={this.onAddressChange.bind(this)}/>
+              onChange={this.onAddressChange.bind(this)}
+              onSuggestionsFetchRequested={this.onSuggestionsFetchRequested.bind(this)}
+              onSuggestionSelected={this.onSuggestionSelected.bind(this)} />
             {/*<div className="col-md-12">*/}
               {/*<label>Physical Address:</label>*/}
               {/*<AutoCompleter gridClassName='col-md-12'*/}
@@ -127,16 +164,17 @@ export default class AddressCard extends React.Component {
               onChange={(event) => this.props.setParentState('physical_mailing_similar', event.target.selectedOptions[0].value)} />
             <div className={hiddenMailingSameAsPhysical}>
               <CommonAddressFields
+                suggestions={this.state.suggestions}
                 addressTitle='Mailing Address'
-                url='/geoservice/'
-                validateUrl='/geoservice/validate'
                 id="secondary_street_address"
                 fieldName="street_address"
                 addressType={mailingAddressType}
                 addressFields={mailingAddressFields}
                 onSelection={this.onSelection.bind(this)}
                 stateTypes={this.props.stateTypes}
-                onChange={this.onAddressChange.bind(this)}/>
+                onChange={this.onAddressChange.bind(this)}
+                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested.bind(this)}
+                onSuggestionSelected={this.onSuggestionSelected.bind(this)} />
               {/*<InputComponent gridClassName='col-md-12' id='secondary_street_address'*/}
                 {/*value = {mailingAddressFields.street_address}*/}
                 {/*label='Mailing Address:' placeholder=''*/}
