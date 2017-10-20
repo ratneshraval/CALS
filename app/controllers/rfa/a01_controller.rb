@@ -28,7 +28,6 @@ class Rfa::A01Controller < CalsBaseController
   end
 
   def update
-    byebug
     @application_response = {}
     @application_response[:application_county] = process_items_for_persistance(application_county_params, rfa_application_helper, params[:id]) if params[:application_county].present?
     @application_response[:applicants] = process_items_for_persistance(applicant_params, rfa_applicant_helper, params[:id]) if params[:applicants].present?
