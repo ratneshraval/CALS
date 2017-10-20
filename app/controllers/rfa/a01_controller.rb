@@ -28,6 +28,7 @@ class Rfa::A01Controller < CalsBaseController
   end
 
   def update
+    byebug
     @application_response = {}
     @application_response[:application_county] = process_items_for_persistance(application_county_params, rfa_application_helper, params[:id]) if params[:application_county].present?
     @application_response[:applicants] = process_items_for_persistance(applicant_params, rfa_applicant_helper, params[:id]) if params[:applicants].present?
@@ -40,6 +41,8 @@ class Rfa::A01Controller < CalsBaseController
     @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, params[:id]) if params[:references].present?
     @application_response[:childDesired] = process_items_for_persistance(child_desired_params, rfa_child_desired_helper, params[:id]) if params[:childDesired].present?
     @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, params[:id]) if params[:references].present?
+
+    redirect_to rfa_a01_packet_index_path(rfa_application.id)
   end
 
   private
