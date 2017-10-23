@@ -1,5 +1,8 @@
 {
-  "extends": "eslint-config-standard",
+  "extends": [
+    "eslint-config-standard",
+    "plugin:jsx-a11y/recommended"
+  ],
   "plugins": [
     "react",
     "jsx-a11y",
