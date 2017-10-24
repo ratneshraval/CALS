@@ -10,6 +10,7 @@ describe SearchController do
 
   it 'renders the index template' do
     get :index
+    byebug
     expect(response).to render_template('index')
   end
 end

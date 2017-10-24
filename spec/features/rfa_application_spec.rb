@@ -12,6 +12,14 @@ RSpec.feature 'RFA', js: true do
   scenario 'validate applicant card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+  end
+
+  scenario 'validate applicant card', set_auth_header: true do
+    visit root_path
+    click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
     fill_in('firstname', with: Faker::Name.name, :match => :prefer_exact)
     fill_in('middleName', with: 'k', :match => :prefer_exact)
@@ -49,6 +57,8 @@ RSpec.feature 'RFA', js: true do
   scenario 'validate Residence card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
     fill_in('firstname', with: Faker::Name.name, :match => :prefer_exact)
     fill_in('middleName', with: 'k', :match => :prefer_exact)
@@ -80,6 +90,9 @@ RSpec.feature 'RFA', js: true do
   scenario 'validate Minor Children card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+
     expect(page).to have_content 'Applicant 1 - Information'
     fill_in('firstname', with: Faker::Name.name, :match => :prefer_exact)
     fill_in('middleName', with: 'k', :match => :prefer_exact)
@@ -99,6 +112,8 @@ RSpec.feature 'RFA', js: true do
   scenario 'validate Other Adults card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
     fill_in('firstname', with: Faker::Name.name, :match => :prefer_exact)
     fill_in('middleName', with: 'k', :match => :prefer_exact)
@@ -117,6 +132,8 @@ RSpec.feature 'RFA', js: true do
   scenario 'validate Foster Care card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
     expect(page).to have_content 'Applicant 1 - Information'
     fill_in('firstname', with: Faker::Name.name, :match => :prefer_exact)
     fill_in('middleName', with: 'k', :match => :prefer_exact)
@@ -134,6 +151,9 @@ RSpec.feature 'RFA', js: true do
   scenario 'validate references card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+
     expect(page).to have_content 'Applicant 1 - Information'
     fill_in('firstname', with: Faker::Name.name, :match => :prefer_exact)
     fill_in('middleName', with: 'k', :match => :prefer_exact)
@@ -148,6 +168,9 @@ RSpec.feature 'RFA', js: true do
   scenario 'RFA page dictionaries', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'
+    expect(page).to have_content 'Rfa-01A Section Summary'
+    page.find('#Rfa01AOverview').find('a.btn.btn-default').click
+
     expect(page).to have_select('minor_gender', :with_options => ['', 'Male', 'Female'])
     expect(page).to have_select('relationshipType', :with_options => ['', 'Child', 'Sibling','Cousin', 'Niece', 'Nephew'])
     expect(page).to have_select('residenceTypes', :with_options => ['Own', 'Rent', 'Lease'])
