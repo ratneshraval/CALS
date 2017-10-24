@@ -1,12 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
 import CardLayout from 'components/common/CardLayout'
 
 export default class Rfa01COverview extends React.Component {
-  constructor (props) {
-    super(props)
-  }
   render () {
     return (
       <CardLayout

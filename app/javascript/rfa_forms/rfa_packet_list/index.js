@@ -26,34 +26,34 @@ export default class Rfa01PacketList extends React.Component {
   }
 
   render () {
-    let application_id = this.props.application_id
+    let applicationId = this.props.application_id
     return (
       <div>
         <CardsGroupLayout>
           <Rfa01AOverview
             focusComponentName={this.state.focusComponentName}
-            applicationId={application_id}
+            applicationId={applicationId}
             setFocusState={this.setFocusState}
             getFocusClassName={this.getFocusClassName} />
         </CardsGroupLayout>
         <CardsGroupLayout>
           <Rfa01BOverview
             focusComponentName={this.state.focusComponentName}
-            applicationId={application_id}
+            applicationId={applicationId}
             setFocusState={this.setFocusState}
             getFocusClassName={this.getFocusClassName} />
         </CardsGroupLayout>
         <CardsGroupLayout>
           <Rfa01COverview
             focusComponentName={this.state.focusComponentName}
-            applicationId={application_id}
+            applicationId={applicationId}
             setFocusState={this.setFocusState}
             getFocusClassName={this.getFocusClassName} />
         </CardsGroupLayout>
         <CardsGroupLayout>
           <Lic198BOverview
             focusComponentName={this.state.focusComponentName}
-            applicationId={application_id}
+            applicationId={applicationId}
             setFocusState={this.setFocusState}
             getFocusClassName={this.getFocusClassName} />
         </CardsGroupLayout>

@@ -4,9 +4,6 @@ import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
 import CardLayout from 'components/common/CardLayout'
 
 export default class Rfa01BOverview extends React.Component {
-  constructor (props) {
-    super(props)
-  }
   render () {
     return (
       <CardLayout
