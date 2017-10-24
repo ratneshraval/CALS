@@ -3,6 +3,7 @@ import Rfa01AOverview from './rfa01AOverview'
 import Rfa01BOverview from './rfa01BOverview'
 import Rfa01COverview from './rfa01COverview'
 import Lic198BOverview from './Lic198BOverview'
+import CardsGroupLayout from 'components/common/CardsGroupLayout'
 
 export default class Rfa01PacketList extends React.Component {
   constructor (props) {
@@ -28,30 +29,34 @@ export default class Rfa01PacketList extends React.Component {
     let application_id = this.props.application_id
     return (
       <div>
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+        <CardsGroupLayout>
           <Rfa01AOverview
+            focusComponentName={this.state.focusComponentName}
             applicationId={application_id}
             setFocusState={this.setFocusState}
             getFocusClassName={this.getFocusClassName} />
-        </div>
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+        </CardsGroupLayout>
+        <CardsGroupLayout>
           <Rfa01BOverview
+            focusComponentName={this.state.focusComponentName}
             applicationId={application_id}
             setFocusState={this.setFocusState}
             getFocusClassName={this.getFocusClassName} />
-        </div>
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+        </CardsGroupLayout>
+        <CardsGroupLayout>
           <Rfa01COverview
+            focusComponentName={this.state.focusComponentName}
             applicationId={application_id}
             setFocusState={this.setFocusState}
             getFocusClassName={this.getFocusClassName} />
-        </div>
-        <div className='cards-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+        </CardsGroupLayout>
+        <CardsGroupLayout>
           <Lic198BOverview
+            focusComponentName={this.state.focusComponentName}
             applicationId={application_id}
             setFocusState={this.setFocusState}
             getFocusClassName={this.getFocusClassName} />
-        </div>
+        </CardsGroupLayout>
       </div>
     )
   }

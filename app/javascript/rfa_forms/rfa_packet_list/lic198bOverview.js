@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {urlPrefixHelper} from 'helpers/url_prefix_helper.js.erb'
+import CardLayout from 'components/common/CardLayout'
 
 export default class Lic198BOverview extends React.Component {
   constructor (props) {
@@ -9,22 +10,14 @@ export default class Lic198BOverview extends React.Component {
 
   render () {
     return (
-      <div className='lic198b_overview'>
-        <div id='Lic198BOverview' onClick={() => this.props.setFocusState('Lic198BOverview')}
-          className={this.props.getFocusClassName('lic198b_overview') + ' ' + 'card phone-section double-gap-top'}>
-          <div className='card-header'><span>Lic-198B Section Summary</span></div>
-          <div className='card-body'>
-            <div className='row list-item'>
-              <div className='text-center'>
-                hiiiiiiiiiiiiiiii
-                {/* <a href={urlPrefixHelper('/rfa/a01/' + this.props.applicationId + '/edit')} className='btn btn-default'>
-                  <p>Start RFA 01 A</p>
-                </a> */}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CardLayout
+        idClassName='lic_198b_overview'
+        id='Lic198BOverview'
+        label='Lic198B Section Summary'
+        handleOnClick={() => this.props.setFocusState('Lic198BOverview')}
+        focusClassName={this.props.getFocusClassName('Lic198BOverview') + ' ' + 'card phone-section double-gap-top'}>
+        <span>default Lic198B </span>
+      </CardLayout>
 
     )
   }
@@ -34,9 +27,4 @@ Lic198BOverview.propTypes = {
   applicationId: PropTypes.string,
   setFocusState: PropTypes.func,
   getFocusClassName: PropTypes.func
-
-}
-
-Lic198BOverview.defaultProps = {
-  errors: {}
 }

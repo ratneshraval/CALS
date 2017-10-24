@@ -8,7 +8,8 @@ export const addCardAsJS = (inputArray, newCardFields) => {
 
 export const removeCardAsJS = (inputArray, index, newCardFields) => {
   let inputList = Immutable.fromJS(inputArray)
-  inputList = inputList.delete(index)
+//  inputList = inputList.delete(index)
+// TODO: add a delete bit to inputList element if id is present
   if (inputList.size === 0) {
     inputList = inputList.push(newCardFields)
   }
@@ -63,7 +64,7 @@ export const arrayLastToFirst = (arraytoSort) => {
     let lastValue = Immutable.fromJS(arraytoSort).slice(-1).toJS()
     finalArray = lastValue.concat(finalArray)
     return finalArray
-  }else {
+  } else {
     return arraytoSort
   }
 }
