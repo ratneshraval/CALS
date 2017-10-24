@@ -1,9 +1,9 @@
 import React from 'react'
-import Rfa01AOverview from './rfa01AOverview'
-import Rfa01BOverview from './rfa01BOverview'
-import Rfa01COverview from './rfa01COverview'
-import Lic198BOverview from './Lic198BOverview'
-import CardsGroupLayout from 'components/common/CardsGroupLayout'
+import Rfa01AOverview from './rfa01aOverview'
+import Rfa01BOverview from './rfa01bOverview'
+import Rfa01COverview from './rfa01cOverview'
+import Lic198BOverview from './Lic198bOverview'
+import CardsGroupLayout from 'components/common/cardsGroupLayout'
 
 export default class Rfa01PacketList extends React.Component {
   constructor (props) {

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CardLayout from 'components/common/CardLayout'
+import CardLayout from 'components/common/cardLayout'
 
 export default class Rfa01COverview extends React.Component {
   render () {
