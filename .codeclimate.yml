@@ -6,10 +6,8 @@ engines:
   duplication:
     config:
       languages:
-        javascript:
-          mass_threshold: 100
-        ruby:
-          mass_threshold: 100
+       - javascript
+       - ruby
     enabled: true
   eslint:
     config:
