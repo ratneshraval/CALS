@@ -11,7 +11,7 @@ describe('Verify Application List View', () => {
   const rfaPacketRenderedView = rfa01AOverviewCard.render(
     <Rfa01AOverview
       focusComponentName={'Rfa01AOverview'}
-      applicationId={10}
+      applicationId={'10'}
       setFocusState={setFocusStateSpy}
       getFocusClassName={getFocusClassNameSpy}
    />)

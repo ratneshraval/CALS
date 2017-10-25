@@ -11,7 +11,7 @@ describe('Verify Application List View', () => {
   const rfaPacketRenderedView = Lic198BOverviewCard.render(
     <Lic198BOverview
       focusComponentName={'Rfa01BOverview'}
-      applicationId={10}
+      applicationId={'10'}
       setFocusState={setFocusStateSpy}
       getFocusClassName={getFocusClassNameSpy}
    />)
