@@ -10,7 +10,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..TZaQAwXh7CTnebLm.Y5f1oV97IBKvCe3gBcLxlZ2-RS3BfVCHE8-z48kuTZwkWW3D36cbm4HjtXjaO6v7E6AvFXAFKpTiOiIskoqxyiTIqhInXxrbZqwFwa2nOMlQPX3gBd8lxjUtClIdN8Rs9VMWnHGbU2PTWEncLUvTTqCRwxlfHY3VPWX9idBA30gc_bJ4rS9mWzDoiL_1jQ_VHavR1sXOEbwoz1yiMSZPZ6CL-JIgABjWt6cHlhxXJRCBt2yRJYeYA2h_974To54V42Q4D32rtK8MSlqJVWuFNEoLJGPeJKOS7EVK5ipl5F4BLK3taZsr-TkUvkBYvgrctaapyz18KfcyMcq_heO7E6VTrO0VKFfNxUDSQu8H8U1O0nUO14DfkJkcHhV3IWKoO9loBubOgG1tc9Quwg4z26r5UcziZ5XxAlPNQd_u__gquG1pxThfcTngb5KFWZw36lY8j-WBg53cg1JVeZauIQlBAxqTbR-0y0bhEt8I29kVz1qX5bGRDtn9H1GXg2j88Y7ek00OKAheFmyAUcjC7Hx2NWREY15li3KbAh50algu0DVsP8ENIm68s3P8QS5c9q7IqJvJ6kJr2Cffv8bSlmwaQ1Ngx9GZFmYiLp0QN9FtR9BoA_Z93bLOpXfWmC4jLfR776APi91rxKg72HtD9HZ8sVtX7pCCZbgE-22TQxi1_GUlK_s9Mo_JFkeWGoPcGCjbJei3TmqL-EUYwCJh_CikClpAm5Qeb1-6PNwNE5-VioYQ-b53up-7ZUS9Z51Ne2UMqUwCGTk2IkJfbKSf1qKwtfHYq8uPsNNULvBb1bx1EXJG9zm2Ld7mu3rvyf7AOLi06gNt9AdwBPtgP5DcDeLy4PxSzxApJ59mCLJukmypkSpfxqABsvyXPK42tFyk_Y9t72irXjmpBeBA-4DZ-VUDahU702pZ-BqLM3crr2MWvlYXgFdjNXlDhx8KoZKzubHxKpxeNWaqhH0XmAsrMTSvCdhZHb3dD6wf9W7dYzq4wUDje4zd4_amN_qvzOYUiaVmEfhjVDv1ArmW43xrbOsbwt5k7ZHKjw1fBpQRi4b6ZsKOMgdBSb8cIzHr6Rr0Y-vQ7Q.nvuuGfsS-WQ3kytpxA4HOQ"
+      - "..s6Q9ttPlg_L6Q0Ab.DZ3NyrPsjqnArJxmQ682X3vRoVTxtvJxZ07AWQuSXlWjtz6CPuX6RftAEZ1E9zxbfHinWpKg5-0DH0ugXesnssmkfnVa9ziBsojrDqZ2YQ6c98OBhwPVHp5UoYeB5sHzSFplKosHJU5DW69ztbEaw7hysg1ldCqGYs8vndbMFCZ7jvWZiG8oIa1UDSZP5cdlerHc_YWeCB_oUaEKy7kz6TrhnbtJ9fHS1iFONkeQqAX1nt3rY_65JhhmYyBT27oR6uDBgo1qbzBhe1_9rasrmaiDiFe3RdfdzgeRlIFeb1jJFwPsGvYfGue67ZHrUqYha_LKYUSCALI6ECHBmLLTTX9YOTnulvT5Vb14vG7KrGp1g0XR31jmlz6U2-qrQJ2WrkAHGNW2J9WmnF6JjlaJEtKZe5q-uTXhqL_glZPjOC51Drb9lWYkQQ9HPlZCDNCAOEYvB5PU-9gGOtPd8sF5WZDNiPnYz70re3yWORF013lOfqvkCSUuKxv81DL6DlIprcU53MeJ3UZcRqhJwDszl92K8REqRfDDsdl7YC7zOEVptxFiRDs9Cv3C02qkCCagAtSZH2b7Xu0nH7MRkMEziTa_htij6r7Hi1znhUQT1yjM8KJPET8JAN-_f5Z7BymphcMDpjaNeSzNmLe_QdxRiZZ8nJtIRmmncvJjFEe68roB0rTCiBnUPjw2xO-UByLYVbj43au4A6Cp7cGKEne1EEfcAA4Im2Ndyaf3hKTBJ9M46kjJZupC2ncMHbSPwh8AyqBnYSrbafJZFM2L9bJxEtI94xpyONe-o7LGpgI1NG3wMh3QdscbCRrfIa3YVx-8CkK_E_m2SD1_72dzwPh5D9ySpXk-CKOJILwEOSfnxLMJBqhiJThWD6Mquqf5AhUWv1VaZcWLZjibG0-OBw_9sXD16ZeOA4x9brK7VrSbuTERvYxaxzCnSl9i_f1awYJclThxKc2NvJPi6EW3BXMpRCdQD8ku44IIHmzlcoW17pfMP7_p1HH2567NkR-Kv-JvBh1fMh2MSu7wvhkhvGdzCVrmowxDUjN_f3C9voQarjnZxfvhWZmGZKdxLT5h4ehPPteZkQ.l9W6FQ-xI3vObRP4zzGy8w"
   response:
     status:
       code: 200
@@ -21,9 +21,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Wed, 25 Oct 2017 15:15:51 GMT
+      - Wed, 25 Oct 2017 15:36:59 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 24-Oct-2017 15:15:51
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 24-Oct-2017 15:36:59
         GMT
       vary:
       - Accept-Encoding
@@ -221,7 +221,7 @@ http_interactions:
           } ]
         }
     http_version: 
-  recorded_at: Wed, 25 Oct 2017 15:15:47 GMT
+  recorded_at: Wed, 25 Oct 2017 15:36:55 GMT
 - request:
     method: get
     uri: https://cals-api.preint.cwds.io/dictionaries/facility-types
@@ -232,7 +232,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - "..TZaQAwXh7CTnebLm.Y5f1oV97IBKvCe3gBcLxlZ2-RS3BfVCHE8-z48kuTZwkWW3D36cbm4HjtXjaO6v7E6AvFXAFKpTiOiIskoqxyiTIqhInXxrbZqwFwa2nOMlQPX3gBd8lxjUtClIdN8Rs9VMWnHGbU2PTWEncLUvTTqCRwxlfHY3VPWX9idBA30gc_bJ4rS9mWzDoiL_1jQ_VHavR1sXOEbwoz1yiMSZPZ6CL-JIgABjWt6cHlhxXJRCBt2yRJYeYA2h_974To54V42Q4D32rtK8MSlqJVWuFNEoLJGPeJKOS7EVK5ipl5F4BLK3taZsr-TkUvkBYvgrctaapyz18KfcyMcq_heO7E6VTrO0VKFfNxUDSQu8H8U1O0nUO14DfkJkcHhV3IWKoO9loBubOgG1tc9Quwg4z26r5UcziZ5XxAlPNQd_u__gquG1pxThfcTngb5KFWZw36lY8j-WBg53cg1JVeZauIQlBAxqTbR-0y0bhEt8I29kVz1qX5bGRDtn9H1GXg2j88Y7ek00OKAheFmyAUcjC7Hx2NWREY15li3KbAh50algu0DVsP8ENIm68s3P8QS5c9q7IqJvJ6kJr2Cffv8bSlmwaQ1Ngx9GZFmYiLp0QN9FtR9BoA_Z93bLOpXfWmC4jLfR776APi91rxKg72HtD9HZ8sVtX7pCCZbgE-22TQxi1_GUlK_s9Mo_JFkeWGoPcGCjbJei3TmqL-EUYwCJh_CikClpAm5Qeb1-6PNwNE5-VioYQ-b53up-7ZUS9Z51Ne2UMqUwCGTk2IkJfbKSf1qKwtfHYq8uPsNNULvBb1bx1EXJG9zm2Ld7mu3rvyf7AOLi06gNt9AdwBPtgP5DcDeLy4PxSzxApJ59mCLJukmypkSpfxqABsvyXPK42tFyk_Y9t72irXjmpBeBA-4DZ-VUDahU702pZ-BqLM3crr2MWvlYXgFdjNXlDhx8KoZKzubHxKpxeNWaqhH0XmAsrMTSvCdhZHb3dD6wf9W7dYzq4wUDje4zd4_amN_qvzOYUiaVmEfhjVDv1ArmW43xrbOsbwt5k7ZHKjw1fBpQRi4b6ZsKOMgdBSb8cIzHr6Rr0Y-vQ7Q.nvuuGfsS-WQ3kytpxA4HOQ"
+      - "..s6Q9ttPlg_L6Q0Ab.DZ3NyrPsjqnArJxmQ682X3vRoVTxtvJxZ07AWQuSXlWjtz6CPuX6RftAEZ1E9zxbfHinWpKg5-0DH0ugXesnssmkfnVa9ziBsojrDqZ2YQ6c98OBhwPVHp5UoYeB5sHzSFplKosHJU5DW69ztbEaw7hysg1ldCqGYs8vndbMFCZ7jvWZiG8oIa1UDSZP5cdlerHc_YWeCB_oUaEKy7kz6TrhnbtJ9fHS1iFONkeQqAX1nt3rY_65JhhmYyBT27oR6uDBgo1qbzBhe1_9rasrmaiDiFe3RdfdzgeRlIFeb1jJFwPsGvYfGue67ZHrUqYha_LKYUSCALI6ECHBmLLTTX9YOTnulvT5Vb14vG7KrGp1g0XR31jmlz6U2-qrQJ2WrkAHGNW2J9WmnF6JjlaJEtKZe5q-uTXhqL_glZPjOC51Drb9lWYkQQ9HPlZCDNCAOEYvB5PU-9gGOtPd8sF5WZDNiPnYz70re3yWORF013lOfqvkCSUuKxv81DL6DlIprcU53MeJ3UZcRqhJwDszl92K8REqRfDDsdl7YC7zOEVptxFiRDs9Cv3C02qkCCagAtSZH2b7Xu0nH7MRkMEziTa_htij6r7Hi1znhUQT1yjM8KJPET8JAN-_f5Z7BymphcMDpjaNeSzNmLe_QdxRiZZ8nJtIRmmncvJjFEe68roB0rTCiBnUPjw2xO-UByLYVbj43au4A6Cp7cGKEne1EEfcAA4Im2Ndyaf3hKTBJ9M46kjJZupC2ncMHbSPwh8AyqBnYSrbafJZFM2L9bJxEtI94xpyONe-o7LGpgI1NG3wMh3QdscbCRrfIa3YVx-8CkK_E_m2SD1_72dzwPh5D9ySpXk-CKOJILwEOSfnxLMJBqhiJThWD6Mquqf5AhUWv1VaZcWLZjibG0-OBw_9sXD16ZeOA4x9brK7VrSbuTERvYxaxzCnSl9i_f1awYJclThxKc2NvJPi6EW3BXMpRCdQD8ku44IIHmzlcoW17pfMP7_p1HH2567NkR-Kv-JvBh1fMh2MSu7wvhkhvGdzCVrmowxDUjN_f3C9voQarjnZxfvhWZmGZKdxLT5h4ehPPteZkQ.l9W6FQ-xI3vObRP4zzGy8w"
   response:
     status:
       code: 200
@@ -243,9 +243,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Wed, 25 Oct 2017 15:15:51 GMT
+      - Wed, 25 Oct 2017 15:36:59 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 24-Oct-2017 15:15:51
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 24-Oct-2017 15:36:59
         GMT
       vary:
       - Accept-Encoding
@@ -302,5 +302,5 @@ http_interactions:
           } ]
         }
     http_version: 
-  recorded_at: Wed, 25 Oct 2017 15:15:47 GMT
+  recorded_at: Wed, 25 Oct 2017 15:36:55 GMT
 recorded_with: VCR 3.0.3

@@ -15,7 +15,7 @@ RSpec.feature 'RFA', js: true do
     expect(page).to have_content 'Rfa-01A Section Summary'
   end
 
-  scenario 'validate applicant card', set_auth_header: true do
+  scenario 'validate full applicant card', set_auth_header: true do
     visit root_path
     click_button 'Create RFA Application (Form 01)'
     expect(page).to have_content 'Rfa-01A Section Summary'
@@ -39,10 +39,8 @@ RSpec.feature 'RFA', js: true do
     fill_in('City', with: 'Sacremento', :match => :prefer_exact)
     expect(page).to have_content 'Phone Number'
     fill_in 'applicants[0].phones[0].number', with: '201-222-2345'
-
     click_button('Save Progress')
     visit page.driver.current_url
-
     expect(find_field('highest_education_level').value).to eq '2'
     expect(find_field('ethnicity').value).to eq '4'
     expect(find_field('applicants[0].driver_license_number').value).to eq 'ABC123'
