@@ -42,9 +42,9 @@ class Rfa::A01Controller < CalsBaseController
     @application_response[:references] = process_items_for_persistance(references_params, rfa_references_helper, params[:id]) if params[:references].present?
 
     #TODO: on update we need to create the relevant rfa 01b forms for all
-    # applicatns, other adults, and minorchildren
-  create_rfa_01b_forms(@application_response[:applicants], params[:id])  if @application_response[:applicants].present?
-  create_rfa_01b_forms(@application_response[:otherAdults], params[:id]) if @application_response[:otherAdults].present?
+    # applicatns, other adults, and minorchildren IF generation is to be automatic
+    # create_rfa_01b_forms(@application_response[:applicants], params[:id])  if @application_response[:applicants].present?
+    # create_rfa_01b_forms(@application_response[:otherAdults], params[:id]) if @application_response[:otherAdults].present?
   end
 
   private
@@ -144,12 +144,6 @@ class Rfa::A01Controller < CalsBaseController
 
     permitted_params[:items] = permitted_params.delete(:references)
     permitted_params
-  end
-
-  def create_rfa_01b_forms(adults, applicationId)
-    adults.each do |adult|
-      rfa_b01_application_helper.create_application(applicationId, adult.id)
-    end
   end
 
   def rfa_application_helper

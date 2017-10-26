@@ -43,7 +43,7 @@ export default class Rfa01PacketList extends React.Component {
           <Rfa01BOverview
             focusComponentName={this.state.focusComponentName}
             applicationId={applicationId}
-            rfa01BForms={rfa_01b_forms}
+            rfa01A={application}
             setFocusState={this.setFocusState}
             getFocusClassName={this.getFocusClassName} />
         </CardsGroupLayout>
