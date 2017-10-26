@@ -28,7 +28,7 @@ export default class Rfa01PacketList extends React.Component {
   render () {
     let applicationId = this.props.application_id
     let application = this.props.rfa_01a_application
-    let rfa_01b_forms = this.props.rfa_01b_forms
+    let rfa01BForms = this.props.rfa_01b_forms
     return (
       <div>
         <CardsGroupLayout>
