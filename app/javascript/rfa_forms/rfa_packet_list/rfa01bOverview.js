@@ -18,22 +18,18 @@ export default class Rfa01BOverview extends React.Component {
         handleOnClick={() => this.props.setFocusState('Rfa01BOverview')}
         focusClassName={this.props.getFocusClassName('Rfa01BOverview') + ' ' + 'card phone-section double-gap-top'}>
         {applicants && applicants.map((applicant, index) => {
-          <div id={'rfa01BForm_applicants' + index}>
           return (
-              <Rfa01bLink
-                index={index}
-                applicant={applicant}
-                applicationId={applicationId} />)
-            </div>
+            <Rfa01bLink
+              index={index}
+              applicant={applicant}
+              applicationId={applicationId} />)
         })}
         {otherAdults && otherAdults.map((otherAdult, index) => {
-          <div id={'rfa01BForm_otherAdults' + index}>
           return (
-              <Rfa01bLink
-                index={index}
-                applicant={otherAdult}
-                applicationId={applicationId} />)
-            </div>
+            <Rfa01bLink
+              index={index}
+              applicant={otherAdult}
+              applicationId={applicationId} />)
         })}
 
       </CardLayout>
