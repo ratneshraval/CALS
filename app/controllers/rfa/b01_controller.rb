@@ -1,7 +1,7 @@
 class Rfa::B01Controller < CalsBaseController
 
   def index
-      rfa_b01_response = rfa_b01_application_helper.create_application(params[:application_id], params[:adult_id])
+      rfa_b01_response = rfa_b01_application_helper.create_application(params[:application_id], params[:adult_id], params[:api_url_path])
       rfa_b01_application = Rfa::B01::Application.new
       rfa_b01_application.id = rfa_b01_response['id']
       redirect_to edit_rfa_b01_path(rfa_b01_application.id)

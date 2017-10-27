@@ -3,8 +3,8 @@ class Helpers::Rfa::B01::ApplicationHelper < Helpers::ModelHelperBase
     Rfa::B01::Application
   end
 
-  def create_application(applicationId, applicantId)
-    model_class.create_application(auth_header, applicationId, applicantId)
+  def create_application(applicationId, applicantId, api_url_path)
+    model_class.create_application(auth_header, applicationId, applicantId, api_url_path)
   end
 
   def all(applicationId)

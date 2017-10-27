@@ -21,14 +21,16 @@ export default class Rfa01BOverview extends React.Component {
           return (
             <Rfa01bLink
               index={index}
-              applicant={applicant}
+              adult={applicant}
+              api_url_path={'applicants'}
               applicationId={applicationId} />)
         })}
         {otherAdults && otherAdults.map((otherAdult, index) => {
           return (
             <Rfa01bLink
               index={index}
-              applicant={otherAdult}
+              adult={otherAdult}
+              api_url_path={'other-adults'}
               applicationId={applicationId} />)
         })}
 
