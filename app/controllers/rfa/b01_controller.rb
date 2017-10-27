@@ -1,10 +1,12 @@
 class Rfa::B01Controller < CalsBaseController
 
-  def index
-      rfa_b01_response = rfa_b01_application_helper.create_application(params[:application_id], params[:adult_id], params[:api_url_path])
-      rfa_b01_application = Rfa::B01::Application.new
-      rfa_b01_application.id = rfa_b01_response['id']
-      redirect_to edit_rfa_b01_path(rfa_b01_application.id)
+
+  def create_applicant
+    create(params[:applicant_id], 'applicants')
+  end
+
+  def create_other_adult
+    create(params[:other_adult_id],'other-adults')
   end
 
   def edit
@@ -15,6 +17,13 @@ class Rfa::B01Controller < CalsBaseController
   def update; end
 
   private
+
+  def create(resource_id, resource_path)
+    rfa_b01_response = rfa_b01_application_helper.create_application(params[:a01_id], resource_id, resource_path)
+    rfa_b01_application = Rfa::B01::Application.new
+    rfa_b01_application.id = rfa_b01_response['id']
+    redirect_to edit_rfa_b01_path(rfa_b01_application.id)
+  end
 
   def rfa_b01_application_helper
     Helpers::Rfa::B01::ApplicationHelper.new(auth_header: get_session_token)

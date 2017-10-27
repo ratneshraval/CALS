@@ -14,13 +14,22 @@ Rails.application.routes.draw do
 
   namespace :rfa do
     resources :a01 do
-      resources :applicant, only: [:index, :create, :edit]
-      resource :residence, only: [:show, :create, :edit]
+      resources :applicants, only: [] do
+        resources :b01, only: [:index], action: 'create_applicant'
+      end
+
+      resources :other_adults, only: [] do
+        resources :b01, only: [:index], action: 'create_other_adult'
+      end
+
       resources :packet
 
     end
-    resources :b01
+
+    resources :b01, only: [:edit, :update]
   end
+
+
   #get 'geoservice', to: 'geoservice#show'
   resources :geoservice, only: [:create] do
     collection { post :validate }
