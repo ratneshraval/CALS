@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {DropDownField} from 'components/common/dropDownField'
+import {getFocusClassName} from 'helpers/cardsHelper.jsx'
 
 const CountyUseOnlyCard = ({
   setFocusState,
-  getFocusClassName,
+  focusComponentName,
   county,
   CountyList,
   onFieldChange
@@ -14,7 +15,7 @@ const CountyUseOnlyCard = ({
       <div className='county_use_only_card'>
         <div id='CountyUseOnlySection'
           onClick={() => setFocusState('CountyUseOnlySection')}
-          className={getFocusClassName('CountyUseOnlySection') + ' ' + 'card phone-section double-gap-top'}>
+          className={this.getFocusClassName('CountyUseOnlySection', focusComponentName) + ' ' + 'card phone-section double-gap-top'}>
           <div className='card-header'>
             <span>For County Use Only</span>
           </div>
@@ -37,7 +38,7 @@ const CountyUseOnlyCard = ({
 }
 CountyUseOnlyCard.propTypes = {
   setFocusState: PropTypes.func,
-  getFocusClassName: PropTypes.func,
+  focusComponentName: PropTypes.string,
   CountyList: PropTypes.array,
   onFieldChange: PropTypes.func.isRequired
 }

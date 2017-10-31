@@ -2,6 +2,7 @@ import React from 'react'
 import CriminalFields from './criminalFields'
 import {DropDownField} from 'components/common/dropDownField'
 import {yesNo} from 'constants/constants'
+import {getFocusClassName} from 'helpers/cardsHelper.jsx'
 
 export default class CaliforniaCriminalBackground extends React.Component {
   addCard () {
@@ -9,17 +10,19 @@ export default class CaliforniaCriminalBackground extends React.Component {
   }
 
   render () {
-    let crimes = this.props.crimes || []
-    return (
-      <div className='ca_criminal_background'>
-        <div id='CACriminalBackgroundCard' onClick={() => this.props.setFocusState('CACriminalBackgroundCard')}
-          className={this.props.getFocusClassName('ca_criminal_background') + ' ' + 'card phone-section double-gap-top'}>
-          <div className='card-header'><span>Disclosure of Criminal Background - California (only)</span></div>
-          <div className='card-body'>
-            <div className='row list-item'>
+    let crimes = this.props.crimes
+
+  return (
+    <CardLayout
+      idClassName='ca_criminal_background'
+      id='CACriminalBackgroundCard'
+      label='Disclosure of Criminal Background - California (only)'
+      handleOnClick={() => this.props.setFocusState('CACriminalBackgroundCard')}
+      focusClassName={this.getFocusClassName('CACriminalBackgroundCard', this.props.focusComponentName) + ' ' + 'card phone-section double-gap-top'}>
               <div>Have you ever been convicted of a crime in California?</div>
-              <div>You need not disclose any marijuana-related offenses covered by the marijuana reform legislation codified in Health and Safety Code
- sections 11361.5 and 11361.7.</div>
+              <div>You need not disclose any marijuana-related offenses covered
+                 by the marijuana reform legislation codified in Health and Safety Code
+                sections 11361.5 and 11361.7.</div>
               <DropDownField
                 gridClassName='col-md-4'
                 id='YesNo'
@@ -34,13 +37,16 @@ export default class CaliforniaCriminalBackground extends React.Component {
                     onFieldChange={this.props.onFieldChange()} />
                 )
               })}
-            </div>
+        </CardLayout>
+
             <div className='text-center'>
               <button onClick={this.addCard} className='btn btn-default'>Add Another Offense - California (only) +</button>
             </div>
-          </div>
-        </div>
-      </div>
+
     )
   }
+}
+
+CaliforniaCriminalBackground.defaultProps = {
+  crimes: []
 }
