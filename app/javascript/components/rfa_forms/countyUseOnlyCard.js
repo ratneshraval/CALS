@@ -15,7 +15,7 @@ const CountyUseOnlyCard = ({
       <div className='county_use_only_card'>
         <div id='CountyUseOnlySection'
           onClick={() => setFocusState('CountyUseOnlySection')}
-          className={this.getFocusClassName('CountyUseOnlySection', focusComponentName) + ' ' + 'card phone-section double-gap-top'}>
+          className={getFocusClassName('CountyUseOnlySection', focusComponentName) + ' ' + 'card phone-section double-gap-top'}>
           <div className='card-header'>
             <span>For County Use Only</span>
           </div>
