@@ -6,7 +6,7 @@ import {fieldErrorsAsImmutableSet} from 'helpers/validationHelper.jsx'
 import InputField from 'components/common/inputField.jsx'
 import {DropDownFormField} from 'components/common/dropDownFormField.jsx'
 import {getFocusClassName} from 'helpers/cardsHelper.jsx'
-import CardLayout from 'components/common/CardLayout.js'
+import CardLayout from 'components/common/cardLayout.js'
 
 export default class ApplicantDetailsCard extends React.Component {
   constructor (props) {
@@ -24,7 +24,7 @@ export default class ApplicantDetailsCard extends React.Component {
         id='applicantDetailsCard'
         label='Lic198B Section Summary'
         handleOnClick={() => this.props.setFocusState('applicantDetailsCard')}
-        focusClassName={this.getFocusClassName('applicantDetailsCard', this.props.focusComponentName) + ' ' + 'card phone-section double-gap-top'}>
+        focusClassName={getFocusClassName('applicantDetailsCard', this.props.focusComponentName) + ' ' + 'card phone-section double-gap-top'}>
 
         <p>I declare under penalty of perjury under the laws of the State of California
            that I have read and understand the information contained in this afidavit

@@ -1,5 +1,6 @@
 import React from 'react'
 import {getFocusClassName} from 'helpers/cardsHelper.jsx'
+import CardLayout from 'components/common/cardLayout.js'
 
 export default class OutOfStateDisclosureCard extends React.Component {
   render () {
@@ -9,7 +10,7 @@ export default class OutOfStateDisclosureCard extends React.Component {
         id='outOfStateDisclosureCard'
         label='This section applies only to applicants and adults residing in the home'
         handleOnClick={() => this.props.setFocusState('outOfStateDisclosureCard')}
-        focusClassName={this.getFocusClassName('outOfStateDisclosureCard', this.props.focusComponentName) + ' ' + 'card phone-section double-gap-top'}>
+        focusClassName={getFocusClassName('outOfStateDisclosureCard', this.props.focusComponentName) + ' ' + 'card phone-section double-gap-top'}>
         <div>I'm out of state</div>
       </CardLayout>
     )

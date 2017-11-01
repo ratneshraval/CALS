@@ -10,6 +10,7 @@ import PrivacyStatement from './privacyStatement'
 import {CountyUseOnlyCard} from 'components/rfa_forms/countyUseOnlyCard.js'
 import {getDictionaryId, dictionaryNilSelect, checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
 import {addCardAsJS, setFocusState, removeCardAsJS, handleRelationshipTypeToApplicant, getFocusClassName} from 'helpers/cardsHelper.jsx'
+import CardsGroupLayout from 'components/common/cardsGroupLayout.js'
 
 import '../rfa01a_edit_view/stylesheets/cards-main.scss'
 
@@ -31,10 +32,6 @@ export default class Rfa01bList extends React.Component {
 
   setFocusState (focusComponentName) {
     this.setState({focusComponentName: focusComponentName})
-  }
-
-  getFocusClassName (componentName) {
-    return this.state.focusComponentName === componentName ? 'edit' : 'show'
   }
 
   onFieldChange () {

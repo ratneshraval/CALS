@@ -57,10 +57,10 @@ export default class Rfa01EditView extends React.Component {
     let params = this.state.application
     fetchRequest(url, 'PUT', this.state.application).then(
       response => response.json()).then((response) => {
-      return this.setState({
-        formData: response
+        return this.setState({
+          formData: response
+        })
       })
-    })
       .catch(error => {
         return this.setState({
           data: error
@@ -120,7 +120,7 @@ export default class Rfa01EditView extends React.Component {
             <CountyUseOnlyCard
               countyUseOnlyCardId='county_use_only'
               setFocusState={this.setFocusState}
-              getFocusClassName={this.getFocusClassName}
+              focusComponentName={this.state.focusComponentName}
               county={countyValue}
               CountyList={this.props.countyTypes}
               onFieldChange={(event) => this.setApplicationState('application_county',
