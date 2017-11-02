@@ -3,7 +3,7 @@ import {yesNo} from 'constants/constants'
 import Immutable from 'immutable'
 import ApplicantMaritalHistoryCard from './applicantMaritalHistoryCard'
 import AdultChildrenFields from './adultChildrenFields'
-import {addCardAsJS, removeCardAsJS} from 'helpers/cardsHelper.jsx'
+import {addCardAsJS, removeCard} from 'helpers/cardsHelper.jsx'
 
 export const relationshipToAdultsDefaults = Object.freeze({
   applicant_id: '',
@@ -88,12 +88,12 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
   }
 
   onMaritalHistoryClickClose (index) {
-    let formerSpousesList = removeCardAsJS(this.props.applicantsHistory.former_spouses, index, formerSpousesDefaults)
+    let formerSpousesList = removeCard(this.props.applicantsHistory.former_spouses, index, formerSpousesDefaults)
     this.updateNestedCards(formerSpousesList, 'former_spouses')
   }
 
   onAdultChildClickClose (index) {
-    let adultChildrenList = removeCardAsJS(this.props.applicantsHistory.adult_children, index, adultChildrenDefaults)
+    let adultChildrenList = removeCard(this.props.applicantsHistory.adult_children, index, adultChildrenDefaults)
     this.updateNestedCards(adultChildrenList, 'adult_children')
   }
 
@@ -138,9 +138,9 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
   }
 
   render () {
-    let applicantsHistory = this.props.applicantsHistory || applicantsHistoryDefaults
-    let applicantMaritalHistories = applicantsHistory && applicantsHistory.former_spouses || [formerSpousesDefaults]
-    let adultChildrenList = applicantsHistory && applicantsHistory.adult_children || [adultChildrenDefaults]
+    let applicantsHistory = this.props.applicantsHistory
+    let applicantMaritalHistories = applicantsHistory && applicantsHistory.former_spouses
+    let adultChildrenList = applicantsHistory && applicantsHistory.adult_children
 
     return (
       <div className='applicant_marital_history_cards'>
@@ -151,30 +151,30 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
           </div>
           <div className='card-body'>
             {
-                applicantMaritalHistories.map((applicantMaritalHistory, index) => {
-                  return (
-                    <div key={'formerSpouse' + '[' + index + ']'} className='row list-item' >
-                      <div> <span onClick={(event) => this.onMaritalHistoryClickClose(index)} className='pull-right glyphicon glyphicon-remove' />
-                      </div>
-                      { <ApplicantMaritalHistoryCard
-                        index={index}
-                        idPrefix={'applicantsHistory.former_spouses' + '[' + index + '].'}
-                        applicants={this.props.applicants || []}
-                        maritalHistory={applicantMaritalHistory}
-                        validator={this.props.validator}
-                        changeMaritalHistory={this.changeMaritalHistory}
-                        handleRelationshipTypeToApplicant={this.handleRelationshipTypeToApplicantFormerSpouse}
-                        setParentState={this.props.setParentState}
-                        relationshipTypes={this.props.relationshipTypes}
-                        suffixTypes={this.props.suffixTypes}
-                        prefixTypes={this.props.prefixTypes}
-                        nameTypes={this.props.nameTypes}
-                        stateTypes={this.props.stateTypes}
-                        marriageTerminationReasons={this.props.marriageTerminationReasons}
-                        errors={this.props.errors.former_spouses[index]} /> }
+              applicantMaritalHistories.map((applicantMaritalHistory, index) => {
+                return (
+                  <div key={'formerSpouse' + '[' + index + ']'} className='row list-item' >
+                    <div> <span onClick={(event) => this.onMaritalHistoryClickClose(index)} className='pull-right glyphicon glyphicon-remove' />
                     </div>
-                  )
-                })
+                    { <ApplicantMaritalHistoryCard
+                      index={index}
+                      idPrefix={'applicantsHistory.former_spouses' + '[' + index + '].'}
+                      applicants={this.props.applicants || []}
+                      maritalHistory={applicantMaritalHistory}
+                      validator={this.props.validator}
+                      changeMaritalHistory={this.changeMaritalHistory}
+                      handleRelationshipTypeToApplicant={this.handleRelationshipTypeToApplicantFormerSpouse}
+                      setParentState={this.props.setParentState}
+                      relationshipTypes={this.props.relationshipTypes}
+                      suffixTypes={this.props.suffixTypes}
+                      prefixTypes={this.props.prefixTypes}
+                      nameTypes={this.props.nameTypes}
+                      stateTypes={this.props.stateTypes}
+                      marriageTerminationReasons={this.props.marriageTerminationReasons}
+                      errors={this.props.errors.former_spouses[index]} /> }
+                  </div>
+                )
+              })
             }
             <div className='text-center'>
               <button onClick={(event) => this.addMaritalHistoryCard(event, applicantMaritalHistories)} className='btn btn-default'>Add another Marital History +</button>
@@ -185,32 +185,32 @@ export default class ApplicantMaritalHistoryCardGroup extends React.Component {
           </div>
           <div className='card-body'>
             {
-            adultChildrenList.map((adultChild, index) => {
-              return (
+              adultChildrenList.map((adultChild, index) => {
+                return (
 
-                <div key={'adultChild' + '[' + index + ']'} className='row list-item' >
-                  <div> <span onClick={() => this.onAdultChildClickClose(index)} className='pull-right glyphicon glyphicon-remove' />
+                  <div key={'adultChild' + '[' + index + ']'} className='row list-item' >
+                    <div> <span onClick={() => this.onAdultChildClickClose(index)} className='pull-right glyphicon glyphicon-remove' />
+                    </div>
+                    { <AdultChildrenFields
+                      index={index}
+                      idPrefix={'applicantsHistory.adult_children' + '[' + index + '].'}
+                      applicants={this.props.applicants || []}
+                      adultChild={adultChild}
+                      validator={this.props.validator}
+                      changeAdultChild={this.changeAdultChild}
+                      setParentState={this.props.setParentState}
+                      changeAdultHistoryAddress={this.changeAdultHistoryAddress}
+                      handleRelationshipTypeToApplicant={this.handleRelationshipTypeToApplicantAdultChild}
+                      relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
+                      suffixTypes={this.props.suffixTypes}
+                      prefixTypes={this.props.prefixTypes}
+                      nameTypes={this.props.nameTypes}
+                      stateTypes={this.props.stateTypes} />}
                   </div>
-                  { <AdultChildrenFields
-                    index={index}
-                    idPrefix={'applicantsHistory.adult_children' + '[' + index + '].'}
-                    applicants={this.props.applicants || []}
-                    adultChild={adultChild}
-                    validator={this.props.validator}
-                    changeAdultChild={this.changeAdultChild}
-                    setParentState={this.props.setParentState}
-                    changeAdultHistoryAddress={this.changeAdultHistoryAddress}
-                    handleRelationshipTypeToApplicant={this.handleRelationshipTypeToApplicantAdultChild}
-                    relationshipToApplicantTypes={this.props.relationshipToApplicantTypes}
-                    suffixTypes={this.props.suffixTypes}
-                    prefixTypes={this.props.prefixTypes}
-                    nameTypes={this.props.nameTypes}
-                    stateTypes={this.props.stateTypes} />}
-                </div>
 
-              )
-            })
-          }
+                )
+              })
+            }
             <div className='text-center'>
               <button onClick={(event) => this.addAdultChildCard(event, adultChildrenList)} className='btn btn-default'>Add another Adult Child +</button>
             </div>
