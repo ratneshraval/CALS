@@ -27,7 +27,7 @@ export class MinorCardField extends React.Component {
           id='relationship_to_applicant'
           selectClassName='reusable-select'
           optionList={this.props.relationshipToApplicantTypes}
-          value={getDictionaryId(mminor.relationship_to_applicants[0].relationship_to_applicant)}
+          value={getDictionaryId(minor.relationship_to_applicants[0].relationship_to_applicant)}
           label='Relationship Type'
           onChange={(event) => this.props.handleRelationshipTypeToApplicant(this.props.index, dictionaryNilSelect(event.target.selectedOptions[0]), 'relationship_to_applicant')} />
         <DropDownField

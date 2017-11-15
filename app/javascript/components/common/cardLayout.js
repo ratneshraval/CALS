@@ -19,11 +19,7 @@ const CardLayout = ({
           <span>{label}</span>
         </div>
         <div className='card-body'>
-          <div className='row list-item'>
-            <div className='text-center'>
-              {children}
-            </div>
-          </div>
+          {children}
         </div>
       </div>
     </div>
