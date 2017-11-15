@@ -1,4 +1,10 @@
 
+import Enzyme from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+import Promise from 'es6-promise-promise'
+
+Enzyme.configure({ adapter: new Adapter() })
+
 var testsContext = require.context('./', true, /_tests$/)
 testsContext.keys().forEach(testsContext)
 

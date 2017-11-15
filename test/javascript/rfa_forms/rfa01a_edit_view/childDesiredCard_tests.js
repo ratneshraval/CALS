@@ -45,8 +45,9 @@ describe('Verify relation between applicant', function () {
       siblingGroups={siblingGroups.items}
       ageGroups={ageGroups.items}
     />)
-    let childInHomeField = newchildCardComp.find('#child_in_home')
-    childInHomeField.simulate('change', {selectedOptions: [{value: 'yes', text: 'yes'}]})
+    newChildDesired.child_in_home = 'true'
+    let childInHomeField = newchildCardComp.find('#child_in_home').hostNodes()
+    childInHomeField.simulate('change', {target: {selectedOptions: [{value: 'true', text: 'Yes'}]}})
     expect(setParentStateSpy).toHaveBeenCalledWith('child_in_home', newChildDesired.child_in_home)
   })
 })

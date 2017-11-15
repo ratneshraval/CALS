@@ -54,7 +54,16 @@ module.exports = function (config) {
     },
     coverageReporter: {
       dir: '../reports/coverage/karma/',
-      subdir: '.'
+      subdir: '.',
+      check: {
+        global: {
+          statements: 68,
+          branches: 56,
+          functions: 57,
+          lines: 69,
+          excludes: []
+        }
+      }
       // Would output the results into: .'../reports/coverage/'
     },
 
@@ -68,6 +77,7 @@ module.exports = function (config) {
       'karma-coverage',
       'karma-chrome-launcher',
       'karma-webpack',
+      'karma-ievms',
       'istanbul-instrumenter-loader'
     ],
     // web server port
