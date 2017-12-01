@@ -63,9 +63,8 @@ describe('verify agency component fields ', () => {
   it('verify agency change drop down', () => {
     let agencyDropDownField = agencyComponent.find('#agency-q1-type-0')
     agencyDropDownField.simulate('change', {target: {selectedOptions: [{value: 1, text: 'License'}]}})
-    expect(onAgencyChangeSpy).toHaveBeenCalledWith( Object({ target: Object({ selectedOptions: 
-    	[ Object({ value: 1, text: 'License' }) ] }) }), [ 'new' ], 0, 'type', 'foster_care_licenses_q1',
-    	 'agencies', Object({ id: 1, value: 'License' }) )
+    expect(onAgencyChangeSpy).toHaveBeenCalledWith( ({ target: ({ selectedOptions: [ ({ value: 1, text: 'License' }) ] }) }), 
+    [ 'new' ], 0, 'type', 'foster_care_licenses_q1', 'agencies', ({ id: 1, value: 'License' }) )
     										
  
   })
