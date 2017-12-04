@@ -46,6 +46,29 @@ describe('Verify RFA 01C child desired', function () {
           id: 0
         },
         school_name: '',
+
+
+
+        school_address: { 
+          street_address: '', 
+          zip: '', 
+          city: '', 
+          state: { 
+            value: '', 
+            id: 0 
+          }, 
+          type: { 
+            value: '', 
+            id: 0 
+          }, 
+        },
+
+
+
+
+
+
+
         school_address: {
           street_address: '',
           zip: '',
@@ -109,4 +132,29 @@ describe('Verify RFA 01C child desired', function () {
     relationField.simulate('change', {target: {value: 'Text'}})
     expect(setParentStateSpy).toHaveBeenCalledWith('school_name', 'Text', 0)
   })
+  it('verify date of birth', () => {
+    let relationField = childCardComp.find('#date_of_birth')
+    relationField.simulate('change', {target: {selectedOptions: [{value: '0'}]}})
+    expect(setParentStateSpy).toHaveBeenCalledWith('date_of_birth', '', 0)
+  })
+  it('verify date of birth on blur', () => {
+    let relationField = childCardComp.find('#date_of_birth')
+    relationField.simulate('blur', {target: {selectedOptions: [{value: '0'}]}})
+    expect(setParentStateSpy).toHaveBeenCalledWith('date_of_birth', '', 0)
+  })
+  it('verify date of placement', () => {
+    let relationField = childCardComp.find('#date_of_placement')
+    relationField.simulate('blur', {target: {selectedOptions: [{value: '0'}]}})
+    expect(setParentStateSpy).toHaveBeenCalledWith('date_of_placement', '', 0)
+  })
+  it('verify date of placement on change', () => {
+    let relationField = childCardComp.find('#date_of_placement')
+    relationField.simulate('change', {target: {selectedOptions: [{value: '0'}]}})
+    expect(setParentStateSpy).toHaveBeenCalledWith('date_of_placement', '', 0)
+  })
+  //  it('verify street address field', () => {
+  //   let relationField = childCardComp.find('#street_address').at(0)
+  //   relationField.simulate('change', {target: {selectedOptions: [{value: '1', text: 'Alameda'}]}})
+  //   expect(setParentStateSpy).toHaveBeenCalledWith('school_address', Object({ id: '1', value: 'Alameda' }), 0)
+  // })
 })
