@@ -129,9 +129,4 @@ describe('Verify RFA 01C child desired', function () {
     relationField.simulate('change', {target: {selectedOptions: [{value: '0'}]}})
     expect(setParentStateSpy).toHaveBeenCalledWith('date_of_placement', '', 0)
   })
-  //  it('verify street address field', () => {
-  //   let relationField = childCardComp.find('#street_address').at(0)
-  //   relationField.simulate('change', {target: {selectedOptions: [{value: '1', text: 'Alameda'}]}})
-  //   expect(setParentStateSpy).toHaveBeenCalledWith('school_address', Object({ id: '1', value: 'Alameda' }), 0)
-  // })
 })
