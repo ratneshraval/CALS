@@ -46,29 +46,6 @@ describe('Verify RFA 01C child desired', function () {
           id: 0
         },
         school_name: '',
-
-
-
-        school_address: { 
-          street_address: '', 
-          zip: '', 
-          city: '', 
-          state: { 
-            value: '', 
-            id: 0 
-          }, 
-          type: { 
-            value: '', 
-            id: 0 
-          }, 
-        },
-
-
-
-
-
-
-
         school_address: {
           street_address: '',
           zip: '',
