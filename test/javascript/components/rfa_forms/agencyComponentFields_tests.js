@@ -6,7 +6,7 @@ import {stateTypes} from '../../helpers/constants'
 describe('verify agency component fields ', () => {
   let agencyComponent, onAgencyChangeSpy,
     removeAgencyCardSpy, q1History, optionList
-  let value = 0
+  let indexValue = 0
 
   beforeEach(() => {
     q1History = {
@@ -17,16 +17,16 @@ describe('verify agency component fields ', () => {
     onAgencyChangeSpy = jasmine.createSpy('onAgencyChange')
 
     agencyComponent = shallow(<AgencyComponent
-      index={value}
-      id={'Q1-' + value}
+      index={indexValue}
+      id={'Q1-' + indexValue}
       defKey='foster_care_licenses_q1'
       subKey='agencies'
       agencies={q1History.agencies}
       label='Agency Name'
       placeholder=''
       dropdownLabel='license type'
-      inputId={'agency-q1-name-' + value}
-      dropDownId={'agency-q1-type-' + value}
+      inputId={'agency-q1-name-' + indexValue}
+      dropDownId={'agency-q1-type-' + indexValue}
       optionList={stateTypes.items}
       dropDownValue='a'
       inputValue='ABC'
@@ -42,19 +42,19 @@ describe('verify agency component fields ', () => {
   it('verify remove added Agency Name', () => {
     let removeButton = agencyComponent.find('span')
     removeButton.simulate('click', 'event')
-    expect(removeAgencyCardSpy).toHaveBeenCalledWith('event', [ 'new' ], value, 'foster_care_licenses_q1', 'agencies')
+    expect(removeAgencyCardSpy).toHaveBeenCalledWith('event', [ 'new' ], indexValue, 'foster_care_licenses_q1', 'agencies')
   })
 
   it('verify onChange function for agency name field', () => {
-    let changeAgencyName = agencyComponent.find('#agency-q1-name-' + value)
+    let changeAgencyName = agencyComponent.find('#agency-q1-name-' + indexValue)
     changeAgencyName.simulate('change', {target: {value: 'Agency New'}})
-    expect(onAgencyChangeSpy).toHaveBeenCalledWith({target: {value: 'Agency New'}}, [ 'new' ], value, 'name', 'foster_care_licenses_q1', 'agencies', 'Agency New')
+    expect(onAgencyChangeSpy).toHaveBeenCalledWith({target: {value: 'Agency New'}}, [ 'new' ], indexValue, 'name', 'foster_care_licenses_q1', 'agencies', 'Agency New')
   })
 
   it('verify agency change drop down', () => {
-    let agencyDropDownField = agencyComponent.find('#agency-q1-type-' + value)
+    let agencyDropDownField = agencyComponent.find('#agency-q1-type-' + indexValue)
     agencyDropDownField.simulate('change', {target: {selectedOptions: [{value: 1, text: 'License'}]}})
     expect(onAgencyChangeSpy).toHaveBeenCalledWith(({ target: ({ selectedOptions: [ ({ value: 1, text: 'License' }) ] }) }),
-      [ 'new' ], value, 'type', 'foster_care_licenses_q1', 'agencies', ({ id: 1, value: 'License' }))
+      [ 'new' ], indexValue, 'type', 'foster_care_licenses_q1', 'agencies', ({ id: 1, value: 'License' }))
   })
 })
