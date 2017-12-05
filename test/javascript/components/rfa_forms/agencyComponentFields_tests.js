@@ -6,7 +6,7 @@ import {stateTypes} from '../../helpers/constants'
 describe('verify agency component fields ', () => {
   let agencyComponent, onAgencyChangeSpy,
     removeAgencyCardSpy, q1History, optionList
-  let value=0;
+  let value = 0
 
   beforeEach(() => {
     q1History = {
