@@ -103,7 +103,7 @@ export default class DesiredChildCard extends React.Component {
             addressTitle='Address'
             stateTypes={this.props.stateTypes}
             addressFields={child.school_address}
-            onChange={(fieldId, event) => this.handleAddressChange(fieldId, event, this.props.index)} />
+            onChange={(fieldId, event) => this.handleAddressChange('street_address', fieldId, event, this.props.index)} />
         </div>
       </form>
     )
