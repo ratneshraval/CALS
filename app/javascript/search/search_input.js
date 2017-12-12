@@ -37,10 +37,6 @@ export default class SearchInput extends React.Component {
     const countyIterate = countyList.map((county) =>
       <option key={county.id} id={county.id} value={county.value}>{county.value}</option>
     )
-    const btnStyle={
-      padding: 15,
-      width: 100
-    }
     return (
       <div className='search_input col-xs-12 col-sm-12 col-md-12 col-lg-12'>
         <form onSubmit={this.sendSearchInput.bind(this)}>
@@ -87,7 +83,7 @@ export default class SearchInput extends React.Component {
           </div>
           <div className='field_search col-xs-12 col-sm-1 col-md-1 col-lg-1'>
             <div className='search_block'>
-              <button id='search' type='submit' className= 'btn btn-primary' style={btnStyle}>Search</button>
+              <button id='search' type='submit' className= 'btn btn-primary'>Search</button>
             </div>
           </div>
         </form>
@@ -95,3 +91,4 @@ export default class SearchInput extends React.Component {
     )
   }
 }
+
