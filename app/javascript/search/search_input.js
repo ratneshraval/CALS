@@ -37,15 +37,19 @@ export default class SearchInput extends React.Component {
     const countyIterate = countyList.map((county) =>
       <option key={county.id} id={county.id} value={county.value}>{county.value}</option>
     )
+    const btnStyle={
+      padding: 15,
+      width: 100
+    }
     return (
       <div className='search_input col-xs-12 col-sm-12 col-md-12 col-lg-12'>
         <form onSubmit={this.sendSearchInput.bind(this)}>
           <div className='field_input col-xs-12 col-sm-11 col-md-11 col-lg-11'>
             <div className='input_data col-xs-12 col-sm-2 col-md-2 col-lg-2'>
-              <div className='input_lable'>
+              <div>
                 <span>County</span>
               </div>
-              <div className='styled-select county'>
+              <div>
                 <select ref={this.state.county} value={this.state.county} onChange={(event) => this.handleChange('countyId', event)}>
                   <option value=' ' />
                   {countyIterate}
@@ -54,10 +58,10 @@ export default class SearchInput extends React.Component {
               </div>
             </div>
             <div className='input_data col-xs-12 col-sm-2 col-md-2 col-lg-2'>
-              <div className='input_lable'>
+              <div>
                 <span>Facility Type</span>
               </div>
-              <div className='styled-select county'>
+              <div>
                 <select ref={this.state.facility} value={this.state.facility} onChange={(event) => this.handleChange('facilityTypeId', event)}>
                   <option value='' />
                   {facilityIterate}
@@ -83,7 +87,7 @@ export default class SearchInput extends React.Component {
           </div>
           <div className='field_search col-xs-12 col-sm-1 col-md-1 col-lg-1'>
             <div className='search_block'>
-              <button id='search' type='submit' className='search-icon' />
+              <button id='search' type='submit' className= 'btn btn-primary' style={btnStyle}>Search</button>
             </div>
           </div>
         </form>
