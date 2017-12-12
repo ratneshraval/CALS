@@ -91,4 +91,3 @@ export default class SearchInput extends React.Component {
     )
   }
 }
-
