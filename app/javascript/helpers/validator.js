@@ -37,28 +37,28 @@ export default class Validator {
     this.validations = this.validations.merge({[fieldName]: newRules})
   }
 
-  allFieldErrorsByRule (rule) {
-    let errors = {}
-    let filteredRules = this.allValidationsWithOnlyRule(rule)
+  // allFieldErrorsByRule (rule) {
+  //   let errors = {}
+  //   let filteredRules = this.allValidationsWithOnlyRule(rule)
 
-    filteredRules.map((fieldRules, fieldName) => {
-      if (this.fieldErrors(fieldName).size > 0) { errors[fieldName] = this.fieldErrors(fieldName) }
-    })
+  //   filteredRules.map((fieldRules, fieldName) => {
+  //     if (this.fieldErrors(fieldName).size > 0) { errors[fieldName] = this.fieldErrors(fieldName) }
+  //   })
 
-    return Immutable.fromJS(errors)
-  }
+  //   return Immutable.fromJS(errors)
+  // }
 
-  allFieldsErrors (container) {
-    let errors = {}
-    if (container) {
-      container.forEach((fieldName) => {
-        errors[fieldName] = this.fieldErrors(fieldName)
-      })
-    } else {
-      errors = this.errors
-    }
-    return Immutable.fromJS(errors)
-  }
+  // allFieldsErrors (container) {
+  //   let errors = {}
+  //   if (container) {
+  //     container.forEach((fieldName) => {
+  //       errors[fieldName] = this.fieldErrors(fieldName)
+  //     })
+  //   } else {
+  //     errors = this.errors
+  //   }
+  //   return Immutable.fromJS(errors)
+  // }
 
   fieldErrors (fieldName) {
     return Immutable.Set(this.errors[fieldName] || [])
@@ -90,44 +90,36 @@ export default class Validator {
   isValidDate (opt) {
     return (moment(opt.value, 'MM/DD/YYYY', true).isValid() || (_.isEmpty(opt.value) || _.isEmpty(opt.value.trim())))
   }
-  // Filter field validations containing given ruleName
-  // return all validations for that field
-  // if a field has multiple rules, all rules are returned
-  // alternate function names
-  // getAllValidationsByRule
-  // filterFieldValidationsAllRules
-  allValidationsWithRule (ruleName) {
-  // get all validation rule that matches with rule name
-    return this.validations.filter(fieldValidations => (
-      fieldValidations.find(validationRule => validationRule.get('rule') === ruleName)
-    ) !== undefined)
-  }
+  // // Filter field validations containing given ruleName
+  // // return all validations for that field
+  // // if a field has multiple rules, all rules are returned
+  // // alternate function names
+  // // getAllValidationsByRule
+  // // filterFieldValidationsAllRules
+  // allValidationsWithRule (ruleName) {
+  // // get all validation rule that matches with rule name
+  //   return this.validations.filter(fieldValidations => (
+  //     fieldValidations.find(validationRule => validationRule.get('rule') === ruleName)
+  //   ) !== undefined)
+  // }
 
-  // Filter field validations containing given ruleName
-  // return only rules matching ruleName
-  // alternate function names
-  // getValidationsByRule
-  // filterFieldValidationsContainingRule
-  allValidationsWithOnlyRule (ruleName) {
-    return this.validations.map(fieldValidations => (
-      fieldValidations.filter(validationRule => validationRule.get('rule') === ruleName)
-    )).filter(rules =>
-      // remove empty validations
-      rules.size > 0
-    )
-  }
+  // // Filter field validations containing given ruleName
+  // // return only rules matching ruleName
+  // // alternate function names
+  // // getValidationsByRule
+  // // filterFieldValidationsContainingRule
+  // allValidationsWithOnlyRule (ruleName) {
+  //   return this.validations.map(fieldValidations => (
+  //     fieldValidations.filter(validationRule => validationRule.get('rule') === ruleName)
+  //   )).filter(rules =>
+  //     // remove empty validations
+  //     rules.size > 0
+  //   )
+  // }
 
-  allIsRequiredRules () {
-    return this.allValidationsWithOnlyRule('isRequired')
-  }
-
-  validateAllRequired (data) {
-    let requiredRules = this.allIsRequiredRules()
-    requiredRules.map((fieldRules, fieldName) => {
-      const fieldValue = _.get(data, fieldName)
-      this.validateField(fieldName, fieldValue)
-    })
-  }
+  // allIsRequiredRules () {
+  //   return this.allValidationsWithOnlyRule('isRequired')
+  // }
 
   validateFieldAndGetError (fieldName, value) {
     let error
@@ -174,25 +166,33 @@ export default class Validator {
     }
   }
 
-  validateAll (data) {
-    // validate all fields
-    this.validations.map((fieldRules, fieldName) => {
-      const fieldValue = _.get(data, fieldName)
-      this.validateField(fieldName, fieldValue)
-    })
+  // validateAllRequired (data) {
+  //   let requiredRules = this.allIsRequiredRules()
+  //   requiredRules.map((fieldRules, fieldName) => {
+  //     const fieldValue = _.get(data, fieldName)
+  //     this.validateField(fieldName, fieldValue)
+  //   })
+  // }
 
-    // validate all sub validators
-    // this.validators.map(v => {
-    //   console.log(v.datakey)
-    //   v.validateAll(immutableData.get(v.dataKey))
-    // })
-  }
+  // validateAll (data) {
+  //   // validate all fields
+  //   this.validations.map((fieldRules, fieldName) => {
+  //     const fieldValue = _.get(data, fieldName)
+  //     this.validateField(fieldName, fieldValue)
+  //   })
 
-  validateAllFields (container) {
-    if (container) {
-      Object.entries(container).forEach(([fieldName, value]) => {
-        this.validateField(fieldName, value)
-      })
-    }
-  }
+  //   //  validate all sub validators
+  //   this.validators.map(v => {
+  //     console.log(v.datakey)
+  //     v.validateAll(immutableData.get(v.dataKey))
+  //   })
+  // }
+
+  // validateAllFields (container) {
+  //   if (container) {
+  //     Object.entries(container).forEach(([fieldName, value]) => {
+  //       this.validateField(fieldName, value)
+  //     })
+  //   }
+  // }
 }
