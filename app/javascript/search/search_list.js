@@ -6,18 +6,18 @@ import {searchDataDefaults} from './search_grid.js'
 export default class SearchList extends React.Component {
   render () {
     const searchResult = this.props.searchResults
-    const resultTable = searchResult.map((result) => {
+    const resultTable = searchResult.map((result, index) => {
       // let displayAddress = result.addresses[0] !== undefined && result.addresses[0].address.street_address !== undefined
-      let address = result.addresses[0].address.street_address + ',' + result.addresses[0].address.city +
-        ',' + result.addresses[0].address.state + ' ' + result.addresses[0].address.zip_code
-      let phone = result.phones[0].number.replace(/(\d{3})(\d{3})(\d{4})/, '($1)-$2-$3')
+      let address = result.address ? result.addresses[0].address.street_address + ',' + result.addresses[0].address.city +
+        ',' + result.addresses[0].address.state + ' ' + result.addresses[0].address.zip_code : 'N/A'
+      let phone = result.phones.length > 0 ? result.phones[0].number.replace(/(\d{3})(\d{3})(\d{4})/, '($1)-$2-$3') : 'N/A'
 
       return (
-        <tr key={result.license_number}>
+        <tr key={index}>
           <td><a href={urlPrefixHelper('/facilities/' + result.license_number)}>{result.name}</a></td>
           <td>{result.license_number}</td>
           <td>{result.type.value}</td>
-          <td>{result.status.value}</td>
+          <td>{result.status ? result.status.value : 'N/A'}</td>
           <td>{result.name}</td>
           <td>{address}</td>
           <td>{result.county.value}</td>

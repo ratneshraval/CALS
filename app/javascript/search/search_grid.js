@@ -16,14 +16,14 @@ export const searchDataDefaults = Object.freeze({
 export default class SearchGrid extends React.Component {
   render () {
     const searchResults = this.props.searchResults
-    const gridResult = searchResults.map((result) => {
+    const gridResult = searchResults.map((result, index) => {
       // let displayAddress = result.addresses[0] !== undefined && result.addresses[0].address.street_address !== undefined
-      let address = result.addresses[0].address.street_address + ',' + result.addresses[0].address.city +
-        ',' + result.addresses[0].address.state + ' ' + result.addresses[0].address.zip_code
-      let phone = result.phones[0].number.replace(/(\d{3})(\d{3})(\d{4})/, '($1)-$2-$3')
+      let address = result.address ? result.addresses[0].address.street_address + ',' + result.addresses[0].address.city +
+        ',' + result.addresses[0].address.state + ' ' + result.addresses[0].address.zip_code : 'N/A'
+      let phone = result.phones.length > 0 ? result.phones[0].number.replace(/(\d{3})(\d{3})(\d{4})/, '($1)-$2-$3') : 'N/A'
 
       return (
-        <div key={result.license_number} className='grid_view_inner col-xs-12 col-sm-12 col-md-12 col-lg-12' >
+        <div key={index} className='grid_view_inner col-xs-12 col-sm-12 col-md-12 col-lg-12' >
           <div className='col-xs-12 col-sm-1 col-md-1 col-lg-1'>
             <a href={urlPrefixHelper('/facilities/' + result.license_number)}><div className='home-icon' /></a>
           </div>
@@ -40,10 +40,10 @@ export default class SearchGrid extends React.Component {
                 value={result.license_number} />
               <GridInnerLayout
                 title={'Facility Type'}
-                value={result.type.value} />
+                value={result.type ? result.type.value : 'N/A'} />
               <GridInnerLayout
                 title={'Status'}
-                value={result.status.value} />
+                value={result.status ? result.status.value : 'N/A'} />
               <GridInnerLayout
                 title={'Licensee Name'}
                 value={result.name} />
@@ -54,7 +54,7 @@ export default class SearchGrid extends React.Component {
                 value={address} />
               <GridInnerLayout
                 title={'County'}
-                value={result.county.value} />
+                value={result.county ? result.county.value : 'N/A'} />
               <GridInnerLayout
                 title={'Facility Phone Number'}
                 value={phone} />
@@ -65,7 +65,7 @@ export default class SearchGrid extends React.Component {
             <GridOuterLayout>
               <GridInnerLayout
                 title={'Assigned Worker'}
-                value={result.assigned_worker.value ? result.assigned_worker.value : 'N/A'} />
+                value={result.assigned_worker ? result.assigned_worker.value : 'N/A'} />
               <GridInnerLayout
                 title={'Assigned Worker'}
                 value={phone} />

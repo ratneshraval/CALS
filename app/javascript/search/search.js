@@ -62,9 +62,16 @@ export default class Search extends React.Component {
     fetchRequest(url, 'POST', params).then(
       response => response.json())
       .then((response) => {
-        return this.setState({
-          searchData: response
-        })
+        if (response.length > 0) {
+          return this.setState({
+            searchData: response
+          })
+        } else {
+          return this.setState({
+            searchData: [],
+            fromResponse: true
+          })
+        }
       })
       .catch(error => {
         console.log(error)
