@@ -3,12 +3,9 @@ import PropTypes from 'prop-types'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
 import GridInnerLayout from './common/gridInnerLayout.js'
 import GridOuterLayout from './common/gridOuterLayout.js'
-import {addressDefaults, phoneDefaults, defaultValue} from '../facility/address.jsx'
+import {addressDefaults, phoneDefaults} from '../facility/address.jsx'
 
 export const searchDataDefaults = Object.freeze({
-  county: defaultValue,
-  facilityType: defaultValue,
-  status: defaultValue,
   addresses: [addressDefaults],
   phones: [phoneDefaults]
 })
