@@ -24,7 +24,7 @@ export default class SearchGrid extends React.Component {
 
       return (
         <div key={result.license_number} className='grid_view_inner col-xs-12 col-sm-12 col-md-12 col-lg-12' >
-          <div className='col-xs-12 col-sm-1 col-md-1 col-lg-1'>
+          <div className='col-sm-1 col-md-1 col-lg-1'>
             <a href={urlPrefixHelper('/facilities/' + result.license_number)}><div className='home-icon' /></a>
           </div>
           <div className='col-xs-12 col-sm-11 col-md-11 col-lg-11'>
