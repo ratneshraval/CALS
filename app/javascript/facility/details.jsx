@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {SmallInnerBlockDetails} from './smallInnerBlockDetails.js'
+import {checkForNA, checkValueForNull} from '../search/common/commonUtils'
 
 export default class FacilityDetails extends React.Component {
   render () {
     const result = this.props.facilityData
-    const assignedWorker = result.assigned_worker.value ? result.assigned_worker.value : 'N/A'
-    const licenseEffectiveDate = result.status.value === ('Pending' || 'Probationary License') ? 'N/A' : (result.license_effective_date == null ? 'N/A' : result.license_effective_date)
-    const applicationReceivedDate = result.original_application_recieved_date == null ? 'N/A' : result.original_application_recieved_date
+    const licenseEffectiveDate = result.status.value === ('Pending' || 'Probationary License') ? 'N/A' : (checkValueForNull(result.license_effective_date))
     return (
       <div className='facility-details grid_view col-xs-12 col-sm-12 col-md-12 col-lg-12'>
         <div>
@@ -16,7 +15,7 @@ export default class FacilityDetails extends React.Component {
           </h1>
           <div>
             <h3>
-                      FACILITY TYPE : {' ' + result.type.value}
+            FACILITY TYPE : {' ' + checkForNA(result.type)}
             </h3>
           </div>
         </div>
@@ -25,45 +24,45 @@ export default class FacilityDetails extends React.Component {
           <div className='col-xs-12 col-sm-4 col-md-4 col-lg-4'>
             <div className='inner_block'>
               <SmallInnerBlockDetails
-                classNameTitle={''}
-                title={'NAME OF LICENSEE/ PARENTS'}
+                classNameTitle=''
+                title='NAME OF LICENSEE/ PARENTS'
                 value={result.licensee_name} />
               <SmallInnerBlockDetails
-                classNameTitle={''}
-                title={'APPROVAL/LICENSING WORKER'}
-                value={assignedWorker} />
+                classNameTitle=''
+                title='APPROVAL/LICENSING WORKER'
+                value={checkForNA(result.assigned_worker)} />
               <SmallInnerBlockDetails
                 classNameTitle={''}
-                title={'ASSIGNED OVERSIGHT AGENCY'}
+                title='ASSIGNED OVERSIGHT AGENCY'
                 value={result.district_office.name} />
             </div>
           </div>
           <div className='col-xs-12 col-sm-4 col-md-4 col-lg-4'>
             <div className='inner_block'>
               <SmallInnerBlockDetails
-                classNameTitle={''}
-                title={'FACILITY LICENSE NUMBER'}
+                classNameTitle=''
+                title='FACILITY LICENSE NUMBER'
                 value={result.license_number} />
               <SmallInnerBlockDetails
-                classNameTitle={''}
-                title={'LICENSE STATUS'}
+                classNameTitle=''
+                title='LICENSE STATUS'
                 value={result.status.value} />
               <SmallInnerBlockDetails
-                classNameTitle={''}
-                title={'CAPACITY'}
+                classNameTitle=''
+                title='CAPACITY'
                 value={result.capacity} />
             </div>
           </div>
           <div className='col-xs-12 col-sm-4 col-md-4 col-lg-4'>
             <div className='inner_block'>
               <SmallInnerBlockDetails
-                classNameTitle={''}
-                title={'LICENSE EFFECTIVE DATE'}
+                classNameTitle=''
+                title='LICENSE EFFECTIVE DATE'
                 value={licenseEffectiveDate} />
               <SmallInnerBlockDetails
-                classNameTitle={''}
-                title={'APPLICATION RECEIVED DATE'}
-                value={applicationReceivedDate} />
+                classNameTitle=''
+                title='APPLICATION RECEIVED DATE'
+                value={checkValueForNull(result.original_application_recieved_date)} />
             </div>
           </div>
         </div>
