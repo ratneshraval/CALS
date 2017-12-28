@@ -57,10 +57,10 @@ module.exports = function (config) {
       subdir: '.',
       check: {
         global: {
-          statements: 73,
-          branches: 61,
-          functions: 65,
-          lines: 74,
+          statements: 79,
+          branches: 64,
+          functions: 73,
+          lines: 80,
           excludes: []
         }
       }

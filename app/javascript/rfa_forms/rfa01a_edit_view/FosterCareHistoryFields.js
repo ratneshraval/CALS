@@ -1,9 +1,10 @@
 import React from 'react'
 import Immutable from 'immutable'
 import {DropDownField} from 'components/common/dropDownField'
+import Button from 'components/common/button'
 import {AgencyComponent} from 'components/rfa_forms/agencyComponentFields'
 import {FacilityComponent} from 'components/rfa_forms/fosterFacilityComponent'
-import {checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
+import {checkArrayObjectPresence, dictionaryNilSelectValue} from 'helpers/commonHelper.jsx'
 import {addCardAsJS, removeCard} from 'helpers/cardsHelper.jsx'
 
 export const blankFosterCareFields = Object.freeze(
@@ -190,13 +191,13 @@ export class FosterCareHistoryFields extends React.Component {
               // Question 1
               }
               <DropDownField
-                id={'q1-select-dropdown'}
+                id='q1-select-dropdown'
                 gridClassName='col-md-7'
                 selectClassName={'reusable-select'}
                 value={q1History.was_previously_licensed}
                 optionList={this.props.yesNo.items}
                 label='Have you been previously licensed, certified, or approved to provide foster care?'
-                onChange={(event) => this.setFosterCareNestedState('foster_care_licenses_q1', 'was_previously_licensed', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('foster_care_licenses_q1', 'was_previously_licensed', dictionaryNilSelectValue(event.target.options))} />
             </div>
             <div className={hiddenQ1}>
               {
@@ -226,7 +227,10 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <div className={agencyQ1List ? '' : 'hidden'}>
                 <div className='text-center'>
-                  <button onClick={(event) => { this.addAgencyCard(event, q1History.agencies, 'foster_care_licenses_q1', 'agencies') }} className='btn btn-default q1'>Add another Agency +</button>
+                  <Button
+                    buttonId='addAgency_q1'
+                    label='Add Another Agency +'
+                    onClick={(event) => this.addAgencyCard(event, q1History.agencies, 'foster_care_licenses_q1', 'agencies') } />
                 </div>
               </div>
             </div>
@@ -236,11 +240,12 @@ export class FosterCareHistoryFields extends React.Component {
               // Question 2
               }
               <DropDownField gridClassName='col-md-7'
+                id='q2-select-dropdown'
                 selectClassName={'reusable-select'}
                 value={q2History.have_applied_for_adoption}
                 optionList={this.props.yesNo.items}
                 label='Have you previously applied for adoption?'
-                onChange={(event) => this.setFosterCareNestedState('applications_for_adoption_q2', 'have_applied_for_adoption', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('applications_for_adoption_q2', 'have_applied_for_adoption', dictionaryNilSelectValue(event.target.options))} />
             </div>
 
             <div className={hiddenQ2}>
@@ -262,7 +267,10 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <div className={facilityQ2List ? '' : 'hidden'}>
                 <div className='text-center'>
-                  <button onClick={(event) => { this.addFacilityCard(event, q2History.facilities, 'applications_for_adoption_q2', 'facilities') }} className='btn btn-default q2'>Add another Facility +</button>
+                  <Button
+                    buttonId='addFacility_q2'
+                    label='Add Another Facility +'
+                    onClick={(event) => this.addFacilityCard(event, q2History.facilities, 'applications_for_adoption_q2', 'facilities') } />
                 </div>
               </div>
 
@@ -274,12 +282,13 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <DropDownField
                 gridClassName='col-md-7'
+                id='q3-select-dropdown'
                 selectClassName={'reusable-select'}
                 value={q3History.was_previously_licensed}
                 optionList={this.props.yesNo.items}
                 label='Have you previously been licensed to operate a non-foster care community care facility, child care center, family child
                 care home, or residential care facility for the elderly or chronically ill?'
-                onChange={(event) => this.setFosterCareNestedState('facility_operation_licenses_q3', 'was_previously_licensed', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('facility_operation_licenses_q3', 'was_previously_licensed', dictionaryNilSelectValue(event.target.options))} />
             </div>
 
             <div className={hiddenQ3}>
@@ -308,7 +317,10 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <div className={agencyQ3List ? '' : 'hidden'}>
                 <div className='text-center'>
-                  <button onClick={(event) => { this.addAgencyCard(event, q3History.agencies, 'facility_operation_licenses_q3', 'agencies') }} className='btn btn-default'>Add another Agency +</button>
+                  <Button
+                    buttonId='addFacility_q3'
+                    label='Add Another Agency +'
+                    onClick={(event) => this.addAgencyCard(event, q3History.agencies, 'facility_operation_licenses_q3', 'agencies') } />
                 </div>
               </div>
             </div>
@@ -318,12 +330,13 @@ export class FosterCareHistoryFields extends React.Component {
               // Question 4
               }
               <DropDownField gridClassName='col-md-7'
+                id='q4-select-dropdown'
                 selectClassName={'reusable-select'}
                 optionList={this.props.yesNo.items}
                 value={q4History.was_employed_or_volunteered}
                 label='Have you previously been employed by or volunteered at a community care facility, child care center, family child care
                     home, or residential care facility for the elderly or chromincally ill?'
-                onChange={(event) => this.setFosterCareNestedState('employment_in_facilities_q4', 'was_employed_or_volunteered', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('employment_in_facilities_q4', 'was_employed_or_volunteered', dictionaryNilSelectValue(event.target.options))} />
             </div>
 
             <div className={hiddenQ4}>
@@ -345,7 +358,10 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <div className={facilityQ4List ? '' : 'hidden'}>
                 <div className='text-center'>
-                  <button onClick={(event) => { this.addFacilityCard(event, q4History.facilities, 'employment_in_facilities_q4', 'facilities') }} className='btn btn-default'>Add another Facility +</button>
+                  <Button
+                    buttonId='addAgency_q4'
+                    label='Add Another Facility +'
+                    onClick={(event) => this.addFacilityCard(event, q4History.facilities, 'employment_in_facilities_q4', 'facilities') } />
                 </div>
               </div>
 
@@ -356,12 +372,13 @@ export class FosterCareHistoryFields extends React.Component {
               // Question 5
               }
               <DropDownField gridClassName='col-md-7'
+                id='q5-select-dropdown'
                 selectClassName={'reusable-select'}
                 optionList={this.props.yesNo.items}
                 value={q5History.had_denials}
                 label='Have you had a previous license, certification, relative or nonrelative extended family member approval, or resource
                       family approval application denial?'
-                onChange={(event) => this.setFosterCareNestedState('denial_history_q5', 'had_denials', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('denial_history_q5', 'had_denials', dictionaryNilSelectValue(event.target.options))} />
             </div>
 
             <div className={hiddenQ5}>
@@ -390,7 +407,10 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <div className={agencyQ5List ? '' : 'hidden'}>
                 <div className='text-center'>
-                  <button onClick={(event) => { this.addAgencyCard(event, q5History.agencies, 'denial_history_q5', 'agencies') }} className='btn btn-default'>Add another Agency +</button>
+                  <Button
+                    buttonId='denial_history_q5'
+                    label='Add Another Agency +'
+                    onClick={(event) => this.addAgencyCard(event, q5History.agencies, 'denial_history_q5', 'agencies') } />
                 </div>
               </div>
             </div>
@@ -400,11 +420,12 @@ export class FosterCareHistoryFields extends React.Component {
               // Question 6
               }
               <DropDownField gridClassName='col-md-7'
+                id='q6-select-dropdown'
                 selectClassName={'reusable-select'}
                 optionList={this.props.yesNo.items}
                 value={q6History.had_suspensions_revocations}
                 label='Have you had a license, certification, or approval suspended, revoked, or rescinded?'
-                onChange={(event) => this.setFosterCareNestedState('suspension_revocation_history_q6', 'had_suspensions_revocations', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareNestedState('suspension_revocation_history_q6', 'had_suspensions_revocations', dictionaryNilSelectValue(event.target.options))} />
             </div>
 
             <div className={hiddenQ6}>
@@ -433,7 +454,10 @@ export class FosterCareHistoryFields extends React.Component {
               }
               <div className={agencyQ6List ? '' : 'hidden'}>
                 <div className='text-center'>
-                  <button onClick={(event) => { this.addAgencyCard(event, q6History.agencies, 'suspension_revocation_history_q6', 'agencies') }} className='btn btn-default'>Add another Agency +</button>
+                  <Button
+                    buttonId='addAgency_suspension_q6'
+                    label='Add Another Agency +'
+                    onClick={(event) => this.addAgencyCard(event, q6History.agencies, 'suspension_revocation_history_q6', 'agencies') } />
                 </div>
               </div>
             </div>
@@ -447,7 +471,7 @@ export class FosterCareHistoryFields extends React.Component {
                 optionList={this.props.yesNo.items}
                 value={q7History}
                 label='Have you been subject to an exclusion order?'
-                onChange={(event) => this.setFosterCareHistoryState('was_subject_for_exclusion_order_q7', event.target.selectedOptions[0].value)} />
+                onChange={(event) => this.setFosterCareHistoryState('was_subject_for_exclusion_order_q7', dictionaryNilSelectValue(event.target.options))} />
             </div>
           </form>
         </div>

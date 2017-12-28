@@ -14,7 +14,6 @@ export default class ReferencesCard extends React.Component {
   constructor (props) {
     super(props)
     this.handleAddressChange = this.handleAddressChange.bind(this)
-    this.onSelection = this.onSelection.bind(this)
     this.state = {
       suggestions: []
     }
@@ -25,21 +24,24 @@ export default class ReferencesCard extends React.Component {
     mailingAddressObj = mailingAddressObj.set(key, value)
     this.props.setParentState('mailing_address', mailingAddressObj.toJS(), referencesIndex)
   }
-  onSelection (autofillData, referencesIndex) {
-    let mailingAddressObj = Immutable.fromJS(this.props.reference.mailing_address)
-    autofillData.state = this.props.stateTypes.find(x => x.id === autofillData.state)
-    mailingAddressObj = mailingAddressObj.update(x => autofillData)
-    this.props.setParentState('mailing_address', mailingAddressObj, referencesIndex)
-  }
 
   render () {
     const phoneNumberId = this.props.idPrefix + 'phone_number'
-
+    const reference = this.props.reference
     return (
       <div>
         <CompleteNameFields
           index={this.props.index}
-          fieldValues={this.props.reference}
+          namePrefixId='name_prefix'
+          nameSuffixId='name_suffix'
+          firstNameId='first_name'
+          middleNameId='middle_name'
+          lastNameId='last_name'
+          firstName={reference.first_name}
+          middleName={reference.middle_name}
+          lastName={reference.last_name}
+          nameSuffix={reference.name_suffix}
+          namePrefix={reference.name_prefix}
           suffixTypes={this.props.suffixTypes}
           prefixTypes={this.props.prefixTypes}
           onChange={this.props.setParentState} />
@@ -47,9 +49,9 @@ export default class ReferencesCard extends React.Component {
           index={this.props.index}
           stateTypes={this.props.stateTypes}
           addressTitle='Physical Address'
-          id="street_address"
+          id='street_address'
           addressFields={this.props.reference.mailing_address}
-          onSelection={(suggestionData) => this.onSelection(suggestionData, this.props.index)}
+          onSelection={(autofillData) => this.props.setParentState('mailing_address', autofillData, this.props.index)}
           onChange={(fieldId, event) => this.handleAddressChange(fieldId, event, this.props.index)}
         />
 

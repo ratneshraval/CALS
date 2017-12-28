@@ -7,11 +7,15 @@ export const getDictionaryId = (object) => {
 }
 
 export const dictionaryNilSelect = (object) => {
-  return object.value !== '' ? {id: object.value, value: object.text} : null
+  return dictionaryNilSelectValue(object) !== '' ? {id: dictionaryNilSelectValue(object), value: dictionaryNilSelectText(object)} : null
 }
 
-export const dictionaryNilSelect2 = (object) => {
-  return object[object.selectedIndex].value !== '' ? {id: object[object.selectedIndex].value, value: object[object.selectedIndex].text} : null
+export const dictionaryNilSelectValue = (object) => {
+  return object[object.selectedIndex].value
+}
+
+export const dictionaryNilSelectText = (object) => {
+  return object[object.selectedIndex].text
 }
 
 export const checkArrayObjectPresence = (obj) => {
@@ -25,7 +29,10 @@ export const removeLegalNameType = (nameTypes) => {
 export const FormatDateForPersistance = (dateString) => {
   let persistantDateString
   if (dateString) {
-    persistantDateString = SplitDate(dateString, '/', '-')
+    if (dateString.length === 10) {
+      const dateStringArray = dateString.split('/', 3)
+      persistantDateString = ([dateStringArray[2], dateStringArray[0], dateStringArray[1]]).join('-')
+    }
   } else {
     dateString = ''
   }
@@ -35,20 +42,14 @@ export const FormatDateForPersistance = (dateString) => {
 export const FormatDateForDisplay = (dateStringDisplay) => {
   let persistantDateString
   if (dateStringDisplay) {
-    persistantDateString = SplitDate(dateStringDisplay, '-', '/')
+    if (dateStringDisplay.length === 10) {
+      const dateStringArray = dateStringDisplay.split('-', 3)
+      persistantDateString = ([dateStringArray[1], dateStringArray[2], dateStringArray[0]]).join('/')
+    }
   } else {
     dateStringDisplay = ''
   }
   return persistantDateString || dateStringDisplay.replace(/-/gi, '/')
-}
-
-export const SplitDate = (dateStringToSplit, splitChar, joinChar) => {
-  let persistantDateString
-  if (dateStringToSplit.length === 10) {
-    const dateStringArray = dateStringToSplit ? dateStringToSplit.split(splitChar, 3) : []
-    persistantDateString = ([dateStringArray[2], dateStringArray[1], dateStringArray[0]]).join(joinChar)
-  }
-  return persistantDateString
 }
 
 export const findArrayValueByMethod = (arrayToBeFiltered, method, findByType, comparedWith) => {
@@ -56,8 +57,7 @@ export const findArrayValueByMethod = (arrayToBeFiltered, method, findByType, co
     return obj.get(findByType.toString()) === comparedWith
   })
 }
-// export const filterArrayValueByMethod = (arrayToBeFiltered, method, id) => {
-//   return arrayToBeFiltered[method](obj => {
-//     return obj.get('id') !== id
-//   })
-// }
+
+export const getCountyValue = (application, user) => {
+  return getDictionaryId(application.application_county) || (user && user.county_code)
+}

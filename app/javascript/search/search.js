@@ -6,7 +6,6 @@ import SearchNotFound from './search_notfount'
 import SearchDetails from './search_Data'
 import {fetchRequest} from '../helpers/http'
 import {urlPrefixHelper} from '../helpers/url_prefix_helper.js.erb'
-import 'whatwg-fetch'
 
 export default class Search extends React.Component {
   constructor (props) {
@@ -15,8 +14,7 @@ export default class Search extends React.Component {
       landingPageUrl: props.landingUrl,
       isToggled: true,
       inputData: ' ',
-      fromResponse: false,
-      searchData: []
+      searchData: undefined
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.getCsrfToken = this.getCsrfToken.bind(this)
@@ -38,10 +36,6 @@ export default class Search extends React.Component {
 
   handleToggle () {
     this.setState({isToggled: !this.state.isToggled})
-  }
-
-  getInitialState () {
-    this.state.isToggled = false
   }
 
   addSearchInput (DataSearch) {
@@ -70,20 +64,17 @@ export default class Search extends React.Component {
       .catch(error => {
         console.log(error)
         return this.setState({
-          searchData: [],
-          fromResponse: true
+          searchData: []
         })
       })
   }
 
   render () {
-    let searchArray = this.state.searchData[0] ? this.state.searchData : false
+    const initialLoad = this.state.searchData === undefined
+    const searchResponseHasValues = this.state.searchData && this.state.searchData.length > 0
+
     return (
       <div className='search_page'>
-        <div className='header_cwds col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-          <div className='header-logo' />
-          <a href={this.state.landingPageUrl} className='btn btn-default btn-lg active pull-right back-button' role='button'>Back</a>
-        </div>
         <div className='search-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <SearchInput
             sendSearchInput={this.addSearchInput.bind(this)}
@@ -91,11 +82,11 @@ export default class Search extends React.Component {
             facilityTypes={this.props.facilityTypes}
           />
         </div>
-        {searchArray && <SearchDetails sendSearchInput={this.addSearchInput.bind(this)} {...this} />}
+        {searchResponseHasValues && <SearchDetails sendSearchInput={this.addSearchInput.bind(this)} {...this} />}
         <div className='result-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           {this.state.isToggled && <SearchGrid searchResults={this.state.searchData} />}
           {!this.state.isToggled && <SearchList searchResults={this.state.searchData} />}
-          {(this.state.fromResponse && !searchArray) && <SearchNotFound />}
+          {(!searchResponseHasValues && !initialLoad) && <SearchNotFound />}
         </div>
       </div>
     )

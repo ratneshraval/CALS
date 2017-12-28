@@ -6,20 +6,12 @@ import CompleteNameFields from './completeNameField.jsx'
 import {yesNo} from 'constants/constants'
 import {getDictionaryId, dictionaryNilSelect, FormatDateForDisplay, FormatDateForPersistance} from 'helpers/commonHelper.jsx'
 import {handleRelationshipTypeToApplicant, setToWhomOptionList, handleToWhomValue} from 'helpers/cardsHelper.jsx'
+import AddressComponent from 'components/rfa_forms/addressComponent.js'
 
 export default class AdultChildrenFields extends React.Component {
   render () {
     const adultChild = this.props.adultChild
     const livesInHome = adultChild.lives_in_home === 'true'
-
-    let adultChildNameFieldValues = {
-      first_name: adultChild.first_name,
-      middle_name: adultChild.middle_name,
-      last_name: adultChild.last_name,
-      name_suffix: adultChild.name_suffix,
-      name_prefix: adultChild.name_prefix,
-      name_type: adultChild.name_type
-    }
 
     return (
       <form>
@@ -31,7 +23,7 @@ export default class AdultChildrenFields extends React.Component {
           label='Relationship Type'
           value={getDictionaryId(adultChild.relationship_to_applicants[0].relationship_to_applicant)}
           onChange={(event) => this.props.handleRelationshipTypeToApplicant(this.props.index,
-            dictionaryNilSelect(event.target.selectedOptions[0]), 'relationship_to_applicant')} />
+            dictionaryNilSelect(event.target.options), 'relationship_to_applicant')} />
         <DropDownField
           gridClassName='col-md-4'
           selectClassName='reusable-select'
@@ -45,7 +37,16 @@ export default class AdultChildrenFields extends React.Component {
           <div className='col-md-12'>
             <CompleteNameFields
               index={this.props.index}
-              fieldValues={adultChildNameFieldValues}
+              namePrefixId='name_prefix'
+              nameSuffixId='name_suffix'
+              firstNameId='first_name'
+              middleNameId='middle_name'
+              lastNameId='last_name'
+              firstName={adultChild.first_name}
+              middleName={adultChild.middle_name}
+              lastName={adultChild.last_name}
+              nameSuffix={adultChild.name_suffix}
+              namePrefix={adultChild.name_prefix}
               onChange={this.props.changeAdultChild}
               suffixTypes={this.props.suffixTypes}
               prefixTypes={this.props.prefixTypes} />
@@ -63,36 +64,15 @@ export default class AdultChildrenFields extends React.Component {
 
         { livesInHome ? (<div />)
           : (<div>
-            <InputComponent
-              gridClassName='col-md-12'
-              label='Physical Address'
-              id={this.props.idPrefix + 'street_address'}
-              value={adultChild.address.street_address}
-              onChange={(event) => this.props.changeAdultHistoryAddress('street_address',
-                event.target.value, this.props.index)} />
-            <InputComponent
-              gridClassName='col-md-4'
-              label='Zip Code'
-              id={this.props.idPrefix + 'zip'}
-              value={adultChild.address.zip}
-              onChange={(event) => this.props.changeAdultHistoryAddress('zip',
-                event.target.value, this.props.index)} />
-            <InputComponent
-              gridClassName='col-md-4'
-              label='City'
-              id={this.props.idPrefix + 'city'}
-              value={adultChild.address.city}
-              onChange={(event) => this.props.changeAdultHistoryAddress('city',
-                event.target.value, this.props.index)} />
-            <DropDownField
-              gridClassName='col-md-4'
-              selectClassName='reusable-select'
-              label='State'
-              id={this.props.idPrefix + 'state'}
-              optionList={this.props.stateTypes}
-              value={getDictionaryId(adultChild.address.state)}
-              onChange={(event) => this.props.changeAdultHistoryAddress('state',
-                dictionaryNilSelect(event.target.selectedOptions[0]), this.props.index)} />
+            <AddressComponent
+              index={this.props.index}
+              stateTypes={this.props.stateTypes}
+              addressTitle='Physical Address'
+              id="street_address"
+              addressFields={adultChild.address}
+              onSelection={(autofillData) => this.props.changeAdultChild('address', autofillData, this.props.index)}
+              onChange={(fieldId, event) => this.props.changeAdultHistoryAddress(fieldId, event, this.props.index)}
+            />
           </div>)
         }
       </form>
