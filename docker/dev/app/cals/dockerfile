@@ -1,4 +1,19 @@
-FROM ratneshraval/cals-base:0.5
+
+FROM ruby:2.4.2
+
+RUN gem install rails \
+  && gem install puma
+
+# Get latest nodejs PPA and other repos
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+  && apt-get install -y nodejs \
+  && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+RUN apt-get update -y
+RUN apt-get upgrade -y
+
+RUN apt-get install -y yarn
 
 RUN mkdir /var/www \
   && cd /var/www
@@ -22,14 +37,12 @@ ENV BASE_CALS_API_URL=http://localhost:3001/v1 \
 
 
 # RUN tests
-RUN rails assets:precompile RAILS_ENV=test
-RUN npm run spec-ci
-RUN npm run karma-ci
+# RUN rails assets:precompile RAILS_ENV=test
+# RUN npm run spec-ci
+# RUN npm run karma-ci
 
 # ENV variables
-ENV BASE_CALS_API_URL=http://calsmockapi:3001/v1 \
-  AUTHENTICATION_API_BASE_URL=http://perry.dev.cwds.tabordasolutions.net \
-  REDIS_HOST=calsredis \
+ENV REDIS_HOST=localhost \
   REDIS_PORT=6379 \
   RAILS_RELATIVE_URL_ROOT=/cals
 

@@ -15,7 +15,7 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
 RUN apt-get update -y
 RUN apt-get upgrade -y
 
-RUN apt-get install -y nodejs yarn build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev \
+RUN apt-get install -y yarn build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev \
     iceweasel \
     xvfb \
     bzip2 \
