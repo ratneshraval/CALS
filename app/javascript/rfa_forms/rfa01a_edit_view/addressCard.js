@@ -1,6 +1,6 @@
 import React from 'react'
-import Immutable from 'immutable'
 import PropTypes from 'prop-types'
+import Immutable from 'immutable'
 import {InputComponent} from 'components/common/inputFields'
 import {DropDownField} from 'components/common/dropDownField'
 import YesNoRadioComponent from 'components/common/yesNoFields'
@@ -62,6 +62,18 @@ export default class AddressCard extends React.Component {
     this.props.setParentState('addresses', data.toJS())
   }
 
+  handleClearOnConditionalChange (typeString, key, value, hiddenKey, hiddenDefaultValue) {
+    if (value === false) {
+      let addressData = this.checkAddressType(typeString)
+      let data = addressData.data
+      data = data.update(addressData.index, x => x.set(key, value))
+      data = data.update(addressData.index, x => x.set(hiddenKey, hiddenDefaultValue))
+      this.props.setParentState('addresses', data.toJS())
+    } else {
+      this.props.setParentState(key, value)
+    }
+  }
+
   onSelection (autoFillData, typeString) {
     let addressData = this.checkAddressType(typeString)
     autoFillData.type = addressData.blankAddressFields.type
@@ -75,8 +87,8 @@ export default class AddressCard extends React.Component {
     const physicalAddressFields = hasPhysicalAddressFields ? this.props.addresses.find(o => o.type.value === physicalAddressType) : blankPhysicalAddress
     const hasMailingAddressFields = this.props.addresses !== undefined && this.props.addresses.find(o => o.type.value === mailingAddressType)
     const mailingAddressFields = hasMailingAddressFields ? this.props.addresses.find(o => o.type.value === mailingAddressType) : blankMailingAddress
-    const mailingAddress = this.props.physicalMailingSimilar !== undefined ? this.props.physicalMailingSimilar : ''
-    const hiddenMailingSameAsPhysical = mailingAddress.toString() === 'false' ? 'show' : 'hidden'
+    // const mailingAddress = this.props.physicalMailingSimilar !== undefined ? this.props.physicalMailingSimilar : ''
+    // const hiddenMailingSameAsPhysical = mailingAddress.toString() === 'false' ? 'show' : 'hidden'
     return (
       <div className='card-body'>
         <div className='row'>
@@ -94,10 +106,14 @@ export default class AddressCard extends React.Component {
               <YesNoRadioComponent
                 label='Mailing address the same as Physical Address?'
                 idPrefix='mailing_similar'
-                value={mailingAddress}
-                onFieldChange={(event) => this.props.handleClearOnConditionalChange('physical_mailing_similar', 'addresses', event.target.value, [blankMailingAddress])} />
+                value={this.props.physicalMailingSimilar}
+                onFieldChange={(event) => this.props.handleClearOnConditionalChange('physical_mailing_similar', 'addresses', event.target.value, [blankMailingAddress])}
+                // onYesSelection={(event) => this.handleClearOnConditionalChange(mailingAddressType, 'physical_mailing_similar', true, 'addresses', [blankMailingAddress])}
+                // onNoSelection={(event) => this.handleClearOnConditionalChange(mailingAddressType, 'physical_mailing_similar', false, 'addresses', [blankMailingAddress])}
+              />
             </div>
-            <div className={hiddenMailingSameAsPhysical}>
+
+            {this.props.physicalMailingSimilar && !this.props.physicalMailingSimilar &&
               <AddressComponent
                 stateTypes={this.props.stateTypes}
                 addressTitle='Mailing Address'
@@ -107,7 +123,7 @@ export default class AddressCard extends React.Component {
                 onSelection={(autoFillData) => this.onSelection(autoFillData, mailingAddressType)}
                 onChange={(fieldId, event) => this.onAddressChange(mailingAddressType, fieldId, event)}
               />
-            </div>
+            }
           </form>
         </div>
       </div>
@@ -116,5 +132,6 @@ export default class AddressCard extends React.Component {
 }
 
 AddressCard.propTypes = {
-  handleClearOnConditionalChange: PropTypes.func
+  handleClearOnConditionalChange: PropTypes.func,
+  physicalMailingSimilar: PropTypes.bool
 }

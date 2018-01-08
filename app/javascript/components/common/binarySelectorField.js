@@ -6,7 +6,6 @@ const BinarySelectorField = ({gridClassName, type, label, id, value, checked, di
       type={type}
       id={id}
       value={value}
-      label={label}
       checked={checked}
       disabled={disabled}
       onChange={onChange} />
