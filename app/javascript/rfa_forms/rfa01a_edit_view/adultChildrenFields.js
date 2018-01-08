@@ -58,7 +58,7 @@ export default class AdultChildrenFields extends React.Component {
           label='Lives in home?'
           idPrefix={this.props.idPrefix + 'lives_in_home'}
           value={adultChild.lives_in_home}
-          onFieldChange={(event) => this.props.handleClearOnConditionalChange('lives_in_home', 'address', event.target.value, addressDefaults, this.props.index)} />
+          onFieldChange={(selectedValue) => this.props.handleClearOnConditionalChange('lives_in_home', 'address', selectedValue, addressDefaults, this.props.index)} />
 
         { livesInHome ? (<div />)
           : (<div>

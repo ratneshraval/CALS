@@ -45,7 +45,7 @@ export default class DesiredChildCard extends React.Component {
           idPrefix={'child_identified' + index}
           label='Is the child currently in your home?'
           value={child.child_in_home}
-          onFieldChange={(event) => this.props.setParentState(index, 'child_in_home', event.target.value)} />
+          onFieldChange={(selectedValue) => this.props.setParentState(index, 'child_in_home', selectedValue)} />
         <DesiredChildDetails
           index={index}
           idPrefix='desiredChildCard'

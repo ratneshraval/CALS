@@ -29,7 +29,7 @@ export const blankIdentifiedChild = Object.freeze({
   middle_name: '',
   last_name: '',
   name_suffix: null,
-  child_in_home: '',
+  // child_in_home: '',
   date_of_birth: '',
   gender: null,
   county_of_jurisdiction: null,

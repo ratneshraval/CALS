@@ -107,9 +107,7 @@ export default class AddressCard extends React.Component {
                 label='Mailing address the same as Physical Address?'
                 idPrefix='mailing_similar'
                 value={this.props.physicalMailingSimilar}
-                onFieldChange={(event) => this.props.handleClearOnConditionalChange('physical_mailing_similar', 'addresses', event.target.value, [blankMailingAddress])}
-                // onYesSelection={(event) => this.handleClearOnConditionalChange(mailingAddressType, 'physical_mailing_similar', true, 'addresses', [blankMailingAddress])}
-                // onNoSelection={(event) => this.handleClearOnConditionalChange(mailingAddressType, 'physical_mailing_similar', false, 'addresses', [blankMailingAddress])}
+                onFieldChange={(selectedValue) => this.props.handleClearOnConditionalChange('physical_mailing_similar', 'addresses', selectedValue, [blankMailingAddress])}
               />
             </div>
 

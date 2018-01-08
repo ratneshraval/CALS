@@ -32,14 +32,14 @@ export default class ChildDesiredCard extends React.Component {
             label='Has the child been identified?'
             idPrefix='child_identified'
             value={(this.props.desiredChildSection.child_identified)}
-            onFieldChange={(event) => this.props.setParentState('child_identified', event.target.value)} />
+            onFieldChange={(selectedValue) => this.props.setParentState('child_identified', selectedValue)} />
         </div>
         {childCurrentlyInHomeVisible &&
           <YesNoRadioComponent
             label='Is the child currently in your home?'
             idPrefix='child_in_home'
             value={(this.props.desiredChildSection.child_in_home)}
-            onFieldChange={(event) => this.props.setParentState('child_in_home', event.target.value)} />}
+            onFieldChange={(selectedValue) => this.props.setParentState('child_in_home', selectedValue)} />}
         <CheckboxGroup name='age'
           gridClassName='col-md-12 age'
           selectClassName='reusable-select'

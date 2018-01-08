@@ -50,14 +50,14 @@ export default class AboutThisResidenceCard extends React.Component {
                 label='Weapons in home?'
                 idPrefix='weapons'
                 value={aboutResidence.weapon_in_home}
-                onFieldChange={(event) => this.props.setParentState('weapon_in_home', event.target.value)} />
+                onFieldChange={(selectedValue) => this.props.setParentState('weapon_in_home', selectedValue)} />
             </div>
             <div>
               <YesNoRadioComponent
                 label='Body of Water?'
                 idPrefix='body_of_water_exist'
                 value={aboutResidence.body_of_water_exist}
-                onFieldChange={(event) => this.props.handleClearOnConditionalChange('body_of_water_exist', 'body_of_water_description', event.target.value, '')} />
+                onFieldChange={(selectedValue) => this.props.handleClearOnConditionalChange('body_of_water_exist', 'body_of_water_description', selectedValue, '')} />
             </div>
             <div className={hiddenBodyOfWater}>
               <TextAreaComponent gridClassName='col-md-12' id='body_of_water_description'
@@ -70,7 +70,7 @@ export default class AboutThisResidenceCard extends React.Component {
                 label='Does any person not listed in this document use the residence as their mailing address?'
                 idPrefix='others_using_residence_as_mailing'
                 value={(aboutResidence.others_using_residence_as_mailing)}
-                onFieldChange={(event) => this.props.handleClearOnConditionalChange('others_using_residence_as_mailing', 'other_people_using_residence_as_mailing', event.target.value, [othersUsingAddressMailing])} />
+                onFieldChange={(selectedValue) => this.props.handleClearOnConditionalChange('others_using_residence_as_mailing', 'other_people_using_residence_as_mailing', selectedValue, [othersUsingAddressMailing])} />
             </div>
             <div className={hiddenUseAsMailingAddress} >
               <InputComponent gridClassName='col-md-4' id='firstName' value={othersMailing[0]['first_name']}

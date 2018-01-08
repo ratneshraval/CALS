@@ -206,7 +206,7 @@ export class FosterCareHistoryFields extends React.Component {
                 label='Have you been previously licensed, certified, or approved to provide foster care?'
                 idPrefix='q1-select-dropdown'
                 value={q1History.was_previously_licensed}
-                onFieldChange={(event) => this.handleClearOnConditionalChange('foster_care_licenses_q1', 'was_previously_licensed', event.target.value, 'agencies', [blankAgencyFields])} />
+                onFieldChange={(selectedValue) => this.handleClearOnConditionalChange('foster_care_licenses_q1', 'was_previously_licensed', selectedValue, 'agencies', [blankAgencyFields])} />
             </div>
             <div className={hiddenQ1}>
               {
@@ -252,7 +252,7 @@ export class FosterCareHistoryFields extends React.Component {
                 label='Have you previously applied for adoption?'
                 idPrefix='q2-select-dropdown'
                 value={q2History.have_applied_for_adoption}
-                onFieldChange={(event) => this.handleClearOnConditionalChange('applications_for_adoption_q2', 'have_applied_for_adoption', event.target.value, 'facilities', [''])} />
+                onFieldChange={(selectedValue) => this.handleClearOnConditionalChange('applications_for_adoption_q2', 'have_applied_for_adoption', selectedValue, 'facilities', [''])} />
             </div>
 
             <div className={hiddenQ2}>
@@ -292,7 +292,7 @@ export class FosterCareHistoryFields extends React.Component {
                 care home, or residential care facility for the elderly or chronically ill?'
                 idPrefix='q3-select-dropdown'
                 value={q3History.was_previously_licensed}
-                onFieldChange={(event) => this.handleClearOnConditionalChange('facility_operation_licenses_q3', 'was_previously_licensed', event.target.value, 'agencies', [blankAgencyFields])} />
+                onFieldChange={(selectedValue) => this.handleClearOnConditionalChange('facility_operation_licenses_q3', 'was_previously_licensed', selectedValue, 'agencies', [blankAgencyFields])} />
             </div>
 
             <div className={hiddenQ3}>
@@ -339,7 +339,7 @@ export class FosterCareHistoryFields extends React.Component {
                     home, or residential care facility for the elderly or chromincally ill?'
                 idPrefix='q4-select-dropdown'
                 value={q4History.was_employed_or_volunteered}
-                onFieldChange={(event) => this.handleClearOnConditionalChange('employment_in_facilities_q4', 'was_employed_or_volunteered', event.target.value, 'facilities', [''])} />
+                onFieldChange={(selectedValue) => this.handleClearOnConditionalChange('employment_in_facilities_q4', 'was_employed_or_volunteered', selectedValue, 'facilities', [''])} />
             </div>
 
             <div className={hiddenQ4}>
@@ -379,7 +379,7 @@ export class FosterCareHistoryFields extends React.Component {
                       family approval application denial?'
                 idPrefix='q5-select-dropdown'
                 value={q5History.had_denials}
-                onFieldChange={(event) => this.handleClearOnConditionalChange('denial_history_q5', 'had_denials', event.target.value, 'agencies', [blankAgencyFields])} />
+                onFieldChange={(selectedValue) => this.handleClearOnConditionalChange('denial_history_q5', 'had_denials', selectedValue, 'agencies', [blankAgencyFields])} />
             </div>
 
             <div className={hiddenQ5}>
@@ -424,7 +424,7 @@ export class FosterCareHistoryFields extends React.Component {
                 label='Have you had a license, certification, or approval suspended, revoked, or rescinded?'
                 idPrefix='q6-select-dropdown'
                 value={q6History.had_suspensions_revocations}
-                onFieldChange={(event) => this.handleClearOnConditionalChange('suspension_revocation_history_q6', 'had_suspensions_revocations', event.target.value, 'agencies', [blankAgencyFields])} />
+                onFieldChange={(selectedValue) => this.handleClearOnConditionalChange('suspension_revocation_history_q6', 'had_suspensions_revocations', selectedValue, 'agencies', [blankAgencyFields])} />
             </div>
 
             <div className={hiddenQ6}>
@@ -469,7 +469,7 @@ export class FosterCareHistoryFields extends React.Component {
                 label='Have you been subject to an exclusion order?'
                 idPrefix='q7-select-dropdown'
                 value={q7History}
-                onFieldChange={(event) => this.setFosterCareHistoryState('was_subject_for_exclusion_order_q7', event.target.value)} />
+                onFieldChange={(selectedValue) => this.setFosterCareHistoryState('was_subject_for_exclusion_order_q7', selectedValue)} />
             </div>
           </form>
         </div>
