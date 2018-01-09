@@ -62,18 +62,6 @@ export default class AddressCard extends React.Component {
     this.props.setParentState('addresses', data.toJS())
   }
 
-  handleClearOnConditionalChange (typeString, key, value, hiddenKey, hiddenDefaultValue) {
-    if (value === false) {
-      let addressData = this.checkAddressType(typeString)
-      let data = addressData.data
-      data = data.update(addressData.index, x => x.set(key, value))
-      data = data.update(addressData.index, x => x.set(hiddenKey, hiddenDefaultValue))
-      this.props.setParentState('addresses', data.toJS())
-    } else {
-      this.props.setParentState(key, value)
-    }
-  }
-
   onSelection (autoFillData, typeString) {
     let addressData = this.checkAddressType(typeString)
     autoFillData.type = addressData.blankAddressFields.type
