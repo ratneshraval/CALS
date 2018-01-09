@@ -16,7 +16,7 @@ const YesNoRadioComponent = ({
       labelId={idPrefix + 'Yes'}
       type='radio'
       value={true}
-      checked={value !== undefined && value === true}
+      checked={value === true}
       label='Yes'
       onChange={(event) => onFieldChange(true)} />
     <BinarySelectorField
@@ -25,7 +25,7 @@ const YesNoRadioComponent = ({
       labelId={idPrefix + 'No'}
       type='radio'
       value={false}
-      checked={value !== undefined && value === false}
+      checked={value === false}
       label='No'
       onChange={(event) => onFieldChange(false)} />
   </div>
