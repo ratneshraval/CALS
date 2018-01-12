@@ -3,14 +3,12 @@ version: '2.1'
 # - https://docs.docker.com/compose/extends/#extending-services
 services:
   cals:
-    build:
-      context: .
-      dockerfile: dockerfile
+    build: .
     # command: bash -c "bundle check || bundle install && yarn"
-    command: bash -c "bundle exec puma"
+    # command: bash -c "bundle exec puma"
     ports:
       - "3000:3000"
-      - "4857:4857"
+      # - "4857:4857"
     environment:
       RAILS_ENV: ${RAILS_ENV:-development}
       NODE_ENV: development
@@ -20,10 +18,10 @@ services:
       BASE_SEARCH_API_URL: "https://dora.preint.cwds.io"
       REDIS_HOST: 'redis'
       REDIS_PORT: 6379
-    volumes:
-      - ~/projects/rails/cals:/cals
-      - cals_rubygems:/ruby_gems
-      - cals_node_modules:/cals/node_modules
+    # volumes:
+      # - ~/projects/rails/cals:/cals
+      # - cals_rubygems:/ruby_gems
+      # - cals_node_modules:/cals/node_modules
     links:
       - redis
     tty: true
@@ -32,6 +30,6 @@ services:
     image: 'redis:3.0'
     ports:
       - "6379:6379"
-volumes:
-  cals_rubygems:
-  cals_node_modules:
+# volumes:
+  # cals_rubygems:
+  # cals_node_modules:
