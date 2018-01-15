@@ -9,7 +9,7 @@ export default class SearchInput extends React.Component {
     super(props)
     this.state = {
       searchId: {
-        countyValue: this.props.userDetails.county_name || userDefaults,
+        countyValue: this.props.userDetails.county_name || userDefaults.county_name,
         facilityTypeValue: '',
         facilityIdValue: '',
         facilityNameValue: '',
