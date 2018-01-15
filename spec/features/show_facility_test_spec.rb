@@ -28,7 +28,7 @@ RSpec.feature 'Facilities', js: true, set_auth_header: true  do
   scenario 'click into facility and show children' do
     facilities_list
     click_link('Lederhouse Transitions')
-    expect(page).to have_text('Takahashi')
+    expect(page).to have_text('Jodran')
   end
 
   scenario 'select county dropdown and show search results' do
@@ -40,9 +40,10 @@ RSpec.feature 'Facilities', js: true, set_auth_header: true  do
 
   scenario 'select facility type dropdown and show search results' do
     visit search_index_path
+    select "Orange", :from => "county_select"
     find(:select, 'facility_select').first(:option, 'Adoption Agency').select_option
     find_button('search').click
-    expect(page).to have_text('Adventures in Family')
+    expect(page).to have_text('Open Door Adoption')
   end
 
   def facilities_list
