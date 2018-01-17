@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://calsapi.preint02.cwds.io/facilities/300665437
+    uri: https://calsapi.preint.cwds.io/facilities/300665437
     body:
       encoding: US-ASCII
       string: ''
@@ -10,20 +10,20 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - 873cdde5-61fb-4e55-abfd-169671be268b
+      - ".._IKHzTgp_4pP7F5_.sSDF-NgKJG8mTW6BQI0XfXX471RT265ppQNhcetjtamFlu7uYCKLNpYl_newwlj5Bh0SCA5dwFVaVBZQ_mmf7EMgrMkm-DrAKrrdlS9nrG3hHTPDgzJqD8FIj16D0-P-avmG-RPJO4PsBniFrH1kb1hzGwcobjrUCWyw9dPD3k7XmuvTY4fx6BfzyqORfXdJugeVfL4V5OMGDpXOiuaK2qP4BtDn3o6Zdr20y5mFIqW_5MQ-J841wq54PrkkE2yKazy67Z-yErMDW9QT3uUQwsSkwaIAEBJL_6KV9kDLdw2zZvKrRaDwKOua1sm-Z1Edmg25tDZIhd8TLTY8yao4BSUZcuhLfZBpwHk_JOV3mCIw27g4Wy2XyyNCkfd7KZHHslLp3QpZ01e__VM92PD09PH2-U1IPehvXMTnAGtee30hVCcdL31do4xSmT8XSC7_wFcbIZQc12z-zASbi1tGxJmPxiNJopRnIecpMzJh51KcUFu_utkiwmjPGEoolfoZwrqG10L7no5gR04Jq77Zc_WuU97EYd_0V0umY6DraBCCMXggQixJUqyrJ_hv5SAHNyIrwhHt_LZmi0CVdjVc5TxDNrMpm2RKjduPn38-dzf3OX9x0vyr4s1knPD5mxs0LqCAkD1PWENNYkEDPXqhbPNOWsGw2BcPP41mlgssfCcHrM9Bfk_OtQIPG_OZq5631QG3MJXaHOyaBlJBAA2ifwAcwItdlTYAs8tSgHdTMu6qh723qP3vGg1AxxzyT5ivci69j28uVBqZf4oQFXzWubcjY7rbqlE28sfJ4JPL7wzfygufV3NhumMixP-PAwYLtOVewMNvLpi_mNaI6x9f6gub4vsqFIFFEpWl7KG2ucp5m_n60Ge0NLWKixzZdJPdeJGG64C9PRitwt6vnlSABAGDN91Ya-Ft2-slgPWylAe7mVsBCPQHXttozkJWNujnzivJu3zlq2bGUD_6YNxaoyyrT_GYdfg09VRCera0YuT6hp2lbFOyHeG_E3Bfnbw6pbjMu28wVQ.QjRcg45iKh5G-wCokQFVvw"
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       content-security-policy:
       - default-src 'self' 'unsafe-inline';
       content-type:
       - application/json
       date:
-      - Fri, 12 Jan 2018 23:45:47 GMT
+      - Wed, 01 Nov 2017 02:49:41 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 11-Jan-2018 23:45:47
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 31-Oct-2017 02:49:41
         GMT
       vary:
       - Accept-Encoding
@@ -111,11 +111,11 @@ http_interactions:
           } ],
           "annual_visit_year" : 12
         }
-    http_version: 
-  recorded_at: Fri, 12 Jan 2018 23:45:48 GMT
+    http_version:
+  recorded_at: Wed, 01 Nov 2017 02:49:41 GMT
 - request:
     method: get
-    uri: https://calsapi.preint02.cwds.io/facilities/300665437/children
+    uri: https://calsapi.preint.cwds.io/facilities/300665437/children
     body:
       encoding: US-ASCII
       string: ''
@@ -123,23 +123,23 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - 873cdde5-61fb-4e55-abfd-169671be268b
+      - ".._IKHzTgp_4pP7F5_.sSDF-NgKJG8mTW6BQI0XfXX471RT265ppQNhcetjtamFlu7uYCKLNpYl_newwlj5Bh0SCA5dwFVaVBZQ_mmf7EMgrMkm-DrAKrrdlS9nrG3hHTPDgzJqD8FIj16D0-P-avmG-RPJO4PsBniFrH1kb1hzGwcobjrUCWyw9dPD3k7XmuvTY4fx6BfzyqORfXdJugeVfL4V5OMGDpXOiuaK2qP4BtDn3o6Zdr20y5mFIqW_5MQ-J841wq54PrkkE2yKazy67Z-yErMDW9QT3uUQwsSkwaIAEBJL_6KV9kDLdw2zZvKrRaDwKOua1sm-Z1Edmg25tDZIhd8TLTY8yao4BSUZcuhLfZBpwHk_JOV3mCIw27g4Wy2XyyNCkfd7KZHHslLp3QpZ01e__VM92PD09PH2-U1IPehvXMTnAGtee30hVCcdL31do4xSmT8XSC7_wFcbIZQc12z-zASbi1tGxJmPxiNJopRnIecpMzJh51KcUFu_utkiwmjPGEoolfoZwrqG10L7no5gR04Jq77Zc_WuU97EYd_0V0umY6DraBCCMXggQixJUqyrJ_hv5SAHNyIrwhHt_LZmi0CVdjVc5TxDNrMpm2RKjduPn38-dzf3OX9x0vyr4s1knPD5mxs0LqCAkD1PWENNYkEDPXqhbPNOWsGw2BcPP41mlgssfCcHrM9Bfk_OtQIPG_OZq5631QG3MJXaHOyaBlJBAA2ifwAcwItdlTYAs8tSgHdTMu6qh723qP3vGg1AxxzyT5ivci69j28uVBqZf4oQFXzWubcjY7rbqlE28sfJ4JPL7wzfygufV3NhumMixP-PAwYLtOVewMNvLpi_mNaI6x9f6gub4vsqFIFFEpWl7KG2ucp5m_n60Ge0NLWKixzZdJPdeJGG64C9PRitwt6vnlSABAGDN91Ya-Ft2-slgPWylAe7mVsBCPQHXttozkJWNujnzivJu3zlq2bGUD_6YNxaoyyrT_GYdfg09VRCera0YuT6hp2lbFOyHeG_E3Bfnbw6pbjMu28wVQ.QjRcg45iKh5G-wCokQFVvw"
   response:
     status:
-      code: 200
-      message: 
+      code: 404
+      message:
     headers:
+      cache-control:
+      - must-revalidate,no-cache,no-store
       content-security-policy:
       - default-src 'self' 'unsafe-inline';
       content-type:
-      - application/json
+      - text/html;charset=iso-8859-1
       date:
-      - Fri, 12 Jan 2018 23:45:49 GMT
+      - Wed, 01 Nov 2017 02:49:41 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 11-Jan-2018 23:45:49
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 31-Oct-2017 02:49:42
         GMT
-      vary:
-      - Accept-Encoding
       x-content-type-options:
       - nosniff
       x-frame-options:
@@ -147,31 +147,27 @@ http_interactions:
       x-xss-protection:
       - 1; mode=block
       content-length:
-      - '200'
+      - '261'
       connection:
       - keep-alive
     body:
-      encoding: ASCII-8BIT
-      string: |-
-        {
-          "children" : [ {
-            "id" : "9112      ",
-            "person" : {
-              "gender" : "M",
-              "age" : 13,
-              "first_name" : "Jodran",
-              "last_name" : "Dubose",
-              "date_of_birth" : "2004-07-19"
-            },
-            "date_of_placement" : "2002-06-19",
-            "county_of_origin" : "State of California"
-          } ]
-        }
-    http_version: 
-  recorded_at: Fri, 12 Jan 2018 23:45:51 GMT
+      encoding: UTF-8
+      string: |
+        <html>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>Error 404 Not Found</title>
+        </head>
+        <body><h2>HTTP ERROR 404</h2>
+        <p>Problem accessing /facilities/300665437/children. Reason:
+        <pre>    Not Found</pre></p>
+        </body>
+        </html>
+    http_version:
+  recorded_at: Wed, 01 Nov 2017 02:49:42 GMT
 - request:
     method: get
-    uri: https://calsapi.preint02.cwds.io/facilities/300665437/complaints
+    uri: https://calsapi.preint.cwds.io/facilities/300665437/complaints
     body:
       encoding: US-ASCII
       string: ''
@@ -179,20 +175,20 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - 873cdde5-61fb-4e55-abfd-169671be268b
+      - ".._IKHzTgp_4pP7F5_.sSDF-NgKJG8mTW6BQI0XfXX471RT265ppQNhcetjtamFlu7uYCKLNpYl_newwlj5Bh0SCA5dwFVaVBZQ_mmf7EMgrMkm-DrAKrrdlS9nrG3hHTPDgzJqD8FIj16D0-P-avmG-RPJO4PsBniFrH1kb1hzGwcobjrUCWyw9dPD3k7XmuvTY4fx6BfzyqORfXdJugeVfL4V5OMGDpXOiuaK2qP4BtDn3o6Zdr20y5mFIqW_5MQ-J841wq54PrkkE2yKazy67Z-yErMDW9QT3uUQwsSkwaIAEBJL_6KV9kDLdw2zZvKrRaDwKOua1sm-Z1Edmg25tDZIhd8TLTY8yao4BSUZcuhLfZBpwHk_JOV3mCIw27g4Wy2XyyNCkfd7KZHHslLp3QpZ01e__VM92PD09PH2-U1IPehvXMTnAGtee30hVCcdL31do4xSmT8XSC7_wFcbIZQc12z-zASbi1tGxJmPxiNJopRnIecpMzJh51KcUFu_utkiwmjPGEoolfoZwrqG10L7no5gR04Jq77Zc_WuU97EYd_0V0umY6DraBCCMXggQixJUqyrJ_hv5SAHNyIrwhHt_LZmi0CVdjVc5TxDNrMpm2RKjduPn38-dzf3OX9x0vyr4s1knPD5mxs0LqCAkD1PWENNYkEDPXqhbPNOWsGw2BcPP41mlgssfCcHrM9Bfk_OtQIPG_OZq5631QG3MJXaHOyaBlJBAA2ifwAcwItdlTYAs8tSgHdTMu6qh723qP3vGg1AxxzyT5ivci69j28uVBqZf4oQFXzWubcjY7rbqlE28sfJ4JPL7wzfygufV3NhumMixP-PAwYLtOVewMNvLpi_mNaI6x9f6gub4vsqFIFFEpWl7KG2ucp5m_n60Ge0NLWKixzZdJPdeJGG64C9PRitwt6vnlSABAGDN91Ya-Ft2-slgPWylAe7mVsBCPQHXttozkJWNujnzivJu3zlq2bGUD_6YNxaoyyrT_GYdfg09VRCera0YuT6hp2lbFOyHeG_E3Bfnbw6pbjMu28wVQ.QjRcg45iKh5G-wCokQFVvw"
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       content-security-policy:
       - default-src 'self' 'unsafe-inline';
       content-type:
       - application/json
       date:
-      - Fri, 12 Jan 2018 23:45:52 GMT
+      - Wed, 01 Nov 2017 02:49:42 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 11-Jan-2018 23:45:52
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 31-Oct-2017 02:49:42
         GMT
       vary:
       - Accept-Encoding
@@ -243,6 +239,6 @@ http_interactions:
             } ]
           } ]
         }
-    http_version: 
-  recorded_at: Fri, 12 Jan 2018 23:45:52 GMT
+    http_version:
+  recorded_at: Wed, 01 Nov 2017 02:49:42 GMT
 recorded_with: VCR 3.0.3

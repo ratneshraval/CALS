@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://calsapi.preint02.cwds.io/dictionaries/counties
+    uri: https://calsapi.preint.cwds.io/dictionaries/counties
     body:
       encoding: US-ASCII
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - 6dc19a32-09d4-4459-8416-1dae176a0b3d
+      - "..idFiTkLOJH8zbRim.rbzUJw3e0EEOnrF67_E7vByPkN2RJNCZTXFfEEad8npUnarcnMu4TjcH_UhTKtvvG6RIYle13OBUx1f6lv-rOsie27YmrVYWIbgwnbbjxlgcwW0yOYQaBgnJrFTRIJCj5308YrP97EFhJK-My0qlXabPAjLKkNCg17G6ExjRIDbpGSDUcgFTo69mv34Wc7Kxhiw9zBbthO2DGPxfq4IwsrLV6303RnywoubU3-TNbp7rXvJUwdiIDC5BkYmwvlQkZ0HvgjGJFklHU_61NUyCbGL_a4CPSYbHyNDiuvgpF3qczC5q-cVqGlMAvIKsNDE39GJXslt-uLbNaBNqzQbCIHIYfUg3s3xrI3kS6exePA1kvC2-4mOmZNDNp5NrdjO2XTTW3LXkpMIOUWOTWHC4CMwDKQI_rsw-kCAI2eIabR73FWIJ5kM6kwdbibNdo5GW1_oIh5Ru1C6vzP4HKKzp8YoXXmE_EYvVnpuazy78iypyZQ8LF-fWoMZBtkPwaAy5vO4icooOa3EbE2N8qRgZcITwHDa_7osWcFnI9Vu9vwxC3RKmseIrGpBnQ4yzfz4m1IvF9gnVUWbriohCJc6V89yhzC9C_EcdY-XQyiB8JdW8nm7UPXUCDCtSv87MTiSuYy2mpU_Jt5scqQody1qEaXj0VzY_iTDRhzPq4j4sKvPwqL6Yjz7hK-4aNvihGVnR1EhX0gYz7CY5arLUKLj5nR5nc-H91wHIl6GUfTuPNv_4nn-itRmbBOwnmMbjK3oA3JA0EK1WFnj9rnekx49hGmzAqCJx_r7YolGFtHkJwfItTNk7a37CsUzCnVaARv8lMnBL0Ygjg1sK7psFo5fwgVsChuj61x7wOb7UpOXO7a0tu7XaPRs45BVUkjDND2fNG1n-h9HpsTPDzKhNPD1X9Z-5Gx_kFf5wfUmzzfLyFw7OoS7BJ7pXqk20M9Y3gqGd4yd4l4bMpnQQSnpqlztD_Or-6M3-5prrLtuD23uI7w.1GiUon_173Ze3w2KUEimkQ"
   response:
     status:
       code: 200
@@ -21,9 +21,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Sat, 13 Jan 2018 02:07:57 GMT
+      - Tue, 26 Dec 2017 17:17:33 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Fri, 12-Jan-2018 02:07:57
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 25-Dec-2017 17:17:33
         GMT
       vary:
       - Accept-Encoding
@@ -221,10 +221,10 @@ http_interactions:
           } ]
         }
     http_version: 
-  recorded_at: Sat, 13 Jan 2018 02:07:57 GMT
+  recorded_at: Tue, 26 Dec 2017 17:17:34 GMT
 - request:
     method: get
-    uri: https://calsapi.preint02.cwds.io/dictionaries/facility-types
+    uri: https://calsapi.preint.cwds.io/dictionaries/facility-types
     body:
       encoding: US-ASCII
       string: ''
@@ -232,7 +232,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - 6dc19a32-09d4-4459-8416-1dae176a0b3d
+      - "..idFiTkLOJH8zbRim.rbzUJw3e0EEOnrF67_E7vByPkN2RJNCZTXFfEEad8npUnarcnMu4TjcH_UhTKtvvG6RIYle13OBUx1f6lv-rOsie27YmrVYWIbgwnbbjxlgcwW0yOYQaBgnJrFTRIJCj5308YrP97EFhJK-My0qlXabPAjLKkNCg17G6ExjRIDbpGSDUcgFTo69mv34Wc7Kxhiw9zBbthO2DGPxfq4IwsrLV6303RnywoubU3-TNbp7rXvJUwdiIDC5BkYmwvlQkZ0HvgjGJFklHU_61NUyCbGL_a4CPSYbHyNDiuvgpF3qczC5q-cVqGlMAvIKsNDE39GJXslt-uLbNaBNqzQbCIHIYfUg3s3xrI3kS6exePA1kvC2-4mOmZNDNp5NrdjO2XTTW3LXkpMIOUWOTWHC4CMwDKQI_rsw-kCAI2eIabR73FWIJ5kM6kwdbibNdo5GW1_oIh5Ru1C6vzP4HKKzp8YoXXmE_EYvVnpuazy78iypyZQ8LF-fWoMZBtkPwaAy5vO4icooOa3EbE2N8qRgZcITwHDa_7osWcFnI9Vu9vwxC3RKmseIrGpBnQ4yzfz4m1IvF9gnVUWbriohCJc6V89yhzC9C_EcdY-XQyiB8JdW8nm7UPXUCDCtSv87MTiSuYy2mpU_Jt5scqQody1qEaXj0VzY_iTDRhzPq4j4sKvPwqL6Yjz7hK-4aNvihGVnR1EhX0gYz7CY5arLUKLj5nR5nc-H91wHIl6GUfTuPNv_4nn-itRmbBOwnmMbjK3oA3JA0EK1WFnj9rnekx49hGmzAqCJx_r7YolGFtHkJwfItTNk7a37CsUzCnVaARv8lMnBL0Ygjg1sK7psFo5fwgVsChuj61x7wOb7UpOXO7a0tu7XaPRs45BVUkjDND2fNG1n-h9HpsTPDzKhNPD1X9Z-5Gx_kFf5wfUmzzfLyFw7OoS7BJ7pXqk20M9Y3gqGd4yd4l4bMpnQQSnpqlztD_Or-6M3-5prrLtuD23uI7w.1GiUon_173Ze3w2KUEimkQ"
   response:
     status:
       code: 200
@@ -243,9 +243,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Sat, 13 Jan 2018 02:07:57 GMT
+      - Tue, 26 Dec 2017 17:17:34 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Fri, 12-Jan-2018 02:07:57
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 25-Dec-2017 17:17:34
         GMT
       vary:
       - Accept-Encoding
@@ -389,10 +389,10 @@ http_interactions:
           } ]
         }
     http_version: 
-  recorded_at: Sat, 13 Jan 2018 02:07:57 GMT
+  recorded_at: Tue, 26 Dec 2017 17:17:34 GMT
 - request:
     method: post
-    uri: https://doraapi.preint02.cwds.io/dora/facilities/facility/_search
+    uri: https://dora.preint.cwds.io/dora/facilities/facility/_search
     body:
       encoding: UTF-8
       string: '{"query":{"bool":{"should":[{"bool":{"must":[{"match_phrase":{"name":"Lederhouse
@@ -401,7 +401,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - 6dc19a32-09d4-4459-8416-1dae176a0b3d
+      - "..idFiTkLOJH8zbRim.rbzUJw3e0EEOnrF67_E7vByPkN2RJNCZTXFfEEad8npUnarcnMu4TjcH_UhTKtvvG6RIYle13OBUx1f6lv-rOsie27YmrVYWIbgwnbbjxlgcwW0yOYQaBgnJrFTRIJCj5308YrP97EFhJK-My0qlXabPAjLKkNCg17G6ExjRIDbpGSDUcgFTo69mv34Wc7Kxhiw9zBbthO2DGPxfq4IwsrLV6303RnywoubU3-TNbp7rXvJUwdiIDC5BkYmwvlQkZ0HvgjGJFklHU_61NUyCbGL_a4CPSYbHyNDiuvgpF3qczC5q-cVqGlMAvIKsNDE39GJXslt-uLbNaBNqzQbCIHIYfUg3s3xrI3kS6exePA1kvC2-4mOmZNDNp5NrdjO2XTTW3LXkpMIOUWOTWHC4CMwDKQI_rsw-kCAI2eIabR73FWIJ5kM6kwdbibNdo5GW1_oIh5Ru1C6vzP4HKKzp8YoXXmE_EYvVnpuazy78iypyZQ8LF-fWoMZBtkPwaAy5vO4icooOa3EbE2N8qRgZcITwHDa_7osWcFnI9Vu9vwxC3RKmseIrGpBnQ4yzfz4m1IvF9gnVUWbriohCJc6V89yhzC9C_EcdY-XQyiB8JdW8nm7UPXUCDCtSv87MTiSuYy2mpU_Jt5scqQody1qEaXj0VzY_iTDRhzPq4j4sKvPwqL6Yjz7hK-4aNvihGVnR1EhX0gYz7CY5arLUKLj5nR5nc-H91wHIl6GUfTuPNv_4nn-itRmbBOwnmMbjK3oA3JA0EK1WFnj9rnekx49hGmzAqCJx_r7YolGFtHkJwfItTNk7a37CsUzCnVaARv8lMnBL0Ygjg1sK7psFo5fwgVsChuj61x7wOb7UpOXO7a0tu7XaPRs45BVUkjDND2fNG1n-h9HpsTPDzKhNPD1X9Z-5Gx_kFf5wfUmzzfLyFw7OoS7BJ7pXqk20M9Y3gqGd4yd4l4bMpnQQSnpqlztD_Or-6M3-5prrLtuD23uI7w.1GiUon_173Ze3w2KUEimkQ"
   response:
     status:
       code: 200
@@ -410,9 +410,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Sat, 13 Jan 2018 02:08:04 GMT
+      - Tue, 26 Dec 2017 17:17:35 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Fri, 12-Jan-2018 02:08:04
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 25-Dec-2017 17:17:35
         GMT
       content-length:
       - '7013'
@@ -420,40 +420,40 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"took":2,"timed_out":false,"_shards":{"total":5,"successful":5,"failed":0},"hits":{"total":1,"max_score":6.5497246,"hits":[{"_index":"facilities","_type":"facility","_id":"300665437","_score":6.5497246,"_source":{"href":null,"id":"300665437","type":{"id":"726","value":"TRANSITIONAL
+      string: '{"took":0,"timed_out":false,"_shards":{"total":5,"successful":5,"failed":0},"hits":{"total":1,"max_score":6.5497246,"hits":[{"_index":"facilities","_type":"facility","_id":"300665437","_score":6.5497246,"_source":{"href":null,"id":"300665437","type":{"id":"726","value":"TRANSITIONAL
         HOUSING PLACEMENT PROGRAM"},"name":"Lederhouse Transitions","licensee_name":"Lederhouse
         Transitions Inc.","license_type":"A","assigned_worker":{"id":null,"value":null},"district_office":{"number":"19","name":"PACIFIC
         INLAND CR"},"license_number":"300665437","status":{"id":"5","value":"PROBATIONARY
-        LICENSE"},"capacity":10,"license_effective_date":{"year":2012,"month":"OCTOBER","era":"CE","dayOfMonth":1,"dayOfWeek":"MONDAY","dayOfYear":275,"leapYear":true,"monthValue":10,"chronology":{"calendarType":"iso8601","id":"ISO"}},"original_application_recieved_date":{"year":2012,"month":"JULY","era":"CE","dayOfMonth":18,"dayOfWeek":"WEDNESDAY","dayOfYear":200,"leapYear":true,"monthValue":7,"chronology":{"calendarType":"iso8601","id":"ISO"}},"last_visit_date":{"month":"APRIL","year":2017,"dayOfMonth":14,"dayOfWeek":"FRIDAY","dayOfYear":104,"monthValue":4,"hour":0,"minute":0,"nano":0,"second":0,"chronology":{"calendarType":"iso8601","id":"ISO"}},"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":{"id":"10","value":"CASELOAD
+        LICENSE"},"capacity":10,"license_effective_date":{"year":2012,"month":"OCTOBER","era":"CE","dayOfMonth":1,"dayOfWeek":"MONDAY","dayOfYear":275,"leapYear":true,"monthValue":10,"chronology":{"calendarType":"iso8601","id":"ISO"}},"original_application_recieved_date":{"year":2012,"month":"JULY","era":"CE","dayOfMonth":18,"dayOfWeek":"WEDNESDAY","dayOfYear":200,"leapYear":true,"monthValue":7,"chronology":{"calendarType":"iso8601","id":"ISO"}},"last_visit_date":{"month":"APRIL","year":2017,"hour":0,"minute":0,"nano":0,"second":0,"dayOfMonth":14,"dayOfWeek":"FRIDAY","dayOfYear":104,"monthValue":4,"chronology":{"calendarType":"iso8601","id":"ISO"}},"last_deferred_visit_date":null,"email_address":null,"last_visit_reason":{"id":"10","value":"CASELOAD
         MANAGEMENT"},"last_deferred_visit_reason":null,"county":{"id":"30","value":"ORANGE","lis_code":null},"phones":[{"id":null,"relation":"primary","type":"Cell","number":"9494480118"}],"addresses":[{"id":null,"type":"Residential","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"36
         Sequoia Dr","city":"Aliso Viejo","state":"CA","zip_code":"92656","zip_suffix_code":null}},{"id":null,"type":"Mailing","address":{"id":null,"longitude":null,"lattitude":null,"deliverable":null,"street_address":"36
         Sequoia Dr","city":"Aliso Viejo","state":"CA","zip_code":"92656","zip_suffix_code":null}}],"visits":[{"approval":"","visit_type":"Annual
-        10 month","visit_date":{"month":"OCTOBER","year":2011,"dayOfMonth":28,"dayOfWeek":"FRIDAY","dayOfYear":301,"monthValue":10,"hour":0,"minute":0,"nano":0,"second":0,"chronology":{"calendarType":"iso8601","id":"ISO"}},"visit_deferred_date":null},{"approval":"","visit_type":"Annual
+        10 month","visit_date":{"month":"OCTOBER","year":2011,"hour":0,"minute":0,"nano":0,"second":0,"dayOfMonth":28,"dayOfWeek":"FRIDAY","dayOfYear":301,"monthValue":10,"chronology":{"calendarType":"iso8601","id":"ISO"}},"visit_deferred_date":null},{"approval":"","visit_type":"Annual
         22 month","visit_date":null,"visit_deferred_date":null},{"approval":"","visit_type":"Post
-        Licensing","visit_date":null,"visit_deferred_date":{"month":"NOVEMBER","year":1991,"dayOfMonth":6,"dayOfWeek":"WEDNESDAY","dayOfYear":310,"monthValue":11,"hour":0,"minute":0,"nano":0,"second":0,"chronology":{"calendarType":"iso8601","id":"ISO"}}},{"approval":"","visit_type":"Renewal","visit_date":null,"visit_deferred_date":null}],"annual_visit_year":12,"prelicensing_visit_date":null,"children":[],"inspections":[],"complaints":[{"id":"9112","complaint_date":{"month":"SEPTEMBER","year":2016,"dayOfMonth":27,"dayOfWeek":"TUESDAY","dayOfYear":271,"monthValue":9,"hour":0,"minute":0,"nano":0,"second":0,"chronology":{"calendarType":"iso8601","id":"ISO"}},"assigned_worker":"Mullah
-        Mahaboob","control_number":"19-CR-20160927081411","priority_level":"2","status":"Approved","approval_date":{"month":"DECEMBER","year":2016,"dayOfMonth":10,"dayOfWeek":"SATURDAY","dayOfYear":345,"monthValue":12,"hour":0,"minute":0,"nano":0,"second":0,"chronology":{"calendarType":"iso8601","id":"ISO"}},"pre_investigation_comments":"","post_investigation_comments":"See
+        Licensing","visit_date":null,"visit_deferred_date":{"month":"NOVEMBER","year":1991,"hour":0,"minute":0,"nano":0,"second":0,"dayOfMonth":6,"dayOfWeek":"WEDNESDAY","dayOfYear":310,"monthValue":11,"chronology":{"calendarType":"iso8601","id":"ISO"}}},{"approval":"","visit_type":"Renewal","visit_date":null,"visit_deferred_date":null}],"annual_visit_year":12,"prelicensing_visit_date":null,"children":[],"inspections":[],"complaints":[{"id":"9112","complaint_date":{"month":"SEPTEMBER","year":2016,"hour":0,"minute":0,"nano":0,"second":0,"dayOfMonth":27,"dayOfWeek":"TUESDAY","dayOfYear":271,"monthValue":9,"chronology":{"calendarType":"iso8601","id":"ISO"}},"assigned_worker":"Mullah
+        Mahaboob","control_number":"19-CR-20160927081411","priority_level":"2","status":"Approved","approval_date":{"month":"DECEMBER","year":2016,"hour":0,"minute":0,"nano":0,"second":0,"dayOfMonth":10,"dayOfWeek":"SATURDAY","dayOfYear":345,"monthValue":12,"chronology":{"calendarType":"iso8601","id":"ISO"}},"pre_investigation_comments":"","post_investigation_comments":"See
         Attached letter.  Reiser is a supervisor for Fresno County CPS.","contact_summary":"LIC
         9099 dated 11/23/04, 1/3/05&#13;&#10;LIC 812 date of visit 11/23/04, 1/3/05","followup_comments":"","allegations":[{"complaint_code":"3","allegation":"","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":""},{"complaint_code":"3","allegation":"Client
         Miguel Delatorre (8-28-88)    Miguel was beat up by an older and bigger child
         at GH. (name unknown) Staff did nothing to stop this.  Staff told Miguel not
-        to say anything. Miguel called his mother and told her this.","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":"U"},{"complaint_code":"3","allegation":"","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":""}]},{"id":"9112","complaint_date":{"month":"SEPTEMBER","year":2016,"dayOfMonth":27,"dayOfWeek":"TUESDAY","dayOfYear":271,"monthValue":9,"hour":0,"minute":0,"nano":0,"second":0,"chronology":{"calendarType":"iso8601","id":"ISO"}},"assigned_worker":"Mullah
-        Mahaboob","control_number":"19-CR-20160927081411","priority_level":"2","status":"Approved","approval_date":{"month":"DECEMBER","year":2016,"dayOfMonth":10,"dayOfWeek":"SATURDAY","dayOfYear":345,"monthValue":12,"hour":0,"minute":0,"nano":0,"second":0,"chronology":{"calendarType":"iso8601","id":"ISO"}},"pre_investigation_comments":"","post_investigation_comments":"See
+        to say anything. Miguel called his mother and told her this.","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":"U"},{"complaint_code":"3","allegation":"","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":""}]},{"id":"9112","complaint_date":{"month":"SEPTEMBER","year":2016,"hour":0,"minute":0,"nano":0,"second":0,"dayOfMonth":27,"dayOfWeek":"TUESDAY","dayOfYear":271,"monthValue":9,"chronology":{"calendarType":"iso8601","id":"ISO"}},"assigned_worker":"Mullah
+        Mahaboob","control_number":"19-CR-20160927081411","priority_level":"2","status":"Approved","approval_date":{"month":"DECEMBER","year":2016,"hour":0,"minute":0,"nano":0,"second":0,"dayOfMonth":10,"dayOfWeek":"SATURDAY","dayOfYear":345,"monthValue":12,"chronology":{"calendarType":"iso8601","id":"ISO"}},"pre_investigation_comments":"","post_investigation_comments":"See
         Attached letter.  Reiser is a supervisor for Fresno County CPS.","contact_summary":"LIC
         9099 dated 11/23/04, 1/3/05&#13;&#10;LIC 812 date of visit 11/23/04, 1/3/05","followup_comments":"","allegations":[{"complaint_code":"3","allegation":"","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":""},{"complaint_code":"3","allegation":"Client
         Miguel Delatorre (8-28-88)    Miguel was beat up by an older and bigger child
         at GH. (name unknown) Staff did nothing to stop this.  Staff told Miguel not
-        to say anything. Miguel called his mother and told her this.","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":"U"},{"complaint_code":"3","allegation":"","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":""}]},{"id":"9112","complaint_date":{"month":"SEPTEMBER","year":2016,"dayOfMonth":27,"dayOfWeek":"TUESDAY","dayOfYear":271,"monthValue":9,"hour":0,"minute":0,"nano":0,"second":0,"chronology":{"calendarType":"iso8601","id":"ISO"}},"assigned_worker":"Mullah
-        Mahaboob","control_number":"19-CR-20160927081411","priority_level":"2","status":"Approved","approval_date":{"month":"DECEMBER","year":2016,"dayOfMonth":10,"dayOfWeek":"SATURDAY","dayOfYear":345,"monthValue":12,"hour":0,"minute":0,"nano":0,"second":0,"chronology":{"calendarType":"iso8601","id":"ISO"}},"pre_investigation_comments":"","post_investigation_comments":"See
+        to say anything. Miguel called his mother and told her this.","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":"U"},{"complaint_code":"3","allegation":"","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":""}]},{"id":"9112","complaint_date":{"month":"SEPTEMBER","year":2016,"hour":0,"minute":0,"nano":0,"second":0,"dayOfMonth":27,"dayOfWeek":"TUESDAY","dayOfYear":271,"monthValue":9,"chronology":{"calendarType":"iso8601","id":"ISO"}},"assigned_worker":"Mullah
+        Mahaboob","control_number":"19-CR-20160927081411","priority_level":"2","status":"Approved","approval_date":{"month":"DECEMBER","year":2016,"hour":0,"minute":0,"nano":0,"second":0,"dayOfMonth":10,"dayOfWeek":"SATURDAY","dayOfYear":345,"monthValue":12,"chronology":{"calendarType":"iso8601","id":"ISO"}},"pre_investigation_comments":"","post_investigation_comments":"See
         Attached letter.  Reiser is a supervisor for Fresno County CPS.","contact_summary":"LIC
         9099 dated 11/23/04, 1/3/05&#13;&#10;LIC 812 date of visit 11/23/04, 1/3/05","followup_comments":"","allegations":[{"complaint_code":"3","allegation":"","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":""},{"complaint_code":"3","allegation":"Client
         Miguel Delatorre (8-28-88)    Miguel was beat up by an older and bigger child
         at GH. (name unknown) Staff did nothing to stop this.  Staff told Miguel not
         to say anything. Miguel called his mother and told her this.","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":"U"},{"complaint_code":"3","allegation":"","resolution_code_sub":"","resolution_code_insub":"","resolution_code_unsub":""}]}]}}]}}'
     http_version: 
-  recorded_at: Sat, 13 Jan 2018 02:08:04 GMT
+  recorded_at: Tue, 26 Dec 2017 17:17:35 GMT
 - request:
     method: get
-    uri: https://calsapi.preint02.cwds.io/facilities/300665437
+    uri: https://calsapi.preint.cwds.io/facilities/300665437
     body:
       encoding: US-ASCII
       string: ''
@@ -461,7 +461,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - 6dc19a32-09d4-4459-8416-1dae176a0b3d
+      - "..idFiTkLOJH8zbRim.rbzUJw3e0EEOnrF67_E7vByPkN2RJNCZTXFfEEad8npUnarcnMu4TjcH_UhTKtvvG6RIYle13OBUx1f6lv-rOsie27YmrVYWIbgwnbbjxlgcwW0yOYQaBgnJrFTRIJCj5308YrP97EFhJK-My0qlXabPAjLKkNCg17G6ExjRIDbpGSDUcgFTo69mv34Wc7Kxhiw9zBbthO2DGPxfq4IwsrLV6303RnywoubU3-TNbp7rXvJUwdiIDC5BkYmwvlQkZ0HvgjGJFklHU_61NUyCbGL_a4CPSYbHyNDiuvgpF3qczC5q-cVqGlMAvIKsNDE39GJXslt-uLbNaBNqzQbCIHIYfUg3s3xrI3kS6exePA1kvC2-4mOmZNDNp5NrdjO2XTTW3LXkpMIOUWOTWHC4CMwDKQI_rsw-kCAI2eIabR73FWIJ5kM6kwdbibNdo5GW1_oIh5Ru1C6vzP4HKKzp8YoXXmE_EYvVnpuazy78iypyZQ8LF-fWoMZBtkPwaAy5vO4icooOa3EbE2N8qRgZcITwHDa_7osWcFnI9Vu9vwxC3RKmseIrGpBnQ4yzfz4m1IvF9gnVUWbriohCJc6V89yhzC9C_EcdY-XQyiB8JdW8nm7UPXUCDCtSv87MTiSuYy2mpU_Jt5scqQody1qEaXj0VzY_iTDRhzPq4j4sKvPwqL6Yjz7hK-4aNvihGVnR1EhX0gYz7CY5arLUKLj5nR5nc-H91wHIl6GUfTuPNv_4nn-itRmbBOwnmMbjK3oA3JA0EK1WFnj9rnekx49hGmzAqCJx_r7YolGFtHkJwfItTNk7a37CsUzCnVaARv8lMnBL0Ygjg1sK7psFo5fwgVsChuj61x7wOb7UpOXO7a0tu7XaPRs45BVUkjDND2fNG1n-h9HpsTPDzKhNPD1X9Z-5Gx_kFf5wfUmzzfLyFw7OoS7BJ7pXqk20M9Y3gqGd4yd4l4bMpnQQSnpqlztD_Or-6M3-5prrLtuD23uI7w.1GiUon_173Ze3w2KUEimkQ"
   response:
     status:
       code: 200
@@ -472,9 +472,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Sat, 13 Jan 2018 02:08:05 GMT
+      - Tue, 26 Dec 2017 17:17:35 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Fri, 12-Jan-2018 02:08:05
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 25-Dec-2017 17:17:35
         GMT
       vary:
       - Accept-Encoding
@@ -563,10 +563,10 @@ http_interactions:
           "annual_visit_year" : 12
         }
     http_version: 
-  recorded_at: Sat, 13 Jan 2018 02:08:07 GMT
+  recorded_at: Tue, 26 Dec 2017 17:17:35 GMT
 - request:
     method: get
-    uri: https://calsapi.preint02.cwds.io/facilities/300665437/children
+    uri: https://calsapi.preint.cwds.io/facilities/300665437/children
     body:
       encoding: US-ASCII
       string: ''
@@ -574,7 +574,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - 6dc19a32-09d4-4459-8416-1dae176a0b3d
+      - "..idFiTkLOJH8zbRim.rbzUJw3e0EEOnrF67_E7vByPkN2RJNCZTXFfEEad8npUnarcnMu4TjcH_UhTKtvvG6RIYle13OBUx1f6lv-rOsie27YmrVYWIbgwnbbjxlgcwW0yOYQaBgnJrFTRIJCj5308YrP97EFhJK-My0qlXabPAjLKkNCg17G6ExjRIDbpGSDUcgFTo69mv34Wc7Kxhiw9zBbthO2DGPxfq4IwsrLV6303RnywoubU3-TNbp7rXvJUwdiIDC5BkYmwvlQkZ0HvgjGJFklHU_61NUyCbGL_a4CPSYbHyNDiuvgpF3qczC5q-cVqGlMAvIKsNDE39GJXslt-uLbNaBNqzQbCIHIYfUg3s3xrI3kS6exePA1kvC2-4mOmZNDNp5NrdjO2XTTW3LXkpMIOUWOTWHC4CMwDKQI_rsw-kCAI2eIabR73FWIJ5kM6kwdbibNdo5GW1_oIh5Ru1C6vzP4HKKzp8YoXXmE_EYvVnpuazy78iypyZQ8LF-fWoMZBtkPwaAy5vO4icooOa3EbE2N8qRgZcITwHDa_7osWcFnI9Vu9vwxC3RKmseIrGpBnQ4yzfz4m1IvF9gnVUWbriohCJc6V89yhzC9C_EcdY-XQyiB8JdW8nm7UPXUCDCtSv87MTiSuYy2mpU_Jt5scqQody1qEaXj0VzY_iTDRhzPq4j4sKvPwqL6Yjz7hK-4aNvihGVnR1EhX0gYz7CY5arLUKLj5nR5nc-H91wHIl6GUfTuPNv_4nn-itRmbBOwnmMbjK3oA3JA0EK1WFnj9rnekx49hGmzAqCJx_r7YolGFtHkJwfItTNk7a37CsUzCnVaARv8lMnBL0Ygjg1sK7psFo5fwgVsChuj61x7wOb7UpOXO7a0tu7XaPRs45BVUkjDND2fNG1n-h9HpsTPDzKhNPD1X9Z-5Gx_kFf5wfUmzzfLyFw7OoS7BJ7pXqk20M9Y3gqGd4yd4l4bMpnQQSnpqlztD_Or-6M3-5prrLtuD23uI7w.1GiUon_173Ze3w2KUEimkQ"
   response:
     status:
       code: 200
@@ -585,9 +585,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Sat, 13 Jan 2018 02:08:07 GMT
+      - Tue, 26 Dec 2017 17:17:35 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Fri, 12-Jan-2018 02:08:07
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 25-Dec-2017 17:17:35
         GMT
       vary:
       - Accept-Encoding
@@ -598,7 +598,7 @@ http_interactions:
       x-xss-protection:
       - 1; mode=block
       content-length:
-      - '200'
+      - '320'
       connection:
       - keep-alive
     body:
@@ -606,23 +606,67 @@ http_interactions:
       string: |-
         {
           "children" : [ {
-            "id" : "9112      ",
+            "id" : "541770099 ",
+            "person" : {
+              "gender" : "F",
+              "age" : 17,
+              "first_name" : "Mei",
+              "last_name" : "Takahashi",
+              "date_of_birth" : "2000-05-28"
+            },
+            "date_of_placement" : "2002-06-19",
+            "county_of_origin" : "State of California"
+          }, {
+            "id" : "541770103 ",
             "person" : {
               "gender" : "M",
-              "age" : 13,
-              "first_name" : "Jodran",
-              "last_name" : "Dubose",
-              "date_of_birth" : "2004-07-19"
+              "age" : 17,
+              "first_name" : "Daniel",
+              "last_name" : "Ordonez",
+              "date_of_birth" : "2000-09-26"
+            },
+            "date_of_placement" : "2002-06-19",
+            "county_of_origin" : "State of California"
+          }, {
+            "id" : "541770115 ",
+            "person" : {
+              "gender" : "M",
+              "age" : 17,
+              "first_name" : "Das",
+              "last_name" : "Kular",
+              "date_of_birth" : "2000-01-19"
+            },
+            "date_of_placement" : "2002-06-19",
+            "county_of_origin" : "State of California"
+          }, {
+            "id" : "541770117 ",
+            "person" : {
+              "gender" : "F",
+              "age" : 16,
+              "first_name" : "Shaneka",
+              "last_name" : "Quilling",
+              "date_of_birth" : "2001-03-28"
+            },
+            "date_of_placement" : "2002-06-19",
+            "county_of_origin" : "State of California"
+          }, {
+            "id" : "541770119 ",
+            "person" : {
+              "gender" : "F",
+              "age" : 17,
+              "first_name" : "Francisca",
+              "last_name" : "Esquivel",
+              "date_of_birth" : "2000-11-17"
             },
             "date_of_placement" : "2002-06-19",
             "county_of_origin" : "State of California"
           } ]
         }
     http_version: 
-  recorded_at: Sat, 13 Jan 2018 02:08:08 GMT
+  recorded_at: Tue, 26 Dec 2017 17:17:35 GMT
 - request:
     method: get
-    uri: https://calsapi.preint02.cwds.io/facilities/300665437/complaints
+    uri: https://calsapi.preint.cwds.io/facilities/300665437/complaints
     body:
       encoding: US-ASCII
       string: ''
@@ -630,7 +674,7 @@ http_interactions:
       Content-type:
       - application/json
       Authorization:
-      - 6dc19a32-09d4-4459-8416-1dae176a0b3d
+      - "..idFiTkLOJH8zbRim.rbzUJw3e0EEOnrF67_E7vByPkN2RJNCZTXFfEEad8npUnarcnMu4TjcH_UhTKtvvG6RIYle13OBUx1f6lv-rOsie27YmrVYWIbgwnbbjxlgcwW0yOYQaBgnJrFTRIJCj5308YrP97EFhJK-My0qlXabPAjLKkNCg17G6ExjRIDbpGSDUcgFTo69mv34Wc7Kxhiw9zBbthO2DGPxfq4IwsrLV6303RnywoubU3-TNbp7rXvJUwdiIDC5BkYmwvlQkZ0HvgjGJFklHU_61NUyCbGL_a4CPSYbHyNDiuvgpF3qczC5q-cVqGlMAvIKsNDE39GJXslt-uLbNaBNqzQbCIHIYfUg3s3xrI3kS6exePA1kvC2-4mOmZNDNp5NrdjO2XTTW3LXkpMIOUWOTWHC4CMwDKQI_rsw-kCAI2eIabR73FWIJ5kM6kwdbibNdo5GW1_oIh5Ru1C6vzP4HKKzp8YoXXmE_EYvVnpuazy78iypyZQ8LF-fWoMZBtkPwaAy5vO4icooOa3EbE2N8qRgZcITwHDa_7osWcFnI9Vu9vwxC3RKmseIrGpBnQ4yzfz4m1IvF9gnVUWbriohCJc6V89yhzC9C_EcdY-XQyiB8JdW8nm7UPXUCDCtSv87MTiSuYy2mpU_Jt5scqQody1qEaXj0VzY_iTDRhzPq4j4sKvPwqL6Yjz7hK-4aNvihGVnR1EhX0gYz7CY5arLUKLj5nR5nc-H91wHIl6GUfTuPNv_4nn-itRmbBOwnmMbjK3oA3JA0EK1WFnj9rnekx49hGmzAqCJx_r7YolGFtHkJwfItTNk7a37CsUzCnVaARv8lMnBL0Ygjg1sK7psFo5fwgVsChuj61x7wOb7UpOXO7a0tu7XaPRs45BVUkjDND2fNG1n-h9HpsTPDzKhNPD1X9Z-5Gx_kFf5wfUmzzfLyFw7OoS7BJ7pXqk20M9Y3gqGd4yd4l4bMpnQQSnpqlztD_Or-6M3-5prrLtuD23uI7w.1GiUon_173Ze3w2KUEimkQ"
   response:
     status:
       code: 200
@@ -641,9 +685,9 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Sat, 13 Jan 2018 02:08:08 GMT
+      - Tue, 26 Dec 2017 17:17:35 GMT
       set-cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Fri, 12-Jan-2018 02:08:08
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 25-Dec-2017 17:17:35
         GMT
       vary:
       - Accept-Encoding
@@ -695,5 +739,5 @@ http_interactions:
           } ]
         }
     http_version: 
-  recorded_at: Sat, 13 Jan 2018 02:08:09 GMT
+  recorded_at: Tue, 26 Dec 2017 17:17:35 GMT
 recorded_with: VCR 3.0.3
