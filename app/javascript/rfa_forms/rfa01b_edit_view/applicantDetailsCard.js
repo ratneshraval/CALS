@@ -12,6 +12,7 @@ import AddressComponent from 'components/rfa_forms/addressComponent.js'
 import {Rfa01bApplicantDetailsCardText} from 'constants/rfaText'
 import {DateField} from 'components/common/dateFields'
 
+import './stylesheets/cards-01b.scss'
 import {getDictionaryId, dictionaryNilSelect, FormatDateForDisplay, FormatDateForPersistance} from 'helpers/commonHelper.jsx'
 import Validator from 'helpers/validator'
 
@@ -77,7 +78,7 @@ export default class ApplicantDetailsCard extends React.Component {
         textAlignment='left'
         label='Applicant or Other Adult Information'
         handleOnClick={() => this.props.setFocusState('applicantDetailsCard')}
-        focusClassName={this.props.getFocusClassName('applicantDetailsCard') + ' ' + 'card phone-section double-gap-top'}>
+        focusClassName={this.props.getFocusClassName('applicantDetailsCard') + ' ' + 'card phone-section double-gap-top active-bar'}>
         <div><p>{Rfa01bApplicantDetailsCardText.perjury}</p></div>
         <div className='col-lg-12'>
           <InputComponent
