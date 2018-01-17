@@ -99,10 +99,10 @@ node {
         stage('Test - Rspec') {
             curStage = 'rspec'
             withEnv([
-                'CALS_API_URL=https://calsapi.preint02.cwds.io',
+                'CALS_API_URL=https://calsapi.preint.cwds.io',
                 'GEO_SERVICE_URL=https://geo.preint.cwds.io',
-                'BASE_SEARCH_API_URL=https://doraapi.preint02.cwds.io',
-                'AUTHENTICATION_API_BASE_URL=https://web.preint02.cwds.io/perry'
+                'BASE_SEARCH_API_URL=https://dora.preint.cwds.io',
+                'AUTHENTICATION_API_BASE_URL=https://web.preint.cwds.io/perry'
                 ]) {
                 sh 'yarn run spec-ci'
             }
