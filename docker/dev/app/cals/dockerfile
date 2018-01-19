@@ -4,7 +4,7 @@ RUN mkdir /var/www \
   && cd /var/www
 
 # clone CALS
-RUN git clone -b development https://github.com/ca-cwds/CALS.git /var/www/cals
+RUN git clone -b CAL1-80-upgrade_to_perryV2 https://github.com/ca-cwds/CALS.git /var/www/cals
 
 WORKDIR /var/www/cals
 
