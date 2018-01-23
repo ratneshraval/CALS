@@ -43,7 +43,7 @@ describe('Verify Children Component', function () {
     expect(renderChildComp.find('td[data-label="age"]').props().children[1]).toBe(17)
   })
   it('Verify date of birth', () => {
-    expect(renderChildComp.find('td[data-label="date of birth"]').props().children[1]).toBe('2000-05-28')
+    expect(renderChildComp.find('td[data-label="date of birth"]').props().children[1]).toBe('28/05/2000')
   })
   it('Verify date of placement', () => {
     expect(renderChildComp.find('td[data-label="date of placement"]').props().children[1]).toBe('01/02/2003')
@@ -53,5 +53,35 @@ describe('Verify Children Component', function () {
   })
   it('Verify child county of origin', () => {
     expect(renderChildComp.find('td[data-label="county of origin"]').props().children[1]).toBe('sacramento')
+  })
+})
+
+describe('Verify Children Component for null values', function () {
+  const props = {
+    facilityData: {
+      'count': 3,
+      'children': [{
+        'id': 2222,
+        'person': {
+          'age': 17,
+          'date_of_birth': null,
+          'first_name': 'Mei',
+          'gender': 'F',
+          'last_name': 'Takahashi'
+        },
+        'date_of_placement': null,
+        'assigned_worker': {
+          'first_name': 'Peter',
+          'last_name': 'Parker'
+        },
+        'county_of_origin': 'sacramento'
+      }]}
+  }
+  const renderChildComp = mount(<Children {...props} />)
+  it('Verify date of placement for N/A', () => {
+    expect(renderChildComp.find('td[data-label="date of placement"]').props().children[1]).toBe('N/A')
+  })
+  it('Verify date of birth for N/A', () => {
+    expect(renderChildComp.find('td[data-label="date of birth"]').props().children[1]).toBe('N/A')
   })
 })

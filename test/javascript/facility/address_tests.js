@@ -82,7 +82,7 @@ describe('Verify Facility Address', function () {
   })
   it('verify Facility Last Visit Date Value', function () {
     let lastVisitDateValue = AddressCompShallow.props().children.props.children[2].props.children.props.children[0].props.value
-    expect(lastVisitDateValue).toBe('2017-04-14')
+    expect(lastVisitDateValue).toBe('14/04/2017')
   })
   it('verify Facility Last Visit Reason', function () {
     let lastVisitReasonValue = AddressCompShallow.props().children.props.children[2].props.children.props.children[1].props.value
