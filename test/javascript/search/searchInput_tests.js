@@ -2,7 +2,7 @@ import React from 'react'
 import SearchInput from '../../../app/javascript/search/search_input'
 import {shallow, mount} from 'enzyme'
 
-describe('Render Search Inputs', function () {
+describe('Verify search input component', function () {
   const props = {
     facilityTypes: [
       {
@@ -12,7 +12,7 @@ describe('Render Search Inputs', function () {
     ],
     searchId: {
       userDetails: {
-        county_name: 'Los Angeles'
+        county_name: ''
       }
     },
     countyList: [
@@ -36,12 +36,6 @@ describe('Render Search Inputs', function () {
     countyField.simulate('change', {target: {options: {'19': {id: '19', value: 'Los Angeles'}, selectedIndex: 19}}})
     expect(searchInputComp.instance().handleChange).toHaveBeenCalledWith('countyValue', 'Los Angeles')
   })
-
-  it('verify user logged in county', () => {
-    let userCounty = searchInputComp.find('#county_select').props().value
-    expect(userCounty).toBe('Los Angeles')
-  })
-
   it('verify facilityTypes select', () => {
     let countyField = searchInputComp.find('#facility_select')
     spyOn(searchInputComp.instance(), 'handleChange').and.callThrough()
@@ -75,5 +69,66 @@ describe('Render Search Inputs', function () {
     spyOn(searchInputComp.instance(), 'handleChange').and.callThrough()
     countyField.simulate('change', {target: {value: '36 Sequoia Dr,Aliso Viejo,CA 92656'}})
     expect(searchInputComp.instance().handleChange).toHaveBeenCalledWith('facilityAddressValue', '36 Sequoia Dr,Aliso Viejo,CA 92656')
+  })
+})
+
+describe('Verify elements in search input component after rendering', function () {
+  let newSearchId
+  const props = {
+    searchId: {
+      userDetails: {
+        county_name: ''
+      },
+      countyValue: 'Los Angeles',
+      facilityTypeValue: '',
+      facilityIdValue: '123445556',
+      facilityNameValue: '',
+      facilityAddressValue: ''
+    },
+    facilityTypes: [
+      {
+        id: '',
+        value: ''
+      }
+    ],
+    countyList: [
+      {
+        id: '',
+        value: ''
+      }
+    ]
+  }
+
+  newSearchId = {
+    userDetails: {
+      county_name: ''
+    },
+    countyValue: 'sacramento',
+    facilityTypeValue: 'RUNAWAY AND HOMELESS YOUTH SHELTER-GH',
+    facilityIdValue: 'DL7oFNL0AB',
+    facilityNameValue: 'Altadena Youth Shelter',
+    facilityAddressValue: '2870 Gateway oaks drive, sacramento, CA 95833'
+  }
+
+  const searchInputComp = shallow(<SearchInput {...props} />)
+  searchInputComp.setState({searchId: newSearchId})
+
+  it('verify component load', () => {
+    expect(searchInputComp.length).toBe(1)
+  })
+  it('verify county select', () => {
+    expect(searchInputComp.find('#county_select').props().value).toBe('sacramento')
+  })
+  it('verify facilityTypes select', () => {
+    expect(searchInputComp.find('#facility_select').props().value).toBe('RUNAWAY AND HOMELESS YOUTH SHELTER-GH')
+  })
+  it('verify facility Id', () => {
+    expect(searchInputComp.find('#facilityIdValue').props().value).toBe('DL7oFNL0AB')
+  })
+  it('verify facility Name', () => {
+    expect(searchInputComp.find('#facilityNameValue').props().value).toBe('Altadena Youth Shelter')
+  })
+  it('verify facility Address', () => {
+    expect(searchInputComp.find('#facilityAddressValue').props().value).toBe('2870 Gateway oaks drive, sacramento, CA 95833')
   })
 })
