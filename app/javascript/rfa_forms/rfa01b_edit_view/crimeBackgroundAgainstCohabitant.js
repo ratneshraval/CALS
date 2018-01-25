@@ -36,8 +36,7 @@ export default class CrimeBackgroundAgainstCohabitant extends React.Component {
 
   render () {
     const arrestedForCrime = String(this.props.arrestedForCrime)
-    const disclosures = checkArrayObjectPresence(this.props.disclosures) || [disclosureDefaults]
-
+    const disclosures = this.props.disclosures
     return (
       <CardLayout
         idClassName='crime_background_against_cohabitant_card'
@@ -45,7 +44,7 @@ export default class CrimeBackgroundAgainstCohabitant extends React.Component {
         textAlignment='left'
         label='Disclosure of Criminal Background - Against Child / Spouse / Cohabitant'
         handleOnClick={() => this.props.setFocusState('crimeBackgroundAgainstCohabitantCard')}
-        focusClassName={this.props.getFocusClassName('crimeBackgroundAgainstCohabitantCard') + ' ' + 'card phone-section double-gap-top'}>
+        focusClassName={this.props.getFocusClassName('crimeBackgroundAgainstCohabitantCard') + ' ' + 'card phone-section double-gap-top active-bar'}>
         <div>
           <div>{Rfa01bCrimeBackGroundAgainstCohabCardText.abuse}</div>
           <div>

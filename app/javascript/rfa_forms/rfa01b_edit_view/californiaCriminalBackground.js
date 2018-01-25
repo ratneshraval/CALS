@@ -5,7 +5,6 @@ import Immutable from 'immutable'
 import CriminalFields from './criminalFields'
 import {DropDownField} from 'components/common/dropDownField'
 import YesNoRadioComponent from 'components/common/yesNoFields'
-
 import CardLayout from 'components/common/cardLayout'
 import Button from 'components/common/button'
 import {Rfa01bCaliforniaCriminalBackGroundCardText} from 'constants/rfaText'
@@ -46,7 +45,7 @@ export default class CaliforniaCriminalBackground extends React.Component {
 
   render () {
     const convictedInCalifornia = String(this.props.convictedInCalifornia)
-    const disclosures = checkArrayObjectPresence(this.props.disclosures) || [disclosureDefaults]
+    const disclosures = this.props.disclosures
     return (
 
       <CardLayout
@@ -55,7 +54,7 @@ export default class CaliforniaCriminalBackground extends React.Component {
         textAlignment='left'
         label='Disclosure of Criminal Background - California (only)'
         handleOnClick={() => this.props.setFocusState('CACriminalBackgroundCard')}
-        focusClassName={this.props.getFocusClassName('CACriminalBackgroundCard') + ' ' + 'card phone-section double-gap-top'}>
+        focusClassName={this.props.getFocusClassName('CACriminalBackgroundCard') + ' ' + 'card phone-section double-gap-top active-bar'}>
         <div>
           <div>{Rfa01bCaliforniaCriminalBackGroundCardText.convicted}</div>
           <div>{Rfa01bCaliforniaCriminalBackGroundCardText.marijuana}</div>
