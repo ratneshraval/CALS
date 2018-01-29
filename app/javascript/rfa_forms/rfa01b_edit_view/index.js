@@ -10,13 +10,14 @@ import CaliforniaCriminalBackground from './californiaCriminalBackground'
 import OutsideCACriminalBackground from './outsideCACriminalBackground'
 import CrimeBackgroundAgainstCohabitant from './crimeBackgroundAgainstCohabitant'
 import PrivacyStatement from './privacyStatement'
+import B01SideBar from './b01SideBar'
+
 import {CountyUseOnlyCard} from 'components/rfa_forms/countyUseOnlyCard.js'
 import {getDictionaryId, dictionaryNilSelect, checkArrayObjectPresence} from 'helpers/commonHelper.jsx'
 import CardsGroupLayout from 'components/common/cardsGroupLayout.js'
 import {addCardAsJS, getFocusClassName, removeCard} from 'helpers/cardsHelper.jsx'
 import Validator from 'helpers/validator'
 import {disclosureDefaults} from 'constants/defaultFields'
-// import '../rfa01a_edit_view/stylesheets/cards-main.scss'
 
 export default class Rfa01bList extends React.Component {
   constructor (props) {
@@ -29,6 +30,8 @@ export default class Rfa01bList extends React.Component {
     this.handleClearOnConditionalChange = this.handleClearOnConditionalChange.bind(this)
     this.validator = new Validator({})
     this.validator.validateFieldSetErrorState = this.validateFieldSetErrorState.bind(this)
+    this.handleNavLinkClick = this.handleNavLinkClick.bind(this)
+    this.isNavLinkActive = this.isNavLinkActive.bind(this)
 
     this.state = {
       application_id: this.props.application_id,
@@ -56,10 +59,10 @@ export default class Rfa01bList extends React.Component {
     let url = '/rfa/b01/' + this.props.application_id
     fetchRequest(url, 'PUT', this.state).then(
       response => response.json()).then((response) => {
-      return this.setState({
-        formData: response
+        return this.setState({
+          formData: response
+        })
       })
-    })
       .catch(error => {
         return this.setState({
           data: error
@@ -98,6 +101,14 @@ export default class Rfa01bList extends React.Component {
     }
   }
 
+  isNavLinkActive () {
+    console.log('hi')
+  }
+
+  handleNavLinkClick () {
+    console.log('hi')
+  }
+
   render () {
     const countyValue = getDictionaryId(this.state.application.application_county) || (this.props.user && this.props.user.county_code)
 
@@ -108,7 +119,14 @@ export default class Rfa01bList extends React.Component {
           <div className='header-logo' />
         </div>
         <div className='form-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-          <div className='left-content col-xs-9 col-sm-9 col-md-9 col-lg-9'>
+          <div className='left-content col-xs-3 col-sm-3 col-md-3 col-lg-3'>
+            <B01SideBar
+              applicants={[]}
+              otherAdults={[]}
+              isNavLinkActive={this.isNavLinkActive}
+              handleNavLinkClick={this.handleNavLinkClick} />
+          </div>
+          <div className='right-content col-xs-9 col-sm-9 col-md-9 col-lg-9'>
             <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
               <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
                 <h1 className='page-header'>Resource Family Criminal Record Statement (RFA 01B)</h1>
