@@ -121,8 +121,9 @@ export default class Rfa01bList extends React.Component {
         <div className='form-section col-xs-12 col-sm-12 col-md-12 col-lg-12'>
           <div className='left-content col-xs-3 col-sm-3 col-md-3 col-lg-3'>
             <B01SideBar
-              applicants={[]}
-              otherAdults={[]}
+              applicants={this.props.applicants}
+              otherAdults={this.props.otherAdults}
+              rfa01aApplicationId={this.state.application_id}
               isNavLinkActive={this.isNavLinkActive}
               handleNavLinkClick={this.handleNavLinkClick} />
           </div>
