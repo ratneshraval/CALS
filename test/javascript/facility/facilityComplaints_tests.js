@@ -27,7 +27,7 @@ describe('Verify Complaints Component', function () {
     expect(renderComplaintsComp.find('td[data-label="id"]').props().children[1]).toBe('dlf0245')
   })
   it('Verify complaint date', function () {
-    expect(renderComplaintsComp.find('td[data-label="complaint date"]').props().children[1]).toBe('27/09/2016')
+    expect(renderComplaintsComp.find('td[data-label="complaint date"]').props().children[1]).toBe('09/27/2016')
   })
   it('Verify assigned worker full name', function () {
     expect(renderComplaintsComp.find('td[data-label="assigned worker"]').props().children[1]).toBe('Harry Potter')
@@ -42,7 +42,7 @@ describe('Verify Complaints Component', function () {
     expect(renderComplaintsComp.find('td[data-label="status"]').props().children[1]).toBe('Approved')
   })
   it('Verify complaint approval date', function () {
-    expect(renderComplaintsComp.find('td[data-label="approval date"]').props().children[1]).toBe('10/12/2016')
+    expect(renderComplaintsComp.find('td[data-label="approval date"]').props().children[1]).toBe('12/10/2016')
   })
 })
 

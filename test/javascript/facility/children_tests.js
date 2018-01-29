@@ -10,12 +10,12 @@ describe('Verify Children Component', function () {
         'id': 2222,
         'person': {
           'age': 17,
-          'date_of_birth': '2000-05-28',
+          'date_of_birth': '2000-05-28 00:00:00',
           'first_name': 'Mei',
           'gender': 'F',
           'last_name': 'Takahashi'
         },
-        'date_of_placement': '01/02/2003',
+        'date_of_placement': '2003-01-03 00:00:00',
         'assigned_worker': {
           'first_name': 'Peter',
           'last_name': 'Parker'
@@ -43,10 +43,10 @@ describe('Verify Children Component', function () {
     expect(renderChildComp.find('td[data-label="age"]').props().children[1]).toBe(17)
   })
   it('Verify date of birth', () => {
-    expect(renderChildComp.find('td[data-label="date of birth"]').props().children[1]).toBe('28/05/2000')
+    expect(renderChildComp.find('td[data-label="date of birth"]').props().children[1]).toBe('05/28/2000')
   })
   it('Verify date of placement', () => {
-    expect(renderChildComp.find('td[data-label="date of placement"]').props().children[1]).toBe('01/02/2003')
+    expect(renderChildComp.find('td[data-label="date of placement"]').props().children[1]).toBe('01/03/2003')
   })
   it('Verify assigned worker full name', () => {
     expect(renderChildComp.find('td[data-label="assigned worker"]').props().children[1]).toBe('Peter Parker')

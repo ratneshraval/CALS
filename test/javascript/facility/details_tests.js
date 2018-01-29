@@ -21,9 +21,9 @@ describe('Verify Facility Details', function () {
         'value': 'LICENSED'
       },
       'capacity': 10,
-      'capacity_last_changed': '2012-10-01',
-      'license_effective_date': '2012-10-01',
-      'original_application_recieved_date': '2012-07-18'
+      'capacity_last_changed': '2012-10-01 00:00:00',
+      'license_effective_date': '2012-10-01 00:00:00',
+      'original_application_recieved_date': '2012-07-18 00:00:00'
     }
   }
   let detailsCompShallow = shallow(<FacilityDetails {...props} />)
@@ -46,17 +46,17 @@ describe('Verify Facility Details', function () {
     expect(detailsCompShallow.find('SmallInnerBlockDetails[title="LICENSE STATUS"]').props().value).toBe('LICENSED')
   })
   it('Verify Capacity / Capacity Last Changed', function () {
-    expect(detailsCompShallow.find('SmallInnerBlockDetails[title="CAPACITY / CAPACITY LAST CHANGED"]').props().value).toBe('10 / 01/10/2012')
+    expect(detailsCompShallow.find('SmallInnerBlockDetails[title="CAPACITY / CAPACITY LAST CHANGED"]').props().value).toBe('10 / 10/01/2012')
   })
   it('Verify License Effective Date when license status is "Licensed"', function () {
-    expect(detailsCompShallow.find('SmallInnerBlockDetails[title="LICENSE EFFECTIVE DATE"]').props().value).toBe('01/10/2012')
+    expect(detailsCompShallow.find('SmallInnerBlockDetails[title="LICENSE EFFECTIVE DATE"]').props().value).toBe('10/01/2012')
   })
   it('Verify Application Received Date', function () {
-    expect(detailsCompShallow.find('SmallInnerBlockDetails[title="APPLICATION RECEIVED DATE"]').props().value).toBe('18/07/2012')
+    expect(detailsCompShallow.find('SmallInnerBlockDetails[title="APPLICATION RECEIVED DATE"]').props().value).toBe('07/18/2012')
   })
 })
 
-describe('Verify Facility Details Null Value', function () {
+describe('Verify Facility Details with Null Value', function () {
   const props = {
     facilityData: {
       'href': 'facilities/300665437',
@@ -74,7 +74,7 @@ describe('Verify Facility Details Null Value', function () {
       },
       'capacity': 10,
       'capacity_last_changed': null,
-      'license_effective_date': '2012-10-01',
+      'license_effective_date': null,
       'original_application_recieved_date': null
     }
   }
