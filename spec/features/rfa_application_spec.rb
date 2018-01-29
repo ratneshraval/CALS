@@ -124,7 +124,7 @@ RSpec.feature 'RFA', js: true do
     expect(page).to have_content 'Applicant 1 - Information'
     applicant1FirstName = Faker::Name.name
     applicant1LastName  = Faker::Name.name
-    applicant1FullName  = applicant1FirstName + ' ' + 'k' + ' ' + applicant1LastName 
+    applicant1FullName  = applicant1FirstName + ' ' + 'k' + ' ' + applicant1LastName
     fill_in('first_name', with: applicant1FirstName, :match => :prefer_exact)
     fill_in('middle_name', with: 'k', :match => :prefer_exact)
     fill_in('last_name', with: applicant1LastName, :match => :prefer_exact)
@@ -149,7 +149,7 @@ RSpec.feature 'RFA', js: true do
     expect(page).to have_content 'Applicant 1 - Information'
     applicant1FirstName = Faker::Name.name
     applicant1LastName  = Faker::Name.name
-    applicant1FullName  = applicant1FirstName + ' ' + 'k' + ' ' + applicant1LastName 
+    applicant1FullName  = applicant1FirstName + ' ' + 'k' + ' ' + applicant1LastName
     fill_in('first_name', with: applicant1FirstName, :match => :prefer_exact)
     fill_in('middle_name', with: 'k', :match => :prefer_exact)
     fill_in('last_name', with: applicant1LastName, :match => :prefer_exact)
