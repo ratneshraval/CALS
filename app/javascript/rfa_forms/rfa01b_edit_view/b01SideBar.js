@@ -23,14 +23,14 @@ const B01SideBar = ({
             {
              (applicant.rfa1b_form && applicant.rfa1b_form.id) ?
                <NavLink
-                 active={isNavLinkActive('#-card')}
-                 clickHandler={() => handleNavLinkClick('#-card')}
+                 active={isNavLinkActive(applicant.rfa1b_form.id)}
+                 clickHandler={() => handleNavLinkClick(applicant.rfa1b_form.id)}
                  text={applicant.first_name + ' ' + applicant.last_name}
                  href={urlPrefixHelper('/rfa/b01/' + applicant.rfa1b_form.id + '/edit?application_id=' + rfa01aApplicationId)} />
                  :
                  <NavLink
-                   active={isNavLinkActive('#-card')}
-                   clickHandler={() => handleNavLinkClick('#-card')}
+                   active={isNavLinkActive(applicant.id)}
+                   clickHandler={() => handleNavLinkClick(applicant.id)}
                    text={applicant.first_name + ' ' + applicant.last_name}
                    href={urlPrefixHelper('/rfa/b01/?application_id=' + rfa01aApplicationId + '&adult_id=' + applicant.id + '&api_url_path=applicants')} />
                }
@@ -44,14 +44,14 @@ const B01SideBar = ({
             {
             (otherAdult.rfa1b_form && otherAdult.rfa1b_form.id) ?
               <NavLink
-                active={isNavLinkActive('#-card')}
-                clickHandler={() => handleNavLinkClick('#-card')}
+                active={isNavLinkActive(otherAdult.rfa1b_form.id)}
+                clickHandler={() => handleNavLinkClick(otherAdult)}
                 text={otherAdult.first_name + ' ' + otherAdult.last_name}
                 href={urlPrefixHelper('/rfa/b01/' + otherAdult.rfa1b_form.id + '/edit?application_id=' + rfa01aApplicationId)} />
                 :
                 <NavLink
-                  active={isNavLinkActive('#-card')}
-                  clickHandler={() => handleNavLinkClick('#-card')}
+                  active={isNavLinkActive(otherAdult.id)}
+                  clickHandler={() => handleNavLinkClick(otherAdult.id)}
                   text={otherAdult.first_name + ' ' + otherAdult.last_name}
                   href={urlPrefixHelper('/rfa/b01/?application_id=' + rfa01aApplicationId + '&adult_id=' + otherAdult.id + '&api_url_path=other-adults')} />
                  }

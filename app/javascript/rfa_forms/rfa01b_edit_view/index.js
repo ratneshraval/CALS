@@ -36,6 +36,7 @@ export default class Rfa01bList extends React.Component {
     this.state = {
       application_id: this.props.application_id,
       application: this.props.rfa_b01_application,
+      activeNavLinkId: this.props.rfa_b01_application.id,
       disclosureInstructionsDisplay: null,
       privacyStatementDisplay: null,
       focusComponentName: '',
@@ -101,12 +102,14 @@ export default class Rfa01bList extends React.Component {
     }
   }
 
-  isNavLinkActive () {
-    console.log('hi')
+  handleNavLinkClick (id) {
+    if (id) {
+      this.setState({ activeNavLinkId: id })
+    }
   }
 
-  handleNavLinkClick () {
-    console.log('hi')
+  isNavLinkActive (id) {
+    return this.state.activeNavLinkId === id
   }
 
   render () {
