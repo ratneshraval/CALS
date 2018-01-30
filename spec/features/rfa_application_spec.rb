@@ -29,9 +29,9 @@ RSpec.feature 'RFA', js: true do
     fill_in('middle_name', with: 'k', :match => :prefer_exact)
     fill_in('last_name', with: Faker::Name.name, :match => :prefer_exact)
     expect(page).to have_content 'More About Applicant'
-    find(:select, 'highest_education_level').first(:option, 'Some High School').select_option
-    find(:select, 'ethnicity').first(:option, 'Black').select_option
-    find(:select, 'applicants[0].driver_license_state').first(:option, 'Alaska').select_option
+    select 'Some High School', from: 'highest_education_level'
+    select 'Black', from: 'ethnicity'
+    select 'Alaska', from: 'applicants[0].driver_license_state'
     fill_in('Email Address (optional)', with: 'test@test.com', :match => :prefer_exact)
     expect(page).to have_content 'Employment'
     fill_in('Name of the Employer', with: 'Employer Name', :match => :prefer_exact)
@@ -129,11 +129,12 @@ RSpec.feature 'RFA', js: true do
     fill_in('middle_name', with: 'k', :match => :prefer_exact)
     fill_in('last_name', with: applicant1LastName, :match => :prefer_exact)
     expect(page).to have_content 'IV. Minor Children Residing in the Home'
-    find(:select, 'relationship_to_applicant').first(:option, 'Child').select_option
-    find(:select, 'applicant_id').first(:option, applicant1FullName).select_option
-    find(:select, 'child_financially_supported').first(:option, 'Yes').select_option
-    find(:select, 'child_adopted').first(:option, 'Yes').select_option
-    find(:select, 'minor_gender').first(:option, 'Male').select_option
+    select 'Child', from: 'relationship_to_applicant'
+    select applicant1FullName, from: 'applicant_id'
+    select 'Yes', from: 'child_financially_supported'
+    select 'Yes', from: 'child_adopted'
+    select 'Male', from: 'minor_gender'
+
     click_button('Save Progress')
     visit page.driver.current_url
     expect(find_field('relationship_to_applicant').value).to eq '1'
@@ -153,9 +154,9 @@ RSpec.feature 'RFA', js: true do
     fill_in('first_name', with: applicant1FirstName, :match => :prefer_exact)
     fill_in('middle_name', with: 'k', :match => :prefer_exact)
     fill_in('last_name', with: applicant1LastName, :match => :prefer_exact)
-    find(:select, 'availableApplicants').first(:option, applicant1FullName).select_option
+    select applicant1FullName, from: 'availableApplicants'
     expect(page).to have_content 'V.Other Adults Residing or Regularly Present in the Home'
-    find(:select, 'otherAdults[0].relationshipType').first(:option, 'Child').select_option
+    select 'Child', from: 'otherAdults[0].relationshipType'
     fill_in('otherAdults[0].firstName', with: Faker::Name.name, :match => :prefer_exact)
 
     click_button('Save Progress')
