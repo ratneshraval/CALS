@@ -43,21 +43,27 @@ def reports()
 }
 def pushToDocker()
 {
-    // stage('Publish') {
-    //     curStage = 'Publish'
-    //     sh "make tag latest \$(git rev-parse --short HEAD)"
-    //     withEnv(["DOCKER_USER=${DOCKER_USER}",
-    //              "DOCKER_PASSWORD=${DOCKER_PASSWORD}"]) {
-    //         sh "make login"
-    //         sh "make publish"
-    //     }
-    // }
+    stage('Docker Build') {
+        app = docker.build("${DOCKER_GROUP}/${DOCKER_IMAGE}-TESTING:${env.BUILD_ID}")
+    }
+    stage('Docker Publish') {
+        curStage = 'Docker Publish'
+        withEnv(["DOCKER_CREDENTIALS_ID=${DOCKER_CREDENTIALS_ID}"]) {
+
+            withDockerRegistry([credentialsId: DOCKER_CREDENTIALS_ID]) {
+                app.push()
+                app.push('latest')
+            }
+        }
+    }
+
 }
 
 node {
     checkout scm
     env.DISABLE_SPRING = 1
-    def branch = env.BRANCH_NAME ?: 'development'
+
+    def branch = env.BRANCH_NAME_PARAM
     def curStage = 'Start'
     def emailList = 'ratnesh.raval@osi.ca.gov'
     def pipelineStatus = 'SUCCESS'
@@ -83,32 +89,33 @@ node {
             sh 'bundle install'
             sh 'yarn install'
         }
-         stage('Lint') {
-            curStage = 'lint'
-            sh 'yarn run lint'
-        }
-        stage('Compile Assets') {
-            curStage = 'assets'
-            sh 'bundle exec rails assets:precompile RAILS_ENV=test'
-        }
+        // stage('Lint') {
+        //     curStage = 'lint'
+        //     sh 'yarn run lint'
+        // }
+        // stage('Compile Assets') {
+        //     curStage = 'assets'
+        //     sh 'bundle exec rails assets:precompile RAILS_ENV=test'
+        // }
 
-        stage('Test - Jasmine') {
-            curStage = 'karma'
-            sh 'yarn run karma-ci'
-        }
-        stage('Test - Rspec') {
-            curStage = 'rspec'
-            withEnv([
-                'CALS_API_URL=https://calsapi.preint.cwds.io',
-                'GEO_SERVICE_URL=https://geo.preint.cwds.io',
-                'BASE_SEARCH_API_URL=https://dora.preint.cwds.io',
-                'AUTHENTICATION_API_BASE_URL=https://web.preint.cwds.io/perry'
-                ]) {
-                sh 'yarn run spec-ci'
-            }
-        }
+        // stage('Test - Jasmine') {
+        //     curStage = 'karma'
+        //     sh 'yarn run karma-ci'
+        // }
+        // stage('Test - Rspec') {
+        //     curStage = 'rspec'
+        //     withEnv([
+        //         'CALS_API_URL=https://calsapi.preint.cwds.io',
+        //         'GEO_SERVICE_URL=https://geo.preint.cwds.io',
+        //         'BASE_SEARCH_API_URL=https://dora.preint.cwds.io',
+        //         'AUTHENTICATION_API_BASE_URL=https://web.preint.cwds.io/perry'
+        //         ]) {
+        //         sh 'yarn run spec-ci'
+        //     }
+        // }
 
-        if (branch == 'development') {
+        if (branch == 'cals-5078-main-jenkinsfile') {
+            echo 'branch is cals-5078-main-jenkinsfile'
             // push to docker
             pushToDocker()
         }
