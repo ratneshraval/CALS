@@ -59,7 +59,7 @@ export default class Employment extends React.Component {
               type='text' onChange={(event) => this.onEmploymentChange('occupation', event.target.value)} />
 
             <div className='col-md-2' >
-              <label>{'Personal Income'}</label>
+              <label>{'Income'}</label>
 
               <Cleave placeholder='$0'
                 id='income'
