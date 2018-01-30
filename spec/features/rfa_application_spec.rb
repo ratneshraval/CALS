@@ -78,8 +78,8 @@ RSpec.feature 'RFA', js: true do
     fill_in('first_name', with: Faker::Name.name, :match => :prefer_exact)
     fill_in('middle_name', with: 'k', :match => :prefer_exact)
     fill_in('last_name', with: Faker::Name.name, :match => :prefer_exact)
-    find(:select, 'relationship_type').first(:option, 'Married').select_option
-    find(:select, 'place_of_relationship_state').first(:option, 'Alaska').select_option
+    select 'Married', from: 'relationship_type'
+    select 'Alaska', from: 'place_of_relationship_state'
     click_button('Save Progress')
     visit page.driver.current_url
     expect(find_field('relationship_type').value).to eq '1'
@@ -103,7 +103,7 @@ RSpec.feature 'RFA', js: true do
     fill_in('zip', with: '12345', :match => :prefer_exact)
     fill_in('city', with: 'secondary city', :match => :prefer_exact)
     expect(page).to have_content 'About This Residence'
-    find(:select, 'residenceTypes').first(:option, 'Own').select_option
+    select 'Own', from: 'residenceTypes'
     find('#weaponsYes').click
 
     find('#body_of_water_existYes').click
