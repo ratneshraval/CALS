@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {SmallInnerBlockDetails} from './smallInnerBlockDetails.js'
-import {checkForNA, checkforDateOrNa, checkNameorNA, handleLicenseEffectiveDate} from '../search/common/commonUtils'
+import {checkForNA, checkforDateOrNa, checkNameorNA, handleLicenseEffectiveDate} from 'search/common/commonUtils'
 
 export default class FacilityDetails extends React.Component {
   render () {

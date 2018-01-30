@@ -43,7 +43,20 @@ export const respectiveFullAddressOrNA = (addresses, addressType) => {
 }
 
 export const checkforDateOrNa = (date) => {
-  return date ? date.split(' ')[0].replace(/(\d{4})-(\d{2})-(\d{2})/, '$2/$3/$1') : 'N/A'
+  if (date) {
+    let dateString = date.split(' ')[0]
+    try {
+      if (dateString === ' ' || Boolean(/(\d{4})-(\d{2})-(\d{2})/.test(dateString)) === false) {
+        throw stringInvalidDate
+      } else {
+        return dateString.replace(/(\d{4})-(\d{2})-(\d{2})/, '$2/$3/$1')
+      }
+    } catch (err) {
+      return err
+    }
+  } else {
+    return 'N/A'
+  }
 }
 
 export const formatPhoneNumberForDashes = (phone) => {
@@ -79,6 +92,8 @@ export const physicalAddressType = 'Residential'
 export const mailingAddressType = 'Mailing'
 
 export const listOfStatus = ['LICENSED', 'CERTIFIED/APPROVED', 'LICENSED(PENDING CAPACITY CHANGE)']
+
+export const stringInvalidDate = 'Invalid Date'
 
 export const handleLicenseEffectiveDate = (result) => {
   if (result.status) {

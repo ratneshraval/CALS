@@ -58,7 +58,7 @@ describe('Verify Complaints Component with null values', function () {
           'control_number': '19-CR-20160927081411',
           'priority_level': '2',
           'status': 'Approved',
-          'approval_date': null
+          'approval_date': ' '
         }
       ]
     }
@@ -67,7 +67,7 @@ describe('Verify Complaints Component with null values', function () {
   it('Verify complaint date to be N/A', function () {
     expect(renderComplaintsComp.find('td[data-label="complaint date"]').props().children[1]).toBe('N/A')
   })
-  it('Verify complaint approval date to be N/A', function () {
-    expect(renderComplaintsComp.find('td[data-label="approval date"]').props().children[1]).toBe('N/A')
+  it('Verify complaint approval date to be invalid date', function () {
+    expect(renderComplaintsComp.find('td[data-label="approval date"]').props().children[1]).toBe('Invalid Date')
   })
 })

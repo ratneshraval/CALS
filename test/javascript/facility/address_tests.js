@@ -145,6 +145,7 @@ describe('Verify Facility Address with null object returned', function () {
 describe('Verify Facility Address with null values', function () {
   const props = {
     facilityData: {
+      'last_visit_date': '2018-18',
       'last_visit_reason': {
         'id': '10',
         'value': null
@@ -213,6 +214,10 @@ describe('Verify Facility Address with null values', function () {
   it('verify alternative phone number value to be N/A', function () {
     let alternativeNumberValue = AddressCompShallow.props().children.props.children[1].props.children.props.children[1].props.value
     expect(alternativeNumberValue).toBe('N/A')
+  })
+  it('verify Facility Last Visit Date Value with invalid data', function () {
+    let lastVisitDateValue = AddressCompShallow.props().children.props.children[2].props.children.props.children[0].props.value
+    expect(lastVisitDateValue).toBe('Invalid Date')
   })
   it('verify Facility Last Visit Reason to be N/A', function () {
     let lastVisitReasonValue = AddressCompShallow.props().children.props.children[2].props.children.props.children[1].props.value
