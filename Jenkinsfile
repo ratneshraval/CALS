@@ -44,7 +44,7 @@ def reports()
 def pushToDocker()
 {
     stage('Docker Build') {
-        app = docker.build("${DOCKER_GROUP}/${DOCKER_IMAGE}-testing:${env.BUILD_ID}")
+        app = docker.build("${DOCKER_GROUP}/${DOCKER_IMAGE}:test-${env.BUILD_ID}")
     }
     stage('Docker Publish') {
         curStage = 'Docker Publish'
